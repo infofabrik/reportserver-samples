@@ -8,6 +8,6 @@ ReportServer: https://reportserver.net
 
 Documentation: https://reportserver.net/en/documentation
 
-Scripting source code: https://github.com/infofabrik/reportserver
+ReportServer Source code: https://github.com/infofabrik/reportserver
 
 Bitnami Builds: https://bitnami.com/stack/reportserver and https://bitnami.com/stack/reportserver-enterprise

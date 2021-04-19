@@ -1,4 +1,4 @@
-# ReportServer Samples
+# ReportServer Scripting Samples
 
 ReportServer is a modern and versatile open source business intelligence (BI) platform with powerful reporting features.
 

@@ -9,7 +9,7 @@ The example scripts have one script type. The specific type is available in the 
 * Script report: can be used for generating reports via script. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Reporting/).
 * Script datasource: can be used for producing datasources and showing any kind of data via scripts. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Datasources/). 
 
-Note that script reports and script datasources can be scheduled via report scheduling. Details here: [here](https://reportserver.net/en/guides/user/chapters/Scheduling/) and [here](https://reportserver.net/en/guides/admin/chapters/Scheduling-of-Reports/).
+Note that script reports and script datasources can be scheduled via report scheduling. Details [here](https://reportserver.net/en/guides/user/chapters/Scheduling/) and [here](https://reportserver.net/en/guides/admin/chapters/Scheduling-of-Reports/).
 
 ReportServer Homepage: https://reportserver.net
 

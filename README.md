@@ -13,8 +13,8 @@ Note that script reports and script datasources can be scheduled via report sche
 
 ReportServer Homepage: https://reportserver.net
 
-Also refer to the [Documentation](https://reportserver.net/en/guides/script/chapters/Script-Datasources/) and to the [Scripting documentation](https://reportserver.net/en/guides/script/main/).
+Also refer to the [documentation](https://reportserver.net/en/guides/script/chapters/Script-Datasources/) and to the [scripting documentation](https://reportserver.net/en/guides/script/main/).
 
-ReportServer Source code: https://github.com/infofabrik/reportserver
+ReportServer source code: https://github.com/infofabrik/reportserver
 
 Bitnami Builds: https://bitnami.com/stack/reportserver and https://bitnami.com/stack/reportserver-enterprise

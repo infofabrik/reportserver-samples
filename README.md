@@ -5,7 +5,7 @@ ReportServer is a modern and versatile open source business intelligence (BI) pl
 With ReportServer you are not limited to one provider's solutions. ReportServer integrates Jasper, Birt, Mondrian and Excel-based reporting: choose what best suits your needs!
 
 The example scripts have one script type. The specific type is available in the script's header comment:
-* Normal Script: scripts that can be directly executed via "exec script.groovy" or "exec -c script.groovy", depending if you want to commit changes to the database or not. Details can be found here: https://reportserver.net/en/tutorials/tutorial-scripting/. Note that these scripts can also be scheduled directly. Details here: https://reportserver.net/en/guides/script/chapters/Scheduling-Scripts/ 
+* Normal Script: scripts that can be directly executed via "exec script.groovy" or "exec -c script.groovy", depending if you want to commit changes to the database or not. Details can be found here: https://reportserver.net/en/tutorials/tutorial-scripting/. Note that these scripts can be scheduled directly. Details here: https://reportserver.net/en/guides/script/chapters/Scheduling-Scripts/ 
 * Script report: can be used for generating reports via script. Details can be found here: https://reportserver.net/en/guides/script/chapters/Script-Reporting/
 * Script datasource: can be used for producing datasources and show any kind of data via script. Details can be found here: https://reportserver.net/en/guides/script/chapters/Script-Datasources/
 

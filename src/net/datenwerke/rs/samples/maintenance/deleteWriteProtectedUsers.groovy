@@ -1,3 +1,5 @@
+package net.datenwerke.rs.samples.maintenance
+
 import net.datenwerke.security.service.usermanager.UserManagerService
 
 /**

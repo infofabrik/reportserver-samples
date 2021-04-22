@@ -15,6 +15,7 @@ import java.time.LocalDateTime
  * Type: Normal Script
  * Last tested with: ReportServer 3.5.0-6037
  * Sends a simple email using standard java APIs directly.
+ * If you want to send an email to ReportServer users, you can use sendRSEmail.groovy
  */
 
 def smtpHost = 'smtp.host.com'

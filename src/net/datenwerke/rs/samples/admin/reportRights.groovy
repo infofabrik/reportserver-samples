@@ -17,7 +17,7 @@ import net.datenwerke.security.service.usermanager.entities.User
 import org.apache.commons.lang3.time.DateUtils
 
 /**
- * reportrights.groovy
+ * reportRights.groovy
  * Type: Script datasource
  * Last tested with: ReportServer 3.4.0-6035
  * Shows all reports together with all users and their rights on the corresponding report.

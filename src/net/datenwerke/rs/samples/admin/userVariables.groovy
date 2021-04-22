@@ -11,7 +11,7 @@ import net.datenwerke.security.service.usermanager.entities.User
 import org.apache.commons.lang3.time.DateUtils
 
 /**
- * uservariables.groovy
+ * userVariables.groovy
  * Type: Script datasource
  * Last tested with: ReportServer 3.4.0-6035
  * Shows all user variables with their corresponding values for each user.

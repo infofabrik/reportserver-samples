@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import org.apache.commons.lang3.time.DateUtils
 
 /**
- * fetchxml.groovy
+ * fetchXml.groovy
  * Type: Script datasource
  * Last tested with: ReportServer 3.4.0-6035
  * Fetches XML data from the web and shows results as script datasource.

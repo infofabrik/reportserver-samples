@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage
 import java.time.LocalDateTime
 
 /**
- * sendemail.groovy
+ * sendEmail.groovy
  * Type: Normal Script
  * Last tested with: ReportServer 3.5.0-6037
  * Sends a simple email using standard java APIs directly.

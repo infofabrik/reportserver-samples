@@ -11,7 +11,7 @@ import net.datenwerke.rs.core.service.reportmanager.ReportService
 import org.apache.commons.lang3.time.DateUtils
 
 /**
- * fieldsindynamiclists.groovy
+ * fieldsInDynamicLists.groovy
  * Type: Script datasource
  * Last tested with: ReportServer 3.4.0-6035
  * Shows all fields used in all dynamic lists' variants and prints useful information about them.

@@ -21,7 +21,7 @@ def mailBuilder = GLOBALS.getInstance(MailBuilderFactory.class)
 def mailService = GLOBALS.getInstance(MailService.class)
 def userService = GLOBALS.getInstance(UserManagerService.class)
 
-// the userId. It has to exist and be a valid userId
+// the user ids. They have to exist and be valid.
 def to = [123, 456]
 def subject = 'Test Email'
 def content = "ReportServer Test Email ${LocalDateTime.now()}"

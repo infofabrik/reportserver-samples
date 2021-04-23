@@ -16,7 +16,7 @@ def path = Paths.get(fileLocation)
 def sb = new StringBuffer()
 
 // adding withCloseable closure allows groovy to close the resource (analogous to a java try-with-resources)
-Files.newBufferedReader(path).withCloseable{ BufferedReader res -> 
+Files.newBufferedReader(path).withCloseable{ res -> 
    def theChar = res.read()
    
    while (-1 != theChar) {

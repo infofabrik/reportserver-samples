@@ -5,7 +5,7 @@ import net.datenwerke.security.service.usermanager.UserManagerService
 /**
 * deleteWriteProtectedUsers.groovy
 * Type: Normal Script
-* Last tested with: ReportServer 3.4.0-6035
+* Last tested with: ReportServer 3.5.0-6037
 * Deletes multiple users by their user ids even if the users are write protected.
 */
 
@@ -18,7 +18,7 @@ def userIds = [123L, 456L]
 userIds.each { userId -> 
     def user = userManagerService.getNodeById(userId)
   
-    if(null == user){
+    if(! user){
         tout.println "User with Id: $userId can not be found!"
     } else {
         user.writeProtection = false

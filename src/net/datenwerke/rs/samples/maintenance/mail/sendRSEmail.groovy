@@ -21,8 +21,8 @@ def mailBuilder = GLOBALS.getInstance(MailBuilderFactory.class)
 def mailService = GLOBALS.getInstance(MailService.class)
 def userService = GLOBALS.getInstance(UserManagerService.class)
 
-// the user ids. They have to exist and be valid and of type long (l)
-def to = [123l, 456l]
+// the user ids. They have to exist and the ids are passed as long (L)
+def to = [123L, 456L]
 def subject = 'Test Email'
 def content = "ReportServer Test Email ${LocalDateTime.now()}"
 // list of attachments. They have to exist and be readable
@@ -41,4 +41,4 @@ def mail = mailBuilder.create(
    .withZippedAttachments(attachmentFilename, attachments.collect{ attachment -> Paths.get(attachment)})
    .build();
 
-mailService.sendMail(mail)
+mailService.sendMail mail 

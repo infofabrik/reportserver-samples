@@ -39,6 +39,6 @@ def mail = mailBuilder.create(
       to.collect{userId -> userService.getNodeById(userId)}
    )
    .withZippedAttachments(attachmentFilename, attachments.collect{ attachment -> Paths.get(attachment)})
-   .build();
+   .build()
 
 mailService.sendMail mail 

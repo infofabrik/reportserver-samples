@@ -25,7 +25,7 @@ def excelOutputFile = Paths.get(fileOutput)
 assert Files.exists(excelFile)
 assert !Files.exists(excelOutputFile)
 // matches only .xls or .xlsx
-def pattern = /.*\.(xlsx*)/
+def pattern = /.*\.xlsx*/
 assert excelFile.fileName.toString().toLowerCase() ==~ pattern
 assert excelOutputFile.fileName.toString().toLowerCase() ==~ pattern
 

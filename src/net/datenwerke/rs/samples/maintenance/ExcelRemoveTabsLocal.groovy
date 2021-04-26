@@ -14,8 +14,8 @@ import java.nio.file.Files
  * Writes output into a new Excel file.
  */
 
-def fileInput = '/Users/eduardo/Desktop/excel/yourfile.xlsx'
-def fileOutput = '/Users/eduardo/Desktop/excel/yourfile_output.xlsx'
+def fileInput = '/path/to/yourfile.xlsx'
+def fileOutput = '/path/to/yourfile_output.xlsx'
 // please put in the names of the sheets you want to get deleted
 def sheetNamesToDelete = ['Dynamic list2', 'sheet2']
 

@@ -17,7 +17,7 @@ import java.nio.file.Files
 def fileInput = '/path/to/yourfile.xlsx'
 def fileOutput = '/path/to/yourfile_output.xlsx'
 // please put in the names of the sheets you want to get deleted
-def sheetNamesToDelete = ['Dynamic list2', 'sheet2']
+def sheetNamesToDelete = ['sheet1', 'sheet2']
 
 def excelFile = Paths.get(fileInput)
 def excelOutputFile = Paths.get(fileOutput)

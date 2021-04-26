@@ -13,7 +13,7 @@ import net.datenwerke.rs.fileserver.service.fileserver.entities.FileServerFile
 import net.datenwerke.rs.fileserver.service.fileserver.FileServerService
 
 /**
- * XLSRemoveTabsServer.groovy
+ * ExcelRemoveTabsServer.groovy
  * Type: Normal Script
  * Last tested with: ReportServer 3.4.0-6035
  * Reads in a *.xls or *.xlsx file and deletes single/multiple tabs by their names 
@@ -62,7 +62,7 @@ if(excelFile.getContentType().endsWith("sheet")){
 def sheetIndex = 0
 
 //please put in the names of the sheets you want to get deleted!
-//def sheetNames = ["EFRE-Teil1", "EU-Maßnahmen_1"]
+//def sheetNames = ["EFRE-Teil1", "EU-Maï¿½nahmen_1"]
 def sheetNames = ["Dynamic list2", "Dynamic list1"]
 
 sheetNames.each { sheetName ->
@@ -83,6 +83,6 @@ def str = fileOutput.getName()
 
 str = str.substring(0, str.indexOf("."))
 
-fileOutput.setName(str + " - verändert" + addition)
+fileOutput.setName(str + " - verï¿½ndert" + addition)
 
 fileServerService.merge(fileOutput)

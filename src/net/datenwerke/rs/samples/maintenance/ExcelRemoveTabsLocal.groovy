@@ -38,7 +38,6 @@ Files.newInputStream(excelFile).withCloseable { is ->
       if(sheetIndex >= 0) {
          tout.println "Deleting $sheetNameToDelete..."
          workbook.removeSheetAt(sheetIndex)
-
       } else {
          tout.println "Sheet $sheetNameToDelete does not exist"
       }

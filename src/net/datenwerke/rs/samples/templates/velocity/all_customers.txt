@@ -1,0 +1,7 @@
+Customer List:
+----------------------------------------------------------
+#foreach ( $customer in $data )
+	$customer.CUS_CUSTOMERNAME
+#end
+
+(Last tested with: ReportServer 3.6.0-6038) 

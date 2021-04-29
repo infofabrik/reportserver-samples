@@ -11,6 +11,8 @@ The example scripts have one script type. The specific type is available in the 
 
 Note that script reports and script datasources can be scheduled via report scheduling. Details [here](https://reportserver.net/en/guides/user/chapters/Scheduling/) and [here](https://reportserver.net/en/guides/admin/chapters/Scheduling-of-Reports/).
 
+Further, you can find examples of [templates](https://reportserver.net/en/guides/user/chapters/Dynamic-Lists/#Templates) which can be used for data export of dynamic lists directly into Excel, Word, Plain-Text or XML.
+
 ReportServer Homepage: https://reportserver.net
 
 Also refer to the [documentation](https://reportserver.net/en/guides/script/chapters/Script-Datasources/) and to the [scripting documentation](https://reportserver.net/en/guides/script/main/).

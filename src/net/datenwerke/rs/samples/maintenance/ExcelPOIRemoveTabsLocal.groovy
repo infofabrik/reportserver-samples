@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.maintenance;
+package net.datenwerke.rs.samples.maintenance
 
 import org.apache.poi.ss.usermodel.WorkbookFactory
 import org.apache.poi.ss.usermodel.Sheet
@@ -9,7 +9,7 @@ import java.nio.file.Files
 /**
  * ExcelPOIRemoveTabsLocal.groovy
  * Type: Normal Script
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 3.6.0-6038
  * Reads an Excel file and deletes a list of given sheets by their names.
  * Writes output into a new Excel file.
  */
@@ -17,17 +17,25 @@ import java.nio.file.Files
 def fileInput = '/path/to/yourfile.xlsx'
 def fileOutput = '/path/to/yourfile_output.xlsx'
 // please put in the names of the sheets you want to get deleted
-def sheetNamesToDelete = ['Dynamic list2', 'sheet2', 'Dynamic_list3']
+def sheetNamesToDelete = [
+   'sheet1',
+   'sheet2',
+   'sheet3'
+]
 
 def excelFile = Paths.get(fileInput)
 def excelOutputFile = Paths.get(fileOutput)
 
 assert Files.exists(excelFile)
 assert !Files.exists(excelOutputFile)
-// matches only .xls or .xlsx
-def pattern = /.*\.xlsx*/
-assert excelFile.fileName.toString().toLowerCase() ==~ pattern
-assert excelOutputFile.fileName.toString().toLowerCase() ==~ pattern
+// matches only Excel files
+def pattern = /(?ix)    # case insensitive(i), ignore space(x)
+^                       # start of line               
+(\w*\s*)*               # any number of word characters followed by any number of spaces
+\.xlsx?$                # ending in .xls or .xlsx
+/
+assert excelFile.fileName.toString() ==~ pattern
+assert excelOutputFile.fileName.toString() ==~ pattern
 
 Files.newInputStream(excelFile).withCloseable { is ->
    def workbook = WorkbookFactory.create(is)

@@ -84,7 +84,7 @@ GLOBALS.getEntitiesByType(Report.class).each{ report ->
       def resultLine = [
          report.id,
          report.name,
-         report.getClass()?.simpleName,
+         report.class.simpleName,
          user.id,
          user.firstname,
          user.lastname,

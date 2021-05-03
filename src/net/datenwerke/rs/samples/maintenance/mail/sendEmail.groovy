@@ -59,6 +59,6 @@ message.setContent(content as String, 'text/plain')
 message.from = new InternetAddress(from)
 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to))
 
-transport.connect();
+transport.connect()
 transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO))
 transport.close()

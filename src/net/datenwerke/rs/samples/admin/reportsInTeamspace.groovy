@@ -13,6 +13,7 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportsInTeamspace.groovy
+ * Version: 1.0.0
  * Type: Script datasource
  * Last tested with: ReportServer 3.4.0-6035
  * Lists all reports contained in TeamSpaces and prints useful information about them.

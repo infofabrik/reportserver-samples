@@ -18,6 +18,7 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportRights.groovy
+ * Version: 1.0.0
  * Type: Script datasource
  * Last tested with: ReportServer 3.4.0-6035
  * Shows all reports together with all users and their rights on the corresponding report.

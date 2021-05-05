@@ -4,6 +4,7 @@ import net.datenwerke.security.service.usermanager.UserManagerService
 
 /**
 * deleteWriteProtectedUsers.groovy
+* Version: 1.0.0
 * Type: Normal Script
 * Last tested with: ReportServer 3.5.0-6037
 * Deletes multiple users by their user ids even if the users are write protected.

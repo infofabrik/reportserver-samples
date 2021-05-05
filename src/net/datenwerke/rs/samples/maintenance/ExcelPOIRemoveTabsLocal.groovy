@@ -8,6 +8,7 @@ import java.nio.file.Files
 
 /**
  * ExcelPOIRemoveTabsLocal.groovy
+ * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.6.0-6038
  * Reads an Excel file and deletes a list of given sheets by their names.

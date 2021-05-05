@@ -3,6 +3,7 @@ import groovy.sql.Sql
 
 /**
  * highcharts.groovy
+ * Version: 1.0.0
  * Type: Script report
  * Last tested with: ReportServer 3.4.0-6035
  * Shows demo data (orders) for a given year grouped by quarters as Highcharts bar chart. 

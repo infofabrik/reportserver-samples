@@ -9,6 +9,7 @@ import java.time.LocalDateTime
 
 /**
  * sendRSEmail.groovy
+ * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.5.0-6037
  * Sends a simple email to ReportServer users including attachments using ReportServer APIs.

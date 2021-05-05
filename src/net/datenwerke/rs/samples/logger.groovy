@@ -5,6 +5,7 @@ import java.util.logging.Logger
 
 /**
  * logger.groovy
+ * Version: 1.0.0
  * Type: Normal script
  * Last tested with: ReportServer 3.4.0-6036
  * Prints output into the Tomcat ReportServer logs using different logging levels. 

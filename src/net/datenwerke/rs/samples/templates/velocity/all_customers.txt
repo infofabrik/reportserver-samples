@@ -4,4 +4,5 @@ Customer List:
 	$customer.CUS_CUSTOMERNAME
 #end
 
+(Version: 1.0.0)
 (Last tested with: ReportServer 3.6.0-6038) 

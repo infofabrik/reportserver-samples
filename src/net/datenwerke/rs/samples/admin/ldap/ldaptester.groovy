@@ -18,7 +18,8 @@ import java.util.logging.Logger
  * Type: Normal Script
  * Last tested with: ReportServer 3.6.0-6038
  * Tests LDAP settings and prints results into Tomcat logs.
- * Useful for setting LDAP configuration before setting ldap.cf values.
+ * Useful for setting LDAP configuration before setting ldap.cf attributes.
+ * The logs should be opened with a text editor without automatic line breaks.
  */
 
 /* start settings. Only this has to be adapted for testing LDAP  --------------------------------------- */

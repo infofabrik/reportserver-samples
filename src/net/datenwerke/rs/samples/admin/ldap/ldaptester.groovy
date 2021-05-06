@@ -21,7 +21,7 @@ import java.util.logging.Logger
  * Useful for setting LDAP configuration before setting ldap.cf values.
  */
 
-/* start settings. Only this has to be adapted for testing LDAP  ---------------------------------------- */
+/* start settings. Only this has to be adapted for testing LDAP  --------------------------------------- */
 
 // if true: prints to console. If false: prints to tomcat logs.
 // formatting is *much* better in the tomcat logs, so this is the recommended setting: false

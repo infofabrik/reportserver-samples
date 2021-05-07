@@ -14,7 +14,7 @@ import java.util.logging.Logger
 
 /**
  * ldaptester.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 3.6.0-6038
  * Allows to safely test LDAP settings printing all results found into Tomcat logs.
@@ -79,7 +79,7 @@ DirContext ctx = null
 
 try {
    def start = System.nanoTime()
-   
+
    ctx = new InitialDirContext(env)
 
    def returnAttrs = [
@@ -212,16 +212,20 @@ void printGroup(def sr, def parent) {
    // print group members
    def memberAttribute = sr.attributes[member]
    if (member) {
-      sr.attributes[member].getAll().each {
-         LdapName memberName = new LdapName(it.toString())
-         printer sprintf ("%10s %-226s", '>'*3, memberName.toString())
+      if (!sr.attributes[member])
+         printer sprintf ("%10s %-226s", '>'*3, '(empty group)')
+      else {
+         sr.attributes[member].getAll().each {
+            LdapName memberName = new LdapName(it.toString())
+            printer sprintf ("%10s %-226s", '>'*3, memberName.toString())
+         }
       }
    }
 }
 
 String getStringAttribute(SearchResult sr, String attributeName){
 
-   if (!sr.attributes[this[attributeName]]) 
+   if (!sr.attributes[this[attributeName]])
       return "[$notFound${createAttributePair(attributeName)})]"
 
    try{
@@ -238,7 +242,7 @@ void addByte(StringBuffer sb, int k) {
 }
 
 String guidToString(def guidAttribute) {
-   if (!guidAttribute) 
+   if (!guidAttribute)
       return "[$notFound${createAttributePair('guid')}]"
 
    def bytes = guidAttribute.get()

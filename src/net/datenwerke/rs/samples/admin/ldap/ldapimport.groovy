@@ -31,6 +31,7 @@ import net.datenwerke.security.service.usermanager.entities.UserProperty
  * Last tested with: ReportServer 3.6.0-6038
  * Imports users from LDAP server. 
  * This script is NOT meant to be modified. Configuration is ONLY necessary in sso/ldap.cf file.
+ * You can use the ldaptester.groovy script to safely test your LDAP settings before configuring the sso/ldap.cf file.
  */
 
 def configService = GLOBALS.getInstance(ConfigService.class)
@@ -146,10 +147,10 @@ public class LdapUserImporterServiceImpl {
    def addedNodes = []
 
    public LdapUserImporterServiceImpl(
-      ConfigService configService,
-      TerminalService terminalService,
-      UserManagerService userManagerService,
-      UserPropertiesService userPropertiesService
+   ConfigService configService,
+   TerminalService terminalService,
+   UserManagerService userManagerService,
+   UserPropertiesService userPropertiesService
    ) {
       this.configService = configService
       this.terminalService = terminalService
@@ -311,7 +312,7 @@ public class LdapUserImporterServiceImpl {
                         throw new IllegalStateException("Missing parent for " + sr.nameInNamespace)
                      }
                   }
-   
+
                   /* create node */
                   Attribute objectClass = sr.attributes[(attributes[PROPERTY_OBJECT_CLASS])]
                   AbstractUserManagerNode umNode = null
@@ -321,17 +322,17 @@ public class LdapUserImporterServiceImpl {
                      umNode = createUserNode(sr, parent)
                   else if(objectClass.contains(attributes[PROPERTY_GROUP_OBJECT_CLASS]))
                      umNode = createGroupNode(sr, parent)
-   
+
                   /* make sure the node is not null */
                   assert umNode
-   
+
                   /* set common attributes */
                   if (configService.getConfigFailsafe(CONFIG_FILE).getBoolean(PROPERTY_WRITE_PROTECTION, true))
                      umNode.writeProtection = true
-   
+
                   umNode.guid = getGuid(sr)
                   umNode.origin = "$originBase${sr.nameInNamespace}"
-   
+
                   nodesInDirectoryByName.put(new LdapName(sr.nameInNamespace), umNode)
                   nodesInDirectoryByGuid.put(getGuid(sr), umNode)
                }
@@ -379,7 +380,7 @@ public class LdapUserImporterServiceImpl {
       node.lastname = getStringAttribute(sr, attributes[PROPERTY_USER_LASTNAME])
       node.username = getStringAttribute(sr, attributes[PROPERTY_USER_USERNAME])
       node.email = getStringAttribute(sr, attributes[PROPERTY_USER_MAIL])
-      
+
       setInhibitUser node, false
 
       return node
@@ -424,11 +425,11 @@ public class LdapUserImporterServiceImpl {
                      AbstractUserManagerNode member = nodesInDirectoryByName[memberName]
                      if(member){
                         if(member instanceof User)
-                           group.addUser(member)
+                           group.addUser member
                         else if(member instanceof OrganisationalUnit)
-                           group.addOu(member)
+                           group.addOu member
                         else if(member instanceof Group)
-                           group.addReferencedGroup(member)
+                           group.addReferencedGroup member
                      }
                   }
                }
@@ -485,7 +486,7 @@ public class LdapUserImporterServiceImpl {
 
       this.targetNode = targetNode
    }
-   
+
    private void setInhibitUser(User user, boolean inhibit){
       UserProperty inhibitionProperty = user.getProperty(ReportServerModule.USER_PROPERTY_ACCOUNT_INHIBITED)
 

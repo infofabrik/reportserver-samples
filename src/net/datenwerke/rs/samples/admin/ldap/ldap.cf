@@ -3,7 +3,7 @@
  ReportServer Configuration File
  filename: sso/ldap.cf
  
- Configures LDAP
+ Configures LDAP. You can use the ldaptester.groovy script to safely test your LDAP settings before configuring this file.
 -->
 <configuration>
   <provider>

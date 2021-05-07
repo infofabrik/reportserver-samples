@@ -250,7 +250,7 @@ String guidToString(def guidAttribute) {
    sb << '-'
    addByte(sb, (int)bytes[5] & 0xFF)
    addByte(sb, (int)bytes[4] & 0xFF)
-   sb.append("-")
+   sb << '-'
    addByte(sb, (int)bytes[7] & 0xFF)
    addByte(sb, (int)bytes[6] & 0xFF)
    sb << '-'

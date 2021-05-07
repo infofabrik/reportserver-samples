@@ -26,7 +26,7 @@ import net.datenwerke.security.service.usermanager.entities.UserProperty
 
 /**
  * ldapimport.groovy
- * Version: 2.0.0
+ * Version: 2.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 3.6.0-6038
  * Imports users from LDAP server. 
@@ -182,7 +182,7 @@ public class LdapUserImporterServiceImpl {
          sb << '-'
          addByte(sb, (int)bytes[5] & 0xFF)
          addByte(sb, (int)bytes[4] & 0xFF)
-         sb.append("-")
+         sb << '-'
          addByte(sb, (int)bytes[7] & 0xFF)
          addByte(sb, (int)bytes[6] & 0xFF)
          sb << '-'
@@ -247,9 +247,9 @@ public class LdapUserImporterServiceImpl {
       try{
          def guidAsBytes = sr.attributes[attributes[PROPERTY_GUID]].get() as byte[]
          AdGUID guid = new AdGUID(bytes: guidAsBytes)
-         return guid.toString();
+         return guid.toString()
       }catch(Exception e){
-         throw new RuntimeException("failed to retrieve objectGUID from ${sr.nameInNamespace}", e);
+         throw new RuntimeException("failed to retrieve objectGUID from ${sr.nameInNamespace}", e)
       }
    }
 
@@ -290,51 +290,51 @@ public class LdapUserImporterServiceImpl {
 
          results.each { searchResults.put(new LdapName(it.nameInNamespace), it)}
 
-         for(SearchResult sr in searchResults.values()){
+         searchResults.values().each { sr ->
             try {
                LdapName nodeName = new LdapName(isIncludeNamespace() ? sr.nameInNamespace : sr.name)
                LdapName nodeNameInNamespace = new LdapName(sr.nameInNamespace)
 
                /* skip empty nodes */
-               if(nodeName.size() == 0)
-                  continue
+               if(nodeName.size() != 0) {
 
-               /* get parent node */
-               LdapName parentName = (LdapName) nodeNameInNamespace.getPrefix(Math.max(0, nodeNameInNamespace.size() - 1))
-               AbstractUserManagerNode parent = this.nodesInDirectoryByName.get(parentName)
-               if(!parent){
-                  if(parentName.equals(new LdapName(
-                        configService.getConfigFailsafe(CONFIG_FILE).getString(PROPERTY_BASE,
-                        'OU=EXAMPLE,DC=directory,DC=example,DC=com')))){
-                     /* root node */
-                     parent = targetNode
-                  } else {
-                     throw new IllegalStateException("Missing parent for " + sr.nameInNamespace)
+                  /* get parent node */
+                  LdapName parentName = (LdapName) nodeNameInNamespace.getPrefix(Math.max(0, nodeNameInNamespace.size() - 1))
+                  AbstractUserManagerNode parent = this.nodesInDirectoryByName.get(parentName)
+                  if(!parent){
+                     if(parentName.equals(new LdapName(
+                           configService.getConfigFailsafe(CONFIG_FILE).getString(PROPERTY_BASE,
+                           'OU=EXAMPLE,DC=directory,DC=example,DC=com')))){
+                        /* root node */
+                        parent = targetNode
+                     } else {
+                        throw new IllegalStateException("Missing parent for " + sr.nameInNamespace)
+                     }
                   }
+   
+                  /* create node */
+                  Attribute objectClass = sr.attributes[(attributes[PROPERTY_OBJECT_CLASS])]
+                  AbstractUserManagerNode umNode = null
+                  if(objectClass.contains(attributes[PROPERTY_OU_OBJECT_CLASS]))
+                     umNode = createOUNode(sr, parent)
+                  else if(objectClass.contains(attributes[PROPERTY_USER_OBJECT_CLASS]))
+                     umNode = createUserNode(sr, parent)
+                  else if(objectClass.contains(attributes[PROPERTY_GROUP_OBJECT_CLASS]))
+                     umNode = createGroupNode(sr, parent)
+   
+                  /* make sure the node is not null */
+                  assert umNode
+   
+                  /* set common attributes */
+                  if (configService.getConfigFailsafe(CONFIG_FILE).getBoolean(PROPERTY_WRITE_PROTECTION, true))
+                     umNode.writeProtection = true
+   
+                  umNode.guid = getGuid(sr)
+                  umNode.origin = "$originBase${sr.nameInNamespace}"
+   
+                  nodesInDirectoryByName.put(new LdapName(sr.nameInNamespace), umNode)
+                  nodesInDirectoryByGuid.put(getGuid(sr), umNode)
                }
-
-               /* create node */
-               Attribute objectClass = sr.attributes[(attributes[PROPERTY_OBJECT_CLASS])]
-               AbstractUserManagerNode umNode = null
-               if(objectClass.contains(attributes[PROPERTY_OU_OBJECT_CLASS]))
-                  umNode = createOUNode(sr, parent)
-               else if(objectClass.contains(attributes[PROPERTY_USER_OBJECT_CLASS]))
-                  umNode = createUserNode(sr, parent)
-               else if(objectClass.contains(attributes[PROPERTY_GROUP_OBJECT_CLASS]))
-                  umNode = createGroupNode(sr, parent)
-
-               /* make sure the node is not null */
-               assert umNode
-
-               /* set common attributes */
-               if (configService.getConfigFailsafe(CONFIG_FILE).getBoolean(PROPERTY_WRITE_PROTECTION, true))
-                  umNode.writeProtection = true
-
-               umNode.guid = getGuid(sr)
-               umNode.origin = "$originBase${sr.nameInNamespace}"
-
-               nodesInDirectoryByName.put(new LdapName(sr.nameInNamespace), umNode)
-               nodesInDirectoryByGuid.put(getGuid(sr), umNode)
             }catch(Exception e){
                e.printStackTrace()
                throw new RuntimeException("Error processing search result: " + sr.nameInNamespace , e)
@@ -357,7 +357,7 @@ public class LdapUserImporterServiceImpl {
          node = new Group()
          addedNodes << node
       }
-      parent.addChild(node)
+      parent.addChild node
 
       /* copy Group attributes */
       node.name = getStringAttribute(sr, attributes[PROPERTY_GROUP_NAME])

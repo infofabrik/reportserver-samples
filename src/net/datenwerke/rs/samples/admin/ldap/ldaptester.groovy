@@ -24,8 +24,10 @@ import java.util.logging.Logger
 
 /* start settings. Only this has to be adapted for testing LDAP  --------------------------------------- */
 
-// if true: prints to console. If false: prints to tomcat logs.
-// formatting is *much* better in the tomcat logs, so this is the recommended setting: false
+/* If true: prints to console. If false: prints to tomcat logs.
+ * Formatting is *much* better in the tomcat logs, so this is the recommended setting: false.
+ * You can set this to true if you don't have access to the tomcat logs.
+ */
 printToConsole = false
 
 // same settings as in the ldap.cf configuration file

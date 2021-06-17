@@ -14,7 +14,7 @@ import net.datenwerke.rs.core.service.reportmanager.exceptions.ReportExecutorExc
  */
 
 def HOOK_NAME = 'PROHIBIT_EXECUTION'
-def maxNumberOfRows = 10
+def maxNumberOfRows = 1000
 /* available are: RS_TABLE (for dynamic list preview), HTML, PDF, EXCEL, CSV */
 def vetoedFormats = ['RS_TABLE', 'EXCEL']
 def errorMessage = '''Your report is too large to be exported, please add filters or similar to limit its output. 

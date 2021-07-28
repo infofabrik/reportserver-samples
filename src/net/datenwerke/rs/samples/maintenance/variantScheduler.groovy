@@ -18,15 +18,16 @@ import java.util.ArrayList
 
 
 /**
-* variantScriptExample.groovy
+* variantScheduler.groovy
 * Version: 1.0.0
 * Type: Normal Script
 * Last tested with: ReportServer 3.7.0-6044
-* Schedules a Report via the report's ID and puts up all information necessary 
-* including an email datasink action
+* Schedules a report via the report's ID and puts up all information necessary 
+* including an email datasink action.
 */
 
 /**** USER SETTINGS ****/
+
 
 REPORT_ID = 239982L
 DATE_EXP = "at 01.08.2021 17:30"

@@ -5,6 +5,7 @@ import java.nio.file.Files
 
 /**
  * tryWithResources.groovy
+ * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.5.0-6037
  * Demonstrates the groovy's analogous construct to java's try-with-resources.

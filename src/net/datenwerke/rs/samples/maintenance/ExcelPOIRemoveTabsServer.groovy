@@ -8,6 +8,7 @@ import org.apache.commons.io.FilenameUtils
 
 /**
  * ExcelPOIRemoveTabsServer.groovy
+ * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.4.0-6035
  * Reads an Excel file on ReportServer FileServer and deletes a list of given sheets by their names.

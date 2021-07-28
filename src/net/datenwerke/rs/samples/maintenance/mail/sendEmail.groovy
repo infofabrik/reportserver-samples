@@ -12,6 +12,7 @@ import java.time.LocalDateTime
 
 /**
  * sendEmail.groovy
+ * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.5.0-6037
  * Sends a simple email using standard java APIs directly.

@@ -20,16 +20,16 @@ import net.datenwerke.rs.scheduler.service.scheduler.jobs.report.ReportExecuteJo
 /**** USER SETTINGS ****/
 
 REPORT_ID = 108285L
-DATE_EXPRESSION = "at 01.08.2021 17:30"
-JOB_NAME = "Test Job"
-JOB_DESCRIPTION = "A Test Job Description"
-OUTPUT_FORMAT = "PDF"
+DATE_EXPRESSION = 'at 01.08.2021 17:30'
+JOB_NAME = 'Test Job'
+JOB_DESCRIPTION = 'A Test Job Description'
+OUTPUT_FORMAT = 'PDF'
 OWNER_ID = 6L                       // please use the ID of the Owner    
 EXECUTOR_ID = 6L                    // please use the ID of the Executor
 RECIPIENT_IDS = [6L, 7L]            // please use the IDs of the Recipients
 
 // email settings
-EMAIL_DATASINK = "Default Email Datasink"
+EMAIL_DATASINK = 'Default Email Datasink'
 EMAIL_ATTACHMENT_FILENAME = 'My Report'
 EMAIL_SUBJECT = 'Test Email Subject'
 EMAIL_TEXT = 'Test Email Message Body'

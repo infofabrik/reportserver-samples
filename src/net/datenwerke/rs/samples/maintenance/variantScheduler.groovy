@@ -29,14 +29,20 @@ import java.util.ArrayList
 /**** USER SETTINGS ****/
 
 
-REPORT_ID = 239982L
+REPORT_ID = 108285L
 DATE_EXP = "at 01.08.2021 17:30"
 JOB_NAME = "Test Job"
 JOB_DESCRIPTION = "A Test Job Description"
 OUTPUT_FORMAT = "PDF"
 OWNER_ID = 6L									//please use the ID of the Owner	
 EXECUTOR_ID = 6L 								//please use the ID of the Executor
-RECIPIENT_ID = [259962L, 99101L]				        //please use the IDs of the Recipients
+RECIPIENT_ID = [6L]				        //please use the IDs of the Recipients
+
+// email settings
+EMAIL_DATASINK = "Default Email Datasink"
+EMAIL_ATTACHMENT_FILENAME = 'My Report'
+EMAIL_SUBJECT = 'Test Email Subject'
+EMAIL_TEXT = 'Test Email Message Body'
 
 /***********************/
 
@@ -49,24 +55,6 @@ def datasinkService = GLOBALS.getInstance(DatasinkService.class)
 Report report = reportService.getReportById(REPORT_ID) 				//singular specific Report by ID
 
 try {
-    
-   /* First Variant for addressing every user as recipient 
-   HashSet<User> hashSetUsers = userManagerService.getAllUsers()
-   List<User> users = new ArrayList<User>(hashSetUsers)
-   AbstractUserManagerNode abstractManagerNodeOwnerUser = userManagerService.getNodeById(OWNER_ID)
-   AbstractUserManagerNode abstractManagerNodeExecutorUser = userManagerService.getNodeById(EXECUTOR_ID)
-   User ownerUser, executorUser = null
-
-   for (User userNode: users) {
-      if(userNode.getName().equals(abstractManagerNodeOwnerUser.getName()))
-      {
-         ownerUser = userNode
-      }
-      if(userNode.getName().equals(abstractManagerNodeExecutorUser.getName()))
-      {
-         executorUser = userNode
-      }
-   }*/
     
    /* Second Variant with granularity for addressing only certain users as recipients!*/
    AbstractUserManagerNode abstractManagerNodeOwnerUser = userManagerService.getNodeById(OWNER_ID)
@@ -88,11 +76,11 @@ try {
    /* create a an action for the schedule, in this case an email file action */
    ScheduleAsEmailFileAction scheduleAsEmailFileAction = new ScheduleAsEmailFileAction()
    EmailDatasink eMailDatasink = new EmailDatasink()
-   eMailDatasink = datasinkService.getDatasinkByName("SMTP Datasink Test")
+   eMailDatasink = datasinkService.getDatasinkByName(EMAIL_DATASINK)
    scheduleAsEmailFileAction.emailDatasink = eMailDatasink
-   scheduleAsEmailFileAction.name = "SMTP Datasink Test"
-   scheduleAsEmailFileAction.subject = "Test Email Subject"
-   scheduleAsEmailFileAction.message = "Test Email Message to my Recipient!"
+   scheduleAsEmailFileAction.name = EMAIL_ATTACHMENT_FILENAME
+   scheduleAsEmailFileAction.subject = EMAIL_SUBJECT
+   scheduleAsEmailFileAction.message = EMAIL_TEXT
   	
    /* Link it with a List of abstract actions */
    List<AbstractAction> actions = new ArrayList<AbstractAction>()

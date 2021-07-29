@@ -51,7 +51,7 @@ def recipients = userManagerService.getUsers(RECIPIENT_IDS)
 /* create the Report Job and add the corresponding owner, executor and recipients */
 def job = new ReportExecuteJob()
 job.report = report
-job.addOwner owner
+job.owners = [owner] as Set
 job.executor = executor
 job.recipients = recipients as List
 job.outputFormat = OUTPUT_FORMAT

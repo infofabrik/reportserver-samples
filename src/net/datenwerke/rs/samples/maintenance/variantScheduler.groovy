@@ -16,6 +16,7 @@ import net.datenwerke.rs.scheduler.service.scheduler.jobs.report.ReportExecuteJo
 * Last tested with: ReportServer 3.7.0-6044
 * Schedules a report via the report's ID and puts up all information necessary 
 * including an email datasink action.
+* Has to be called with -c flag to commit changes to the database.
 */
 
 /**** USER SETTINGS ****/

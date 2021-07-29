@@ -1,7 +1,5 @@
 import net.datenwerke.rs.core.service.datasinkmanager.DatasinkService
 import net.datenwerke.rs.core.service.reportmanager.ReportService
-import net.datenwerke.rs.core.service.reportmanager.entities.reports.Report
-import net.datenwerke.rs.emaildatasink.service.emaildatasink.definitions.EmailDatasink
 import net.datenwerke.scheduler.service.scheduler.nlp.NlpTriggerService
 import net.datenwerke.scheduler.service.scheduler.SchedulerService
 import net.datenwerke.security.service.usermanager.UserManagerService

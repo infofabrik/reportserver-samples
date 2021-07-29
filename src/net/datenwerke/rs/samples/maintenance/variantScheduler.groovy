@@ -65,13 +65,10 @@ action.name = EMAIL_ATTACHMENT_FILENAME
 action.subject = EMAIL_SUBJECT
 action.message = EMAIL_TEXT
  
-/* Link it with a List of abstract actions */
-def actions = [action]
- 
 /* add the description, version, actions etc. */
 job.title = JOB_NAME
 job.description = JOB_DESCRIPTION
-job.actions = actions
+job.actions = [action]
  
 /* parse the date with nlp */
 def trigger = triggerService.parseExpression DATE_EXPRESSION

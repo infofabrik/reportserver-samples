@@ -34,9 +34,9 @@ DATE_EXP = "at 01.08.2021 17:30"
 JOB_NAME = "Test Job"
 JOB_DESCRIPTION = "A Test Job Description"
 OUTPUT_FORMAT = "PDF"
-OWNER_ID = 6L									//please use the ID of the Owner	
-EXECUTOR_ID = 6L 								//please use the ID of the Executor
-RECIPIENT_ID = [6L]				        //please use the IDs of the Recipients
+OWNER_ID = 6L                                   //please use the ID of the Owner    
+EXECUTOR_ID = 6L                                //please use the ID of the Executor
+RECIPIENT_IDS = [6L]                        //please use the IDs of the Recipients
 
 // email settings
 EMAIL_DATASINK = "Default Email Datasink"
@@ -52,27 +52,25 @@ def reportService = GLOBALS.getInstance(ReportService.class)
 def userManagerService = GLOBALS.getRsService(UserManagerService.class)
 def datasinkService = GLOBALS.getInstance(DatasinkService.class)
 
-Report report = reportService.getReportById(REPORT_ID) 				//singular specific Report by ID
+Report report = reportService.getReportById(REPORT_ID)              //singular specific Report by ID
 
 try {
     
    /* Second Variant with granularity for addressing only certain users as recipients!*/
-   AbstractUserManagerNode abstractManagerNodeOwnerUser = userManagerService.getNodeById(OWNER_ID)
-   AbstractUserManagerNode abstractManagerNodeExecutorUser = userManagerService.getNodeById(EXECUTOR_ID)
-   User ownerUser = userManagerService.getUserByName(abstractManagerNodeOwnerUser.getName().split(" ")[0])
-   User executorUser = userManagerService.getUserByName(abstractManagerNodeExecutorUser.getName().split(" ")[0])
-   Set<User> setUsers = userManagerService.getUsers(RECIPIENT_ID)
-   List<User> users = new ArrayList<User>(setUsers) 
+   def owner = userManagerService.getNodeById(OWNER_ID)
+   def executor = userManagerService.getNodeById(EXECUTOR_ID)
+   def recipients = userManagerService.getUsers(RECIPIENT_IDS)
+   List<User> users = new ArrayList<User>(recipients) 
     
-	
+    
    /* create the Report Job and add the corresponding owner, executor and recipients */
    ReportExecuteJob reportExecuteJob = new ReportExecuteJob()
    reportExecuteJob.report = report
-   reportExecuteJob.addOwner(ownerUser)
-   reportExecuteJob.executor = executorUser
+   reportExecuteJob.addOwner owner
+   reportExecuteJob.executor = executor
    reportExecuteJob.recipients = users
    reportExecuteJob.outputFormat = OUTPUT_FORMAT
-  	
+    
    /* create a an action for the schedule, in this case an email file action */
    ScheduleAsEmailFileAction scheduleAsEmailFileAction = new ScheduleAsEmailFileAction()
    EmailDatasink eMailDatasink = new EmailDatasink()
@@ -81,23 +79,23 @@ try {
    scheduleAsEmailFileAction.name = EMAIL_ATTACHMENT_FILENAME
    scheduleAsEmailFileAction.subject = EMAIL_SUBJECT
    scheduleAsEmailFileAction.message = EMAIL_TEXT
-  	
+    
    /* Link it with a List of abstract actions */
    List<AbstractAction> actions = new ArrayList<AbstractAction>()
    actions.add(scheduleAsEmailFileAction)
-  	
+    
    /* create the abstract job and add the description, version, actions etc. */
    AbstractJob abstractJob = reportExecuteJob
    abstractJob.title = JOB_NAME
    abstractJob.description = JOB_DESCRIPTION
    abstractJob.actions = actions
-	
+    
    /* parse the date with nlp */
    AbstractTrigger abstractTrigger = triggerService.parseExpression(DATE_EXP)
-	
+    
    /* schedule the job via the schedulerService */
    schedulerService.schedule(abstractJob, abstractTrigger)
 }
 catch (SchedulerRuntimeException sre) {
-	sre.printStackTrace()
+    sre.printStackTrace()
 }

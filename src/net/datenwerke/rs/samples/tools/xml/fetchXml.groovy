@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples
+package net.datenwerke.rs.samples.tools.xml
 
 import net.datenwerke.rs.base.service.reportengines.table.output.object.*
 

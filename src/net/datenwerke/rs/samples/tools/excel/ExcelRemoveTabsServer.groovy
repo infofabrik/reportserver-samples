@@ -7,7 +7,7 @@ import net.datenwerke.rs.fileserver.service.fileserver.entities.FileServerFile
 import org.apache.commons.io.FilenameUtils
 
 /**
- * ExcelPOIRemoveTabsServer.groovy
+ * ExcelRemoveTabsServer.groovy
  * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.4.0-6035

@@ -1,8 +1,5 @@
 package net.datenwerke.rs.samples.groovylanguage
 
-import java.nio.file.Paths
-import java.nio.file.Files
-
 /**
  * tryWithResources.groovy
  * Version: 1.2.0

@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.maintenance
+package net.datenwerke.rs.samples.tools.excel
 
 import org.apache.poi.ss.usermodel.WorkbookFactory
 import org.apache.poi.ss.usermodel.Sheet
@@ -7,7 +7,7 @@ import java.nio.file.Paths
 import java.nio.file.Files
 
 /**
- * ExcelPOIRemoveTabsLocal.groovy
+ * ExcelRemoveTabsLocal.groovy
  * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 3.6.0-6038

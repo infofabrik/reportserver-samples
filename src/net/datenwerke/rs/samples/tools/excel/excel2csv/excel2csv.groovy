@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.tools.excel2csv
+package net.datenwerke.rs.samples.tools.excel.excel2csv
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import org.apache.poi.ss.usermodel.CellType

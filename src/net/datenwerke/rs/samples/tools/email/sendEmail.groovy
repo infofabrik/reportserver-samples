@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.maintenance.mail
+package net.datenwerke.rs.samples.tools.email
 
 import java.util.Properties
 import javax.mail.Authenticator

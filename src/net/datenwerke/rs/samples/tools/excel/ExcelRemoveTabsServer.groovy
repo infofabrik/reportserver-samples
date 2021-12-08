@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.maintenance
+package net.datenwerke.rs.samples.tools.excel
 
 import org.apache.poi.ss.usermodel.WorkbookFactory
 

@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.maintenance.mail
+package net.datenwerke.rs.samples.tools.email
 
 import net.datenwerke.rs.core.service.mail.MailBuilderFactory
 import net.datenwerke.rs.core.service.mail.MailService

@@ -1,0 +1,55 @@
+// settings start ==========================================================================
+INPUT = '/path/to/your/excelFile.xlsx'
+OUTPUT = '/path/to/your/output.csv'
+
+/* separator between individual entries in csv file */
+CSV_SEPARATOR = ';'
+
+/* wraps all entries in the csv file */
+TEXT_ENCLOSER = '"'
+
+/* if the excel file contains irrelevant rows, you can completely skip them */
+SKIP_ROWS = 0
+
+/* the sheet name the script should transform */
+EXCEL_TAB_NAME = 'mySheet'
+
+/* 
+ * only relevant for normal modus. In Transpose modus ignored.
+ * Print headers in resulting csv file
+ */
+HEADER = true
+
+/* how to format dates */
+DATE_FORMAT = 'dd.MM.yyyy HH:mm:ss'
+
+/* used for number formatting */
+LOCALE = new Locale('en', 'US')
+/* how to format numbers */
+NUMBER_FORMAT = '###.0#'
+
+/*
+ * if the input excel file contains these chars, they will
+ * be replaced by the chars in the map before transformation happens
+ */
+REPLACEMENT_MAP = [
+   '\n' :     ' ',
+   '\r' :     ' ',
+   ';'  :     ' ',
+   '"'  :     ' '
+]
+
+/* linebreak between csv lines */
+LINE_BREAK = '\n';
+
+/* if true, the results are transposed */
+TRANSPOSE = true
+/* line ids start with 0 if true, else with the original line id */
+TRANSPOSE_SHIFT_LINE_IDS = true
+
+/* headers in transpose mode */
+TRANSPOSE_LINE_ID = 'LineId'
+TRANSPOSE_COLUMN_ID = 'ColumnId'
+TRANSPOSE_COLUMN_NAME = 'ColumnName'
+TRANSPOSE_VALUE = 'Value'
+// settings end ==========================================================================

@@ -15,7 +15,7 @@ import javax.naming.ldap.LdapName
 
 import net.datenwerke.rs.core.service.reportserver.ReportServerModule
 import net.datenwerke.rs.terminal.service.terminal.TerminalService
-import net.datenwerke.rs.utils.config.ConfigService
+import net.datenwerke.rs.configservice.service.configservice.ConfigService
 import net.datenwerke.security.service.usermanager.UserManagerService
 import net.datenwerke.security.service.usermanager.UserPropertiesService
 import net.datenwerke.security.service.usermanager.entities.AbstractUserManagerNode
@@ -26,9 +26,9 @@ import net.datenwerke.security.service.usermanager.entities.UserProperty
 
 /**
  * ldapimport.groovy
- * Version: 2.0.1
+ * Version: 2.0.2
  * Type: Normal Script
- * Last tested with: ReportServer 3.6.0-6038
+ * Last tested with: ReportServer 4.0.0
  * Imports users from LDAP server. 
  * This script is NOT meant to be modified. Configuration is ONLY necessary in sso/ldap.cf file.
  * You can use the ldaptester.groovy script to safely test your LDAP settings before configuring the sso/ldap.cf file.

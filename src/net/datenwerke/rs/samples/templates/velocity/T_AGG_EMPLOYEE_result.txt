@@ -1,0 +1,15 @@
+Report template for Variant T_AGG_EMPLOYEE - Basis: Top Employee per Office:
+----------------------------------------------------------
+Office Code: Employee Name (Employee Nr)
+----------------------------------------------------------
+	1: Jennings, Leslie (1165)
+	3: Vanauf, George (1323)
+	2: Patterson, Steve (1216)
+	7: Bott, Larry (1501)
+	5: Nishi, Mami (1621)
+	4: Hernandez, Gerard (1370)
+	6: Marsh, Peter (1612)
+
+(Based on "T_AGG_EMPLOYEE - Basis: Top Employee per Office" DEMO Variant)
+(Version: 1.0.1)
+(Last tested with: ReportServer 4.0.0) 

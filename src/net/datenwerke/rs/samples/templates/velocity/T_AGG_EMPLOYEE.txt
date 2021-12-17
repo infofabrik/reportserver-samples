@@ -1,0 +1,11 @@
+Report template for Variant T_AGG_EMPLOYEE - Basis: Top Employee per Office:
+----------------------------------------------------------
+Office Code: Employee Name (Employee Nr)
+----------------------------------------------------------
+#foreach ( $row in $data )
+	$row.EMP_OFFICECODE: $row.EMP_LASTNAME, $row.EMP_FIRSTNAME ($row.EMP_EMPLOYEENUMBER)
+#end
+
+(Based on "T_AGG_EMPLOYEE - Basis: Top Employee per Office" DEMO Variant)
+(Version: 1.0.1)
+(Last tested with: ReportServer 4.0.0) 

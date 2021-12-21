@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<myXmlFormat
+	xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<attributes>
+		<attribute>Country</attribute>
+		<attribute>City</attribute>
+		<attribute>Office Code</attribute>
+		<attribute>Firstname</attribute>
+		<attribute>Lastname</attribute>
+		<attribute>Employee Nr</attribute>
+		<attribute>Jobtitle</attribute>
+		<attribute>Email</attribute>
+		<attribute>Amount</attribute>
+	</attributes>
+	<records>
+		<record>USA</record>
+		<record>San Francisco</record>
+		<record>1</record>
+		<record>Leslie</record>
+		<record>Jennings</record>
+		<record>1165</record>
+		<record>Sales Rep</record>
+		<record>ljennings@classicmodelcars.com</record>
+		<record>1.081.530,54 €</record>
+	</records>
+	<records>
+		<record>USA</record>
+		<record>NYC</record>
+		<record>3</record>
+		<record>George</record>
+		<record>Vanauf</record>
+		<record>1323</record>
+		<record>Sales Rep</record>
+		<record>gvanauf@classicmodelcars.com</record>
+		<record>669.377,05 €</record>
+	</records>
+	<records>
+		<record>USA</record>
+		<record>Boston</record>
+		<record>2</record>
+		<record>Steve</record>
+		<record>Patterson</record>
+		<record>1216</record>
+		<record>Sales Rep</record>
+		<record>spatterson@classicmodelcars.com</record>
+		<record>505.875,42 €</record>
+	</records>
+	<records>
+		<record>UK</record>
+		<record>London</record>
+		<record>7</record>
+		<record>Larry</record>
+		<record>Bott</record>
+		<record>1501</record>
+		<record>Sales Rep</record>
+		<record>lbott@classicmodelcars.com</record>
+		<record>732.096,79 €</record>
+	</records>
+	<records>
+		<record>Japan</record>
+		<record>Tokyo</record>
+		<record>5</record>
+		<record>Mami</record>
+		<record>Nishi</record>
+		<record>1621</record>
+		<record>Sales Rep</record>
+		<record>mnishi@classicmodelcars.com</record>
+		<record>457.110,07 €</record>
+	</records>
+	<records>
+		<record>France</record>
+		<record>Paris</record>
+		<record>4</record>
+		<record>Gerard</record>
+		<record>Hernandez</record>
+		<record>1370</record>
+		<record>Sales Rep</record>
+		<record>ghernande@classicmodelcars.com</record>
+		<record>1.258.577,81 €</record>
+	</records>
+	<records>
+		<record>Australia</record>
+		<record>Sydney</record>
+		<record>6</record>
+		<record>Peter</record>
+		<record>Marsh</record>
+		<record>1612</record>
+		<record>Sales Rep</record>
+		<record>pmarsh@classicmodelcars.com</record>
+		<record>584.593,76 €</record>
+	</records>
+</myXmlFormat>

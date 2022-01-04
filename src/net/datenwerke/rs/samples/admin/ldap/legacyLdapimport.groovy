@@ -27,7 +27,8 @@ import net.datenwerke.security.service.usermanager.entities.User
  * Last tested with: ReportServer 4.0.0
  * Legacy LDAP-user importer.
  * As of ReportServer 4.0.0 you can use the "ldapimport" terminal command instead
- * together with the sso/ldap.cf configuration file.
+ * together with the sso/ldap.cf configuration file and the ldapimport.groovy available here:
+ * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/admin/ldap/ldapimport.groovy
  */
 
 UserManagerService userManagerService = GLOBALS.getRsService(UserManagerService.class);

@@ -8,6 +8,7 @@ The example scripts have one script type. The specific type is available in the 
 * Normal Script: can be directly executed via "exec script.groovy" or "exec -c script.groovy", depending if you want to commit changes to the database or not. Details can be found [here](https://reportserver.net/en/tutorials/tutorial-scripting/). Note that these scripts can be scheduled directly. More information on scheduling scripts on the [documentation](https://reportserver.net/en/guides/script/chapters/Scheduling-Scripts/). 
 * Script report: can be used for generating reports via script. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Reporting/).
 * Script datasource: can be used for producing datasources and showing any kind of data via scripts. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Datasources/). 
+* Hooker: can be used for adapting ReportServer for your specific needs. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Tapping-into-ReportServer/). 
 
 Note that script reports and script datasources can be scheduled via report scheduling. Details [here](https://reportserver.net/en/guides/user/chapters/Scheduling/) and [here](https://reportserver.net/en/guides/admin/chapters/Scheduling-of-Reports/).
 

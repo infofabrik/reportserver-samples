@@ -32,7 +32,7 @@ def callback = [
       node, searchResult -> {
          if (! (node instanceof User)) return
 
-         def allUserVarDefs = userVarService.getDefinedVariableDefinitions()
+         def allUserVarDefs = userVarService.definedVariableDefinitions
          allUserVarDefs.each{
             userVarDef ->
             if (! userVarDef.name.equals(userVar) ) return

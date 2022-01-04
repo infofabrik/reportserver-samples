@@ -33,8 +33,7 @@ def callback = [
          if (! (node instanceof User)) return
 
          def allUserVarDefs = userVarService.definedVariableDefinitions
-         allUserVarDefs.each{
-            userVarDef ->
+         allUserVarDefs.each{ userVarDef ->
             if (! userVarDef.name.equals(userVar) ) return
 
             def userVarInstance = null

@@ -9,11 +9,12 @@ import java.time.LocalDateTime
 
 /**
  * sendRSEmail.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 3.5.0-6037
  * Sends a simple email to ReportServer users including attachments using ReportServer APIs.
- * Uses the mail configuration in /etc/mail/mail.cf
+ * Uses the mail configuration your standard email datasink, or in 
+ * the /etc/mail/mail.cf configuration file if you don't have any standard email datasink.
  * Suitable for testing email configuration.
  * If you want to send an email with java APIs directly, you can use sendEmail.groovy.
  */

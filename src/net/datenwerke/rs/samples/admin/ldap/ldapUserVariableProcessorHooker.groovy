@@ -6,7 +6,7 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
 
 /**
  * ldapUserVariableProcessorHooker.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Hooker
  * Last tested with: ReportServer 4.0.0
  *
@@ -21,8 +21,9 @@ def HOOK_NAME = 'MY_LDAP_USER_VARIABLE_PROCESSOR'
 // the userVariable you want to set. The user variable definition must exist.
 def userVar = 'myUserVar'
 
-// the LDAP property to read. It must exist in your LDAP installation.
-def ldapProp = 'mail'
+/* The LDAP property to read. It must exist in your LDAP installation.
+// If not standard, it must be included into the "additional" attributes in ldap.cf */
+def ldapProp = 'department'
 
 def userVarService = GLOBALS.getInstance(UserVariableService.class)
 def ldapService = GLOBALS.getInstance(LdapService.class)

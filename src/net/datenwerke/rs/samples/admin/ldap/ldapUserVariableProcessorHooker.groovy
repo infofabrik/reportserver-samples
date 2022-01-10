@@ -22,7 +22,8 @@ def HOOK_NAME = 'MY_LDAP_USER_VARIABLE_PROCESSOR'
 def userVar = 'myUserVar'
 
 /* The LDAP property to read. It must exist in your LDAP installation.
-// If not standard, it must be included into the "additional" attributes in ldap.cf */
+ * If not standard, it must be included into the "additional" attributes in ldap.cf 
+ */
 def ldapProp = 'department'
 
 def userVarService = GLOBALS.getInstance(UserVariableService.class)

@@ -9,7 +9,7 @@ import groovy.sql.InParameter
 
 /**
  * copyDbTableContents.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0
  * Allows you to copy all contents of a given db-table into another db-table.
@@ -35,7 +35,9 @@ destinationDatasourceId = 456
 destinationTable = 'myDestinationTable'
 
 // list of the primary keys (of the source table)
-primaryKeys = ['id']
+primaryKeys = [
+   'id'
+   ]
 
 /* 
  * true if the script should copy primary keys, else false.
@@ -81,7 +83,7 @@ dbPoolService.getConnection(sourceDatasource.connectionConfig).get().withCloseab
 
       destinationSql.withTransaction {
          destinationSql.withBatch(batchSize, insertStmt as String) { stmt ->
-            sourceSql.eachRow(selectStmt), { row -> insertRow(row, stmt) }
+            sourceSql.eachRow(selectStmt) { row -> insertRow(row, stmt) }
          }
       }
    }
@@ -102,16 +104,14 @@ def collectMeta(metaResultSet) {
    def insertingColNames = allColNames
    if (!copyPrimaryKeys) {
       insertingColNames = allColNames.withIndex().findAll {
-         element, index -> {
-            !primaryKeyIndexes.any{ index == it }
-         }
+         element, index -> !primaryKeyIndexes.any{ index == it }
       }.collect{ element -> element[0] }
    }
 
    def placeHolders = insertingColNames.collect{'?'}
 
    insertStmt = "INSERT INTO $destinationTable (${insertingColNames.join(',')}) "
-   << "values (${placeHolders.join(',')})"
+      << "values (${placeHolders.join(',')})"
 }
 
 def insertRow(row, stmt) {
@@ -119,20 +119,14 @@ def insertRow(row, stmt) {
 
    def withTypes = vals.indexed().collect { idx, v ->
       [
-         getType: { ->
-            return allColDataTypes[idx] as int
-         },
-         getValue: { ->
-            return v
-         }
+         getType: { -> allColDataTypes[idx] as int},
+         getValue: { -> v}
       ] as InParameter
    }
    
    if (!copyPrimaryKeys)  {
       withTypes = withTypes.withIndex().findAll {
-         element, index -> {
-            !primaryKeyIndexes.any{ index == it }
-         }
+         element, index -> !primaryKeyIndexes.any{ index == it }
       }.collect{ element -> element[0] }
    }
    

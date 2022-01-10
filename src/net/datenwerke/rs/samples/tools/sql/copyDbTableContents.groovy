@@ -73,8 +73,6 @@ dbPoolService.getConnection(sourceDatasource.connectionConfig).get().withCloseab
       sourceSql = new Sql(sourceConn)
       destinationSql = new Sql(destinationConn)
 
-      assert sourceSql && destinationSql
-
       collectMeta(sourceConn.metaData.getColumns(null, null, sourceTable, null))
 
       def selectStmt = "SELECT " + allColNames.join(',') + " FROM " + sourceTable

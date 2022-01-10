@@ -160,7 +160,7 @@ def readColInfo(metaResultSet) {
       
       counter++
    }
-   assert ! primaryKeyIndexes.any{ -1 == it }
+   assert primaryKeyIndexes.size() == primaryKeys.size()
    allColNames = cols
 }
 

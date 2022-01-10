@@ -147,7 +147,7 @@ def readColInfo(metaResultSet) {
    def counter = 0
    while (metaResultSet.next()) {
       def columnName = metaResultSet.getString('COLUMN_NAME').toUpperCase()
-      def idx = primaryKeys.findIndexOf{ f -> f.equals(columnName) }
+      def idx = primaryKeys.findIndexOf{ f -> f == columnName }
       if (-1 != idx) {
          //primary key found
          primaryKeyIndexes << counter

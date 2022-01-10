@@ -30,8 +30,7 @@ def userVarService = GLOBALS.getInstance(UserVariableService.class)
 def ldapService = GLOBALS.getInstance(LdapService.class)
 
 def callback = [
-   postProcessNode : {
-      node, searchResult -> {
+   postProcessNode : { node, searchResult -> {
          if (! (node instanceof User)) return
 
          def allUserVarDefs = userVarService.definedVariableDefinitions

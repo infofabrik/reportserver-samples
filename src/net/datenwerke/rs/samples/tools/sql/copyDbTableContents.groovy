@@ -13,14 +13,14 @@ import groovy.sql.InParameter
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0
  * Allows you to copy all contents of a given db-table into another db-table.
- * Note that the tables does not have to exist in the same database, they
- * may even exist in different database types. 
+ * Note that the tables does not have to reside in the same database, they
+ * may reside in different database types. 
  * For example, you can copy contents of table A into table B, where A
  * resides in MSSQL and B in Oracle.
  * The only requirements are:
  * 1. both tables have to exist
  * 2. the fields in both tables must have the same names (and analogous types)
- * 
+ * 3. datasources of both must be defined in your ReportServer installation
  */
 
 // ==================================================================================

@@ -2,9 +2,9 @@ package net.datenwerke.rs.samples.groovylanguage
 
 /**
  * tryWithResources.groovy
- * Version: 1.2.0
+ * Version: 1.2.1
  * Type: Normal Script
- * Last tested with: ReportServer 4.0.0
+ * Last tested with: ReportServer 4.0.0-6053
  * Demonstrates the groovy's analogous construct to java's try-with-resources.
  */
 
@@ -65,7 +65,7 @@ def doSomethingWithResource(example, resource) {
    def theChar = resource.read()
 
    while (-1 != theChar) {
-      sb.append((char)theChar)
+      sb.append theChar as char
       theChar = resource.read()
    }
    tout.println sb.toString()

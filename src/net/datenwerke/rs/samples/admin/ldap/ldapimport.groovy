@@ -4,9 +4,9 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
 
 /**
  * ldapimport.groovy
- * Version: 2.0.0
+ * Version: 2.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 4.0.0
+ * Last tested with: ReportServer 4.0.0-6053
  * 
  * As of ReportServer 4.0.0 you can use the "ldapimport" terminal command
  * together with the sso/ldap.cf configuration file in order to manually import LDAP users.
@@ -18,7 +18,7 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
  * 
  */
 
-def ldapService = GLOBALS.getInstance(LdapService.class)
+def ldapService = GLOBALS.getInstance(LdapService)
 
 ldapService.importUsers()
 

@@ -75,37 +75,37 @@ def result = new RSTableModel(tableDefinition)
 
 /* loop over all reports */
 GLOBALS.getEntitiesByType(Report)
-.findAll{ !(it instanceof ReportVariant) }
-.each{ report ->
-   /* loop over all users and check their rights on the report */
-   GLOBALS.getEntitiesByType(User).each{ user ->
-      def superUser = user.superUser ? 1 : 0
-      def r = securityService.checkRights(user, report, SecurityServiceSecuree, Read)  ? 1 : 0
-      def w = securityService.checkRights(user, report, SecurityServiceSecuree, Write)  ? 1 : 0
-      def x = securityService.checkRights(user, report, SecurityServiceSecuree, Execute)  ? 1 : 0
-      def d = securityService.checkRights(user, report, SecurityServiceSecuree, Delete)  ? 1 : 0
-      def g = securityService.checkRights(user, report, SecurityServiceSecuree, GrantAccess)  ? 1 : 0
-
-      def resultLine = [
-         report.id,
-         report.name,
-         report.class.simpleName,
-         user.id,
-         user.firstname,
-         user.lastname,
-         user.username,
-         superUser,
-         r,
-         w,
-         x,
-         d,
-         g
-      ]
-
-      /* add to result */
-      result.addDataRow(new RSTableRow(tableDefinition, resultLine.toArray()))
+   .findAll{ !(it instanceof ReportVariant) }
+   .each{ report ->
+      /* loop over all users and check their rights on the report */
+      GLOBALS.getEntitiesByType(User).each{ user ->
+         def superUser = user.superUser ? 1 : 0
+         def r = securityService.checkRights(user, report, SecurityServiceSecuree, Read)  ? 1 : 0
+         def w = securityService.checkRights(user, report, SecurityServiceSecuree, Write)  ? 1 : 0
+         def x = securityService.checkRights(user, report, SecurityServiceSecuree, Execute)  ? 1 : 0
+         def d = securityService.checkRights(user, report, SecurityServiceSecuree, Delete)  ? 1 : 0
+         def g = securityService.checkRights(user, report, SecurityServiceSecuree, GrantAccess)  ? 1 : 0
+   
+         def resultLine = [
+            report.id,
+            report.name,
+            report.class.simpleName,
+            user.id,
+            user.firstname,
+            user.lastname,
+            user.username,
+            superUser,
+            r,
+            w,
+            x,
+            d,
+            g
+         ]
+   
+         /* add to result */
+         result.addDataRow(new RSTableRow(tableDefinition, resultLine.toArray()))
+      }
    }
-}
 
 /* put the report into the cache */
 GLOBALS.services['registry'].put(lastCacheName, new Date())

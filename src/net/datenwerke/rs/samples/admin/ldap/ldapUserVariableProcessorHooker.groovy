@@ -6,9 +6,9 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
 
 /**
  * ldapUserVariableProcessorHooker.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Hooker
- * Last tested with: ReportServer 4.0.0
+ * Last tested with: ReportServer 4.0.0-6053
  *
  * Allows you to post-process LDAP users after they are imported by 
  * setting a given user-variable's value to a given LDAP property value.
@@ -26,33 +26,33 @@ def userVar = 'myUserVar'
  */
 def ldapProp = 'department'
 
-def userVarService = GLOBALS.getInstance(UserVariableService.class)
-def ldapService = GLOBALS.getInstance(LdapService.class)
+def userVarService = GLOBALS.getInstance(UserVariableService)
+def ldapService = GLOBALS.getInstance(LdapService)
 
 def callback = [
    postProcessNode : { node, searchResult -> {
          if (! (node instanceof User)) return
 
          def allUserVarDefs = userVarService.definedVariableDefinitions
-         allUserVarDefs.each{ userVarDef ->
-            if (! userVarDef.name.equals(userVar) ) return
-
-            def userVarInstance = null
-            if (userVarService.hasVariableInstance(node, userVarDef)) {
-               // retrieve instance
-               userVarInstance = userVarService.getVariableInstanceForUser(node, userVarDef)
-            } else {
-               // create instance
-               userVarInstance = userVarDef.createVariableInstance()
-               userVarInstance.setFolk node
-               userVarService.persist userVarInstance
+         allUserVarDefs
+            .findAll { userVarDef -> userVarDef.name == userVar }
+            .each{ userVarDef ->
+               def userVarInstance = null
+               if (userVarService.hasVariableInstance(node, userVarDef)) {
+                  // retrieve instance
+                  userVarInstance = userVarService.getVariableInstanceForUser(node, userVarDef)
+               } else {
+                  // create instance
+                  userVarInstance = userVarDef.createVariableInstance()
+                  userVarInstance.setFolk node
+                  userVarService.persist userVarInstance
+               }
+   
+               userVarInstance.setValue ldapService.getStringAttribute(searchResult, ldapProp)
             }
-
-            userVarInstance.setValue ldapService.getStringAttribute(searchResult, ldapProp)
-         }
       }
    }
 ] as LdapNodePostProcessHook
 
 
-GLOBALS.services.callbackRegistry.attachHook(HOOK_NAME, LdapNodePostProcessHook.class, callback)
+GLOBALS.services.callbackRegistry.attachHook(HOOK_NAME, LdapNodePostProcessHook, callback)

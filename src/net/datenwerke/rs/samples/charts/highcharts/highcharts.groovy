@@ -3,9 +3,9 @@ import groovy.sql.Sql
 
 /**
  * highcharts.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script report
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 4.0.0-6053
  * Shows demo data (orders) for a given year grouped by quarters as Highcharts bar chart. 
  * Include average number of orders.
  * 
@@ -16,10 +16,10 @@ import groovy.sql.Sql
  * <li>The script report's datasource should be "demo"</li>
  * </ul>
  * 
- * Output for report parameter's value (year) 2019:
- * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-output-2019.png
- * HTML output for report parameter's value (year) 2019: 
- * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-html-output-2019.html
+ * Output for report parameter's value (year) 2020:
+ * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-output-2020.png
+ * HTML output for report parameter's value (year) 2020: 
+ * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-html-output-2020.html
  */
 
 /* get sql object of selected "demo" datasource */

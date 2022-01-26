@@ -18,19 +18,24 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportRights.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script datasource
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 4.0.0-6053
  * Shows all reports together with all users and their rights on the corresponding report.
  */
 
 /* check registry: we cache the report for 10 minutes */
-def last = GLOBALS.services['registry'].get('_report_user_permission_report_last')
+def cacheName = 'reportRights'
+def lastCacheName = "_report_${cacheName}_last"
+def dataCacheName = "_report_${cacheName}_data"
+
+/* check registry: we cache the report for 10 minutes */
+def last = GLOBALS.services['registry'].get(lastCacheName)
 if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10).after(new Date()) )
-   return GLOBALS.services['registry'].get('_report_user_permission_report_data')
+   return GLOBALS.services['registry'].get(dataCacheName)
 
 /* load services */
-def securityService = GLOBALS.getInstance(SecurityService.class)
+def securityService = GLOBALS.getInstance(SecurityService)
 
 /* prepare result */
 TableDefinition tableDefinition = new TableDefinition(
@@ -50,37 +55,36 @@ TableDefinition tableDefinition = new TableDefinition(
          'GRANT_RIGHTS'
       ],
       [
-         Long.class,
-         String.class,
-         String.class,
-         Long.class,
-         String.class,
-         String.class,
-         String.class,
-         Integer.class,
-         Integer.class,
-         Integer.class,
-         Integer.class,
-         Integer.class,
-         Integer.class
+         Long,
+         String,
+         String,
+         Long,
+         String,
+         String,
+         String,
+         Integer,
+         Integer,
+         Integer,
+         Integer,
+         Integer,
+         Integer
       ]
       )
 
 def result = new RSTableModel(tableDefinition)
 
 /* loop over all reports */
-GLOBALS.getEntitiesByType(Report.class).each{ report ->
-   if(report instanceof ReportVariant)
-      return
-
+GLOBALS.getEntitiesByType(Report)
+.findAll{ !(it instanceof ReportVariant) }
+.each{ report ->
    /* loop over all users and check their rights on the report */
-   GLOBALS.getEntitiesByType(User.class).each{ user ->
-      def superUser = (null == user.isSuperUser() ? false : user.isSuperUser()) ? 1 : 0
-      def r = securityService.checkRights(user, report, SecurityServiceSecuree.class, Read.class)  ? 1 : 0
-      def w = securityService.checkRights(user, report, SecurityServiceSecuree.class, Write.class)  ? 1 : 0
-      def x = securityService.checkRights(user, report, SecurityServiceSecuree.class, Execute.class)  ? 1 : 0
-      def d = securityService.checkRights(user, report, SecurityServiceSecuree.class, Delete.class)  ? 1 : 0
-      def g = securityService.checkRights(user, report, SecurityServiceSecuree.class, GrantAccess.class)  ? 1 : 0
+   GLOBALS.getEntitiesByType(User).each{ user ->
+      def superUser = user.superUser ? 1 : 0
+      def r = securityService.checkRights(user, report, SecurityServiceSecuree, Read)  ? 1 : 0
+      def w = securityService.checkRights(user, report, SecurityServiceSecuree, Write)  ? 1 : 0
+      def x = securityService.checkRights(user, report, SecurityServiceSecuree, Execute)  ? 1 : 0
+      def d = securityService.checkRights(user, report, SecurityServiceSecuree, Delete)  ? 1 : 0
+      def g = securityService.checkRights(user, report, SecurityServiceSecuree, GrantAccess)  ? 1 : 0
 
       def resultLine = [
          report.id,
@@ -104,7 +108,7 @@ GLOBALS.getEntitiesByType(Report.class).each{ report ->
 }
 
 /* put the report into the cache */
-GLOBALS.services['registry'].put('_report_user_permission_report_last', new Date())
-GLOBALS.services['registry'].put('_report_user_permission_report_data', result)
+GLOBALS.services['registry'].put(lastCacheName, new Date())
+GLOBALS.services['registry'].put(dataCacheName, result)
 
 return result

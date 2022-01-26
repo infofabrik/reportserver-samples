@@ -5,9 +5,9 @@ import net.datenwerke.rs.core.service.reportmanager.exceptions.ReportExecutorExc
 
 /**
  * vetoLargeReportExecution.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 3.7.0-6044
+ * Last tested with: ReportServer 4.0.0-6053
  * Allows to veto report execution to different formats if a report has a large number of rows.
  *
  * You can put this report in onstartup.d to hook up automatically.
@@ -27,8 +27,8 @@ def callback = [
    notifyOfReportsUnsuccessfulExecution : { e, report, parameterSet, user, outputFormat, configs ->
    },
    doVetoReportExecution: { report, parameterSet, user, outputFormat, configs ->
-      def tableReportUtils = GLOBALS.getInstance(TableReportUtils.class)
-      def reportService = GLOBALS.getInstance(ReportService.class)
+      def tableReportUtils = GLOBALS.getInstance(TableReportUtils)
+      def reportService = GLOBALS.getInstance(ReportService)
 
       if (outputFormat in vetoedFormats) {
          def tableReportInformation = tableReportUtils.getReportInformation(report, null)
@@ -38,5 +38,5 @@ def callback = [
    }
 ] as ReportExecutionNotificationHook
 
-GLOBALS.services.callbackRegistry.attachHook(HOOK_NAME, ReportExecutionNotificationHook.class,
+GLOBALS.services.callbackRegistry.attachHook(HOOK_NAME, ReportExecutionNotificationHook,
       callback)

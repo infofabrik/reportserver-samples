@@ -12,19 +12,23 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * fieldsInDynamicLists.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script datasource
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 4.0.0-6053
  * Shows all fields used in all dynamic lists' variants and prints useful information about them.
  */
 
 /* set same sizes for varchars as in reportserver */
 def varcharSize = 128
 
+def cacheName = 'fieldsInDynamicLists'
+def lastCacheName = "_report_${cacheName}_last"
+def dataCacheName = "_report_${cacheName}_data"
+
 /* check registry: we cache the report for 10 minutes */
-def last = GLOBALS.services['registry'].get('_report_fields_in_dynamiclist_last')
+def last = GLOBALS.services['registry'].get(lastCacheName)
 if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10).after(new Date()) )
-   return GLOBALS.services['registry'].get('_report_fields_in_dynamiclist_data')
+   return GLOBALS.services['registry'].get(dataCacheName)
 
 /* load services */
 def reportService = GLOBALS.getInstance(ReportService.class)
@@ -42,14 +46,14 @@ TableDefinition tableDefinition = new TableDefinition(
          'COMPUTED_COLUMN_EXPRESSION'
       ],
       [
-         Long.class,
-         String.class,
-         Long.class,
-         String.class,
-         Long.class,
-         String.class,
-         Long.class,
-         String.class
+         Long,
+         String,
+         Long,
+         String,
+         Long,
+         String,
+         Long,
+         String
       ]
       )
 
@@ -85,7 +89,7 @@ reportService.allReports
       }
 
 /* put the report into the cache */
-GLOBALS.services['registry'].put('_report_fields_in_dynamiclist_last', new Date())
-GLOBALS.services['registry'].put('_report_fields_in_dynamiclist_data', result)
+GLOBALS.services['registry'].put(lastCacheName, new Date())
+GLOBALS.services['registry'].put(dataCacheName, result)
 
 return result

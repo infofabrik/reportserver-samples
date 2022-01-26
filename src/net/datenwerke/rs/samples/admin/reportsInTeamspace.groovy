@@ -13,22 +13,26 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportsInTeamspace.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script datasource
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 4.0.0-6053
  * Lists all reports contained in TeamSpaces and prints useful information about them.
  */
 
 /* set same sizes for varchars as in reportserver */
 def varcharSize = 128
 
+def cacheName = 'reportsInTeamspace'
+def lastCacheName = "_report_${cacheName}_last"
+def dataCacheName = "_report_${cacheName}_data"
+
 /* check registry: we cache the report for 10 minutes */
-def last = GLOBALS.services['registry'].get('_report_reports_in_teamspace_last')
+def last = GLOBALS.services['registry'].get(lastCacheName)
 if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10).after(new Date()) )
-   return GLOBALS.services['registry'].get('_report_reports_in_teamspace_data')
+   return GLOBALS.services['registry'].get(dataCacheName)
 
 /* load services */
-TsDiskService tsDiskService = GLOBALS.getInstance(TsDiskService.class)
+TsDiskService tsDiskService = GLOBALS.getInstance(TsDiskService)
 
 /* prepare  result */
 TableDefinition tableDefinition = new TableDefinition(
@@ -48,19 +52,19 @@ TableDefinition tableDefinition = new TableDefinition(
          'BASE_REPORT_NAME'
       ],
       [
-         Long.class,
-         String.class,
-         String.class,
-         Long.class,
-         String.class,
-         String.class,
-         Long.class,
-         String.class,
-         String.class,
-         String.class,
-         String.class,
-         Long.class,
-         String.class
+         Long,
+         String,
+         String,
+         Long,
+         String,
+         String,
+         Long,
+         String,
+         String,
+         String,
+         String,
+         Long,
+         String
       ]
       )
 
@@ -83,7 +87,7 @@ tableDefinition.displaySizes = [
 
 def result = new RSTableModel(tableDefinition)
 
-GLOBALS.getEntitiesByType(TeamSpace.class).each{ ts ->
+GLOBALS.getEntitiesByType(TeamSpace).each{ ts ->
    tsDiskService.getGeneralReferencesFor(ts).each{ reportRef ->
       def report = (!(reportRef instanceof TsDiskReportReference)? reportRef.compiledReport.report : reportRef.report)
       def baseReport = (null != report && report instanceof ReportVariant) ? report.parent : null
@@ -111,7 +115,7 @@ GLOBALS.getEntitiesByType(TeamSpace.class).each{ ts ->
 }
 
 /* put the report into the cache */
-GLOBALS.services['registry'].put('_report_reports_in_teamspace_last', new Date())
-GLOBALS.services['registry'].put('_report_reports_in_teamspace_data', result)
+GLOBALS.services['registry'].put(lastCacheName, new Date())
+GLOBALS.services['registry'].put(dataCacheName, result)
 
 return result

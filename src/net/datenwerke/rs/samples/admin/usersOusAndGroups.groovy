@@ -61,7 +61,6 @@ TableDefinition tableDefinition = new TableDefinition(
 
 def result = new RSTableModel(tableDefinition)
 
-/* loop over all users */
 addUsers result, tableDefinition
 addGroups result, tableDefinition
 addOus result, tableDefinition

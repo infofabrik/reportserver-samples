@@ -10,9 +10,9 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * fetchXml.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script datasource
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 4.0.0-6053
  * Fetches XML data from the web and shows results as script datasource.
  */
 
@@ -39,17 +39,17 @@ def td = new TableDefinition([
    'check_date',
    'legislative_entity'
 ],[
-   String.class,
-   String.class,
-   String.class,
-   String.class,
-   Float.class,
-   String.class,
-   Integer.class,
-   Date.class,
-   Date.class,
-   Date.class,
-   String.class
+   String,
+   String,
+   String,
+   String,
+   Float,
+   String,
+   Integer,
+   Date,
+   Date,
+   Date,
+   String
 ])
 def table = new RSTableModel(td)
 def formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")

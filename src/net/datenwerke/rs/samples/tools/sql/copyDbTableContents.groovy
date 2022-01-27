@@ -9,9 +9,9 @@ import groovy.sql.InParameter
 
 /**
  * copyDbTableContents.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
- * Last tested with: ReportServer 4.0.0
+ * Last tested with: ReportServer 4.0.0-6053
  * Allows you to copy all contents of a given db-table into another db-table.
  * Note that the tables does not have to reside in the same database, they
  * may reside in different database types. 
@@ -25,12 +25,12 @@ import groovy.sql.InParameter
 
 // ==================================================================================
 // the datasource containing the source table
-sourceDatasourceId = 123
+sourceDatasourceId = 123L
 // the name of the source table
 sourceTable = 'mySourceTable'
 
 // the datasource containing the destination table
-destinationDatasourceId = 456
+destinationDatasourceId = 456L
 // the destination table
 destinationTable = 'myDestinationTable'
 
@@ -59,9 +59,9 @@ insertStmt = ""
 primaryKeyIndexes = []
 logger = Logger.getLogger(getClass().name)
 
-def session = GLOBALS.getInstance(TerminalSession.class)
+def session = GLOBALS.getInstance(TerminalSession)
 def objectResolver = session.objectResolver
-def dbPoolService = GLOBALS.getInstance(DbPoolService.class)
+def dbPoolService = GLOBALS.getInstance(DbPoolService)
 
 def sourceDatasource = objectResolver.getObjects("id:DatabaseDatasource:$sourceDatasourceId")
 def destinationDatasource = objectResolver.getObjects("id:DatabaseDatasource:$destinationDatasourceId")

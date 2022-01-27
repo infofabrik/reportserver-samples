@@ -2,9 +2,9 @@ import javax.net.ssl.SSLSocketFactory
 
 /**
  * sslTest.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
- * Last tested with: ReportServer 4.0.0
+ * Last tested with: ReportServer 4.0.0-6053
  * Tests SSL. Based on SSLPoke.java: 
  * https://confluence.atlassian.com/download/attachments/117455/SSLPoke.java
  */

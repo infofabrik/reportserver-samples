@@ -8,7 +8,7 @@ import org.apache.commons.io.FilenameUtils
 
 /**
  * ExcelRemoveTabsServer.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Reads an Excel file on ReportServer FileServer and deletes a list of given sheets by their names.
@@ -20,12 +20,12 @@ import org.apache.commons.io.FilenameUtils
  * E.g.: http://localhost:8080/reportserver/fileServerAccess?id=123
  * Pass it as a Long (L).
  */
-FileServerFile excelFile = GLOBALS.findEntity(FileServerFile.class, 123L)
+FileServerFile excelFile = GLOBALS.findEntity(FileServerFile, 123L)
 
 // we make sure the file exists
 assert excelFile
 
-fileServerService = GLOBALS.getInstance(FileServerService.class)
+fileServerService = GLOBALS.getInstance(FileServerService)
 
 // the names of the sheets you want to get deleted
 def sheetNamesToDelete = [
@@ -61,7 +61,7 @@ def sheetNamesToDelete = [
    excelFile.name = "$baseFilename (changed).$extension"
 
    //save into db
-   fileServerService.merge(excelFile)
+   fileServerService.merge excelFile
 }
 
 return 'Sheets were successfully deleted'

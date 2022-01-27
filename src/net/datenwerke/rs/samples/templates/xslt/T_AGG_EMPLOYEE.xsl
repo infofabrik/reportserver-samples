@@ -35,9 +35,9 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 <!-- 
 (Based on "T_AGG_EMPLOYEE - Basis: Top Employee per Office" DEMO Variant
-but you can use this in other dynamic list variants as well)
-(Version: 1.0.0)
-(Last tested with: ReportServer 4.0.0) 
+You can use this in other dynamic list variants as well)
+(Version: 1.0.1)
+(Last tested with: ReportServer 4.0.0-6053) 
 -->
 
 </xsl:stylesheet>

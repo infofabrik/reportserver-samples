@@ -7,5 +7,5 @@ Office Code: Employee Name (Employee Nr)
 #end
 
 (Based on "T_AGG_EMPLOYEE - Basis: Top Employee per Office" DEMO Variant)
-(Version: 1.0.1)
-(Last tested with: ReportServer 4.0.0) 
+(Version: 1.0.2)
+(Last tested with: ReportServer 4.0.0-6053) 

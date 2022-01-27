@@ -8,9 +8,9 @@ import org.apache.commons.io.FilenameUtils
 
 /**
  * ExcelRemoveTabsServer.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 3.4.0-6035
+ * Last tested with: ReportServer 4.0.0-6053
  * Reads an Excel file on ReportServer FileServer and deletes a list of given sheets by their names.
  * Writes output into the same Excel file renaming it.
  */
@@ -18,7 +18,7 @@ import org.apache.commons.io.FilenameUtils
 /*
  * Please put in the number file ID as seen on the download-button of RS.
  * E.g.: http://localhost:8080/reportserver/fileServerAccess?id=123
- * Pass it as a long (L).
+ * Pass it as a Long (L).
  */
 FileServerFile excelFile = GLOBALS.findEntity(FileServerFile.class, 123L)
 

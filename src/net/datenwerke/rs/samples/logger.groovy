@@ -5,9 +5,9 @@ import java.util.logging.Logger
 
 /**
  * logger.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal script
- * Last tested with: ReportServer 3.4.0-6036
+ * Last tested with: ReportServer 4.0.0-6053
  * Prints output into the Tomcat ReportServer logs using different logging levels. 
  * Depending on your log configuration, some log messages may/may not appear.
  * You can adapt the level in this file: logging-rs.properties

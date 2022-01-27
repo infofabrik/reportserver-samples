@@ -7,15 +7,15 @@ import java.text.NumberFormat
 
 /**
  * excel2csv.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 4.0.0
+ * Last tested with: ReportServer 4.0.0-6053
  * Demonstrates how to read a given Excel file with help of Apache POI library, 
  * transform the data and write the results into a given CSV file.
  */
 
 // settings start ==========================================================================
-INPUT = '/path/to/your/excelFile.xlsx'
+INPUT = '/Users/eduardo/Desktop/excelFile.xlsx'
 OUTPUT = '/path/to/your/output.csv'
 
 /* separator between individual entries in csv file */
@@ -74,16 +74,16 @@ input = new File(INPUT)
 output = new File(OUTPUT)
 
 numFormat = NumberFormat.getNumberInstance(LOCALE)
-numFormat.applyPattern(NUMBER_FORMAT)
+numFormat.applyPattern NUMBER_FORMAT
 
 new XSSFWorkbook(new FileInputStream(input)).withCloseable { workbook ->
    def sheet = workbook.getSheet(EXCEL_TAB_NAME)
 
    output.newWriter().withCloseable { csv ->
       if (TRANSPOSE)
-         convertTransposeModus(sheet, csv)
+         convertTransposeModus sheet, csv 
       else
-         convertNormalModus(sheet, csv)
+         convertNormalModus sheet, csv 
 
       csv.flush()
    }
@@ -124,9 +124,7 @@ def shiftedRowNumber(rowNum) {
 def readHeaders(row, headers) {
    // read headers from input
    def cellIt = row.cellIterator()
-   cellIt.each { cell ->
-      convertCell cell, headers
-   }
+   cellIt.each { cell -> convertCell cell, headers }
 }
 
 def convertNormalModus(sheet, csv) {
@@ -135,7 +133,7 @@ def convertNormalModus(sheet, csv) {
    rowIt.each { row ->
       if (row.rowNum >= SKIP_ROWS) {
          if (0  == shiftedRowNumber(row.rowNum)) {
-            readHeaders(row, headers)
+            readHeaders row, headers
          } else if(shiftedRowNumber(row.rowNum) > 0) {
             if (1 == shiftedRowNumber(row.rowNum) && HEADER) {
                csv << headers.join(CSV_SEPARATOR)
@@ -143,13 +141,10 @@ def convertNormalModus(sheet, csv) {
             }
             def cellIt = row.cellIterator()
             def rowVals = []
-            cellIt.each { cell ->
-               convertCell cell, rowVals
-            }
+            cellIt.each { cell -> convertCell cell, rowVals }
             csv << rowVals.join(CSV_SEPARATOR)
             csv << LINE_BREAK
          }
-
       }
    }
 }
@@ -157,9 +152,9 @@ def convertNormalModus(sheet, csv) {
 def convertTransposeModus(sheet, csv) {
    def newHeaders = []
    newHeaders << convertText(TRANSPOSE_LINE_ID)
-   << convertText(TRANSPOSE_COLUMN_ID)
-   << convertText(TRANSPOSE_COLUMN_NAME)
-   << convertText(TRANSPOSE_VALUE)
+      << convertText(TRANSPOSE_COLUMN_ID)
+      << convertText(TRANSPOSE_COLUMN_NAME)
+      << convertText(TRANSPOSE_VALUE)
 
    csv << newHeaders.join(CSV_SEPARATOR)
    csv << LINE_BREAK
@@ -168,7 +163,7 @@ def convertTransposeModus(sheet, csv) {
    def headers = []
    rowIt.each { row ->
       if (0  == shiftedRowNumber(row.rowNum)) {
-         readHeaders(row, headers)
+         readHeaders row, headers
       } else if(shiftedRowNumber(row.rowNum) > 0) {
          def rowIndex = TRANSPOSE_SHIFT_LINE_IDS? shiftedRowNumber(row.rowNum): row.rowNum
 
@@ -179,7 +174,7 @@ def convertTransposeModus(sheet, csv) {
             def colIndex = cell.columnIndex
 
             rowVals << convertText(rowIndex)
-            << convertText(colIndex+1)
+               << convertText(colIndex+1)
 
             rowVals << headers[colIndex]
 
@@ -188,7 +183,6 @@ def convertTransposeModus(sheet, csv) {
             csv << rowVals.join(CSV_SEPARATOR)
             csv << LINE_BREAK
          }
-
       }
    }
 }

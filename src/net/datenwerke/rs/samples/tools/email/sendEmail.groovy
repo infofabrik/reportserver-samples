@@ -12,9 +12,9 @@ import java.time.LocalDateTime
 
 /**
  * sendEmail.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 3.5.0-6037
+ * Last tested with: ReportServer 4.0.0-6053
  * Sends a simple email using standard java APIs directly.
  * If you want to send an email to ReportServer users, you can use sendRSEmail.groovy
  */
@@ -36,16 +36,16 @@ def auth = [
 ] as Authenticator
 
 def props = new Properties()
-props.put('mail.transport.protocol', 'smtp')
-props.put('mail.smtp.host', smtpHost)
-props.put('mail.smtp.port', smtpPort)
-props.put('mail.smtp.auth', 'true')
+props['mail.transport.protocol'] = 'smtp'
+props['mail.smtp.host'] = smtpHost
+props['mail.smtp.port'] = smtpPort
+props['mail.smtp.auth'] = 'true'
 /*
  * Set the tls/ssl properties as required by your server.
  *  More information here: https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html
  */
-//props.put('mail.smtp.starttls.enable','true')
-props.put('mail.smtp.starttls.require','true')
+//props['mail.smtp.starttls.enable'] = 'true'
+props['mail.smtp.starttls.require'] = 'true'
 
 def mailSession = Session.getInstance (props, auth)
 

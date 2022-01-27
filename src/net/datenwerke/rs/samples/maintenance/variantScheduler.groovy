@@ -1,4 +1,4 @@
-import net.datenwerke.rs.core.service.datasinkmanager.DatasinkService
+import net.datenwerke.rs.core.service.datasinkmanager.DatasinkTreeService
 import net.datenwerke.rs.core.service.reportmanager.ReportService
 import net.datenwerke.scheduler.service.scheduler.nlp.NlpTriggerService
 import net.datenwerke.scheduler.service.scheduler.SchedulerService
@@ -9,9 +9,9 @@ import net.datenwerke.rs.scheduler.service.scheduler.jobs.report.ReportExecuteJo
 
 /**
 * variantScheduler.groovy
-* Version: 1.0.0
+* Version: 1.0.1
 * Type: Normal Script
-* Last tested with: ReportServer 3.7.0-6044
+* Last tested with: ReportServer 4.0.0-6053
 * Schedules a report via the report's ID and puts up all information necessary 
 * including an email datasink action.
 * Has to be called with -c flag to commit changes to the database.
@@ -24,9 +24,9 @@ DATE_EXPRESSION = 'at 01.08.2021 17:30'
 JOB_NAME = 'Test Job'
 JOB_DESCRIPTION = 'A Test Job Description'
 OUTPUT_FORMAT = 'PDF'
-OWNER_ID = 6L                       // please use the ID of the Owner    
-EXECUTOR_ID = 6L                    // please use the ID of the Executor
-RECIPIENT_IDS = [6L, 7L]            // please use the IDs of the Recipients
+OWNER_ID = 6L                       // the ID of the Owner
+EXECUTOR_ID = 6L                    // the ID of the Executor
+RECIPIENT_IDS = [6L, 7L]            // the IDs of the Recipients
 
 // email settings
 EMAIL_DATASINK = 'Default Email Datasink'
@@ -36,33 +36,26 @@ EMAIL_TEXT = 'Test Email Message Body'
 
 /***********************/
 
-def triggerService = GLOBALS.getInstance(NlpTriggerService.class)
-def schedulerService = GLOBALS.getInstance(SchedulerService.class)
-def reportService = GLOBALS.getInstance(ReportService.class)
-def userManagerService = GLOBALS.getRsService(UserManagerService.class)
-def datasinkService = GLOBALS.getInstance(DatasinkService.class)
+def triggerService = GLOBALS.getInstance(NlpTriggerService)
+def schedulerService = GLOBALS.getInstance(SchedulerService)
+def reportService = GLOBALS.getInstance(ReportService)
+def userManagerService = GLOBALS.getRsService(UserManagerService)
+def datasinkTreeService = GLOBALS.getInstance(DatasinkTreeService)
 
-def report = reportService.getReportById(REPORT_ID)                 //singular specific Report by ID
+def report = reportService.getReportById(REPORT_ID)  // get Report by ID
 
 def owner = userManagerService.getNodeById(OWNER_ID)
 def executor = userManagerService.getNodeById(EXECUTOR_ID)
 def recipients = userManagerService.getUsers(RECIPIENT_IDS)    
  
 /* create the Report Job and add the corresponding owner, executor and recipients */
-def job = new ReportExecuteJob()
-job.report = report
-job.owners = [owner] as Set
-job.executor = executor
-job.recipients = recipients as List
-job.outputFormat = OUTPUT_FORMAT
+def job = new ReportExecuteJob(report: report, owners: [owner] as Set,
+   executor: executor, recipients: recipients as List, outputFormat: OUTPUT_FORMAT)
  
 /* create a an action for the schedule, in this case an email file action */
-def action = new ScheduleAsEmailFileAction()
-def emailDatasink = datasinkService.getDatasinkByName(EMAIL_DATASINK)
-action.emailDatasink = emailDatasink
-action.name = EMAIL_ATTACHMENT_FILENAME
-action.subject = EMAIL_SUBJECT
-action.message = EMAIL_TEXT
+def emailDatasink = datasinkTreeService.getDatasinkByName(EMAIL_DATASINK)
+def action = new ScheduleAsEmailFileAction(emailDatasink: emailDatasink, name: EMAIL_ATTACHMENT_FILENAME,
+   subject: EMAIL_SUBJECT, message: EMAIL_TEXT)
  
 /* add the description, version, actions etc. */
 job.title = JOB_NAME

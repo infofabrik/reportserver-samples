@@ -3,27 +3,25 @@ package net.datenwerke.rs.samples.maintenance
 import net.datenwerke.security.service.usermanager.UserManagerService
 
 /**
-* deleteWriteProtectedUsers.groovy
-* Version: 1.0.0
-* Type: Normal Script
-* Last tested with: ReportServer 3.5.0-6037
-* Deletes multiple users by their user ids even if the users are write protected.
-*/
+ * deleteWriteProtectedUsers.groovy
+ * Version: 1.0.1
+ * Type: Normal Script
+ * Last tested with: ReportServer 4.0.0-6053
+ * Deletes multiple users by their user ids even if the users are write protected.
+ * Has to be called with -c flag to commit changes to the database.
+ */
 
-def userManagerService = GLOBALS.getInstance(UserManagerService.class)
+def userManagerService = GLOBALS.getInstance(UserManagerService)
 
-//Please put the userIds of the users you want to get deleted into the list
-//passing the ids as long (L)
-def userIds = [123L, 456L]
+// userIds of the users you want to get deleted as Long (L)
+def userIds = [115254L]
 
-userIds.each { userId -> 
-    def user = userManagerService.getNodeById(userId)
-  
-    if(! user){
-        tout.println "User with Id: $userId can not be found!"
-    } else {
-        user.writeProtection = false
-        userManagerService.remove user
-        tout.println "User with Id: $userId has been deleted!"
-    }
-}
+userIds
+   .collect { userManagerService.getNodeById(it) }
+   .findAll { it != null }
+   .each { user ->
+      def msg = "User '$user.username' ($user.id) was deleted"
+      user.writeProtection = false
+      userManagerService.remove user
+      tout.println msg
+   }

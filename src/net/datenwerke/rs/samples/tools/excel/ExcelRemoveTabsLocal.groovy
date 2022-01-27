@@ -8,16 +8,16 @@ import java.nio.file.Files
 
 /**
  * ExcelRemoveTabsLocal.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 3.6.0-6038
+ * Last tested with: ReportServer 4.0.0-6053
  * Reads an Excel file and deletes a list of given sheets by their names.
  * Writes output into a new Excel file.
  */
 
 def fileInput = '/path/to/yourfile.xlsx'
 def fileOutput = '/path/to/yourfile_output.xlsx'
-// please put in the names of the sheets you want to get deleted
+// the names of the sheets you want to get deleted
 def sheetNamesToDelete = [
    'sheet1',
    'sheet2',
@@ -46,16 +46,14 @@ Files.newInputStream(excelFile).withCloseable { is ->
       def sheetIndex = workbook.getSheetIndex(sheetNameToDelete)
       if(sheetIndex >= 0) {
          tout.println "Deleting $sheetNameToDelete..."
-         workbook.removeSheetAt(sheetIndex)
+         workbook.removeSheetAt sheetIndex
 
       } else {
          tout.println "Sheet $sheetNameToDelete does not exist"
       }
    }
 
-   Files.newOutputStream(excelOutputFile).withCloseable { os ->
-      workbook.write os
-   }
+   Files.newOutputStream(excelOutputFile).withCloseable { os -> workbook.write os }
 }
 
 return 'Sheets were successfully deleted'

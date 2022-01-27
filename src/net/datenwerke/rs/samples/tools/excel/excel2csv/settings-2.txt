@@ -1,6 +1,6 @@
 // settings start ==========================================================================
-INPUT = '/path/to/your/excelFile.xlsx'
-OUTPUT = '/path/to/your/output.csv'
+INPUT_FILES_DIR = '/path/to/your/inputs'
+OUTPUT_FILES_DIR = '/path/to/your/outputs'
 
 /* separator between individual entries in csv file */
 CSV_SEPARATOR = ';'
@@ -47,9 +47,25 @@ TRANSPOSE = true
 /* line ids start with 0 if true, else with the original line id */
 TRANSPOSE_SHIFT_LINE_IDS = true
 
-/* headers in transpose mode */
-TRANSPOSE_LINE_ID = 'LineId'
-TRANSPOSE_COLUMN_ID = 'ColumnId'
-TRANSPOSE_COLUMN_NAME = 'ColumnName'
-TRANSPOSE_VALUE = 'Value'
+/* headers/table names in transpose mode */
+TRANSPOSE_FIELDS_DEF = [
+   TIMESTAMP: 'timestamp',
+   FILENAME: 'excel_file_name',
+   LINE_ID: 'excel_line_id',
+   COLUMN_ID: 'excel_col_id',
+   COLUMN_NAME: 'excel_column_name',
+   VALUE: 'excel_value'
+   ]
+
+/* table settings for transposed mode */
+/* if true, saves the results into a db table instead of a file */
+TRANSPOSE_RESULTS_TO_DB = false
+
+TRANSPOSE_DATASOURCE_ID = 58L
+TRANSPOSE_TABLE = 'table_name'
+
+
+// the size of the batch for the batch-insert
+TRANSPOSE_BATCH_SIZE = 100
+
 // settings end ==========================================================================

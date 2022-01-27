@@ -15,7 +15,7 @@ import java.text.NumberFormat
  */
 
 // settings start ==========================================================================
-INPUT = '/Users/eduardo/Desktop/excelFile.xlsx'
+INPUT = '/path/to/your/excelFile.xlsx'
 OUTPUT = '/path/to/your/output.csv'
 
 /* separator between individual entries in csv file */

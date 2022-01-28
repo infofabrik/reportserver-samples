@@ -12,7 +12,7 @@ import java.nio.file.Paths
 
 /**
  * excel2csv.groovy
- * Version: 2.0.0
+ * Version: 2.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Demonstrates how to read Excel files with help of Apache POI library, 
@@ -92,6 +92,10 @@ TRANSPOSE_TABLE = 'table_name'
 TRANSPOSE_BATCH_SIZE = 100
 
 // settings end ==========================================================================
+
+assert (new File(INPUT_FILES_DIR)).exists() 
+assert (new File(OUTPUT_FILES_DIR)).exists() 
+assert (new File(ARCHIVE_FILES_DIR)).exists()
 
 // matches only Excel files
 def pattern = ~/(?ix)        # case insensitive(i), ignore space(x)

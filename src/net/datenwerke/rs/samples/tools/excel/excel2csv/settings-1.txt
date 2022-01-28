@@ -1,6 +1,8 @@
 // settings start ==========================================================================
 INPUT_FILES_DIR = '/path/to/your/inputs'
 OUTPUT_FILES_DIR = '/path/to/your/outputs'
+/* we move input files after processing into this directory */
+ARCHIVE_FILES_DIR = '/path/to/your/archive'
 
 /* separator between individual entries in csv file */
 CSV_SEPARATOR = ';'

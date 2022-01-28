@@ -11,7 +11,7 @@ import net.datenwerke.security.service.usermanager.entities.OrganisationalUnit
 
 /**
  * usersOusAndGroups.groovy
- * Version: 1.0.2
+ * Version: 1.0.3
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all users, OUs and groups and their corresponding OU and group memberships.
@@ -25,9 +25,9 @@ def dataCacheName = "_report_${cacheName}_data"
 def varcharSize = 128
 
 /* check registry: we cache the report for 10 minutes */
-def last = GLOBALS.services['registry'].get(lastCacheName)
+def last = GLOBALS.services['registry'][lastCacheName]
 if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10).after(new Date()) )
-   return GLOBALS.services['registry'].get(dataCacheName)
+   return GLOBALS.services['registry'][dataCacheName]
 
 userManagerService = GLOBALS.getInstance(UserManagerService)
 historyService = GLOBALS.getInstance(HistoryService)
@@ -134,9 +134,8 @@ def collectOu(node) {
       .collect{ link -> "$link.objectCaption" }[0] as String
 }
 
-
 /* put the report into the cache */
-GLOBALS.services['registry'].put(lastCacheName, new Date())
-GLOBALS.services['registry'].put(dataCacheName, result)
+GLOBALS.services['registry'][lastCacheName] = new Date()
+GLOBALS.services['registry'][dataCacheName] = result
 
 result

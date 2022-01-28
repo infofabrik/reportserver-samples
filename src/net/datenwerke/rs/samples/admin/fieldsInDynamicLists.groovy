@@ -12,7 +12,7 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * fieldsInDynamicLists.groovy
- * Version: 1.0.2
+ * Version: 1.0.3
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all fields used in all dynamic lists' variants and prints useful information about them.
@@ -26,9 +26,9 @@ def lastCacheName = "_report_${cacheName}_last"
 def dataCacheName = "_report_${cacheName}_data"
 
 /* check registry: we cache the report for 10 minutes */
-def last = GLOBALS.services['registry'].get(lastCacheName)
+def last = GLOBALS.services['registry'][lastCacheName]
 if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10).after(new Date()) )
-   return GLOBALS.services['registry'].get(dataCacheName)
+   return GLOBALS.services['registry'][dataCacheName]
 
 /* load services */
 def reportService = GLOBALS.getInstance(ReportService.class)
@@ -71,7 +71,7 @@ reportService.allReports
       }
 
 /* put the report into the cache */
-GLOBALS.services['registry'].put(lastCacheName, new Date())
-GLOBALS.services['registry'].put(dataCacheName, result)
+GLOBALS.services['registry'][lastCacheName] = new Date()
+GLOBALS.services['registry'][dataCacheName] = result
 
 result

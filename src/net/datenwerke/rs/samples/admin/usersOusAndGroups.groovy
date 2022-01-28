@@ -9,9 +9,11 @@ import net.datenwerke.gf.service.history.HistoryService
 import net.datenwerke.security.service.usermanager.entities.Group
 import net.datenwerke.security.service.usermanager.entities.OrganisationalUnit
 
+import org.apache.commons.lang3.time.DateUtils
+
 /**
  * usersOusAndGroups.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all users, OUs and groups and their corresponding OU and group memberships.

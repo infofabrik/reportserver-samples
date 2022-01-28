@@ -133,6 +133,10 @@ def insertIntoTable(sheet, input) {
       assert conn
       
       def sql = new Sql(conn)
+      
+      // clean table for the current file
+      def cleanStmt = "DELETE FROM $TRANSPOSE_TABLE WHERE $TRANSPOSE_FIELDS_DEF.FILENAME = '$input.name'"
+      sql.execute cleanStmt as String
 
       def insertStmt = "INSERT INTO $TRANSPOSE_TABLE (${TRANSPOSE_FIELDS_DEF.values().join(',')}) "
          << "values (${('?'*TRANSPOSE_FIELDS_DEF.size() as List).join(',')})"

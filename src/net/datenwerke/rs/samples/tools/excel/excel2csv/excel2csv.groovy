@@ -7,6 +7,8 @@ import net.datenwerke.rs.terminal.service.terminal.TerminalSession
 import net.datenwerke.dbpool.DbPoolService
 import java.text.NumberFormat
 import groovy.sql.Sql
+import java.nio.file.Files
+import java.nio.file.Paths
 
 /**
  * excel2csv.groovy
@@ -20,6 +22,8 @@ import groovy.sql.Sql
 // settings start ==========================================================================
 INPUT_FILES_DIR = '/path/to/your/inputs'
 OUTPUT_FILES_DIR = '/path/to/your/outputs'
+/* we move input files after processing into this directory */
+ARCHIVE_FILES_DIR = '/path/to/your/archive'
 
 /* separator between individual entries in csv file */
 CSV_SEPARATOR = ';'
@@ -90,26 +94,28 @@ TRANSPOSE_BATCH_SIZE = 100
 // settings end ==========================================================================
 
 // matches only Excel files
-def pattern = /(?ix)        # case insensitive(i), ignore space(x)
-^                       # start of line
-(\w*\s*)*               # any number of word characters followed by any number of spaces
-\.xlsx$                 # ending .xlsx
+def pattern = ~/(?ix)        # case insensitive(i), ignore space(x)
+^                           # start of line
+(\w*\s*)*                   # any number of word characters followed by any number of spaces
+\.xlsx$                     # ending .xlsx
 /
 
 numFormat = NumberFormat.getNumberInstance(LOCALE)
 numFormat.applyPattern NUMBER_FORMAT
 
 def inputDir = new File(INPUT_FILES_DIR)
-inputDir.eachFile { input -> 
-   if (!(input.name ==~ pattern)) return
-   
-   new XSSFWorkbook(new FileInputStream(input)).withCloseable { workbook ->
-      def sheet = workbook.getSheet(EXCEL_TAB_NAME)
-   
-      if (TRANSPOSE && TRANSPOSE_RESULTS_TO_DB)
-         insertIntoTable sheet, input
-      else 
-         createCsv sheet, input
+inputDir.eachFileMatch(pattern) { input -> 
+   try {
+      new XSSFWorkbook(new FileInputStream(input)).withCloseable { workbook ->
+         def sheet = workbook.getSheet(EXCEL_TAB_NAME)
+      
+         if (TRANSPOSE && TRANSPOSE_RESULTS_TO_DB)
+            insertIntoTable sheet, input
+         else 
+            createCsv sheet, input
+      }
+   } finally {
+      Files.move(input.toPath(), Paths.get("${ARCHIVE_FILES_DIR}/$input.name"))
    }
 }
 

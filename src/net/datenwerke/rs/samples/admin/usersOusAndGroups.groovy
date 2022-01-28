@@ -11,7 +11,7 @@ import net.datenwerke.security.service.usermanager.entities.OrganisationalUnit
 
 /**
  * usersOusAndGroups.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all users, OUs and groups and their corresponding OU and group memberships.
@@ -20,6 +20,9 @@ import net.datenwerke.security.service.usermanager.entities.OrganisationalUnit
 def cacheName = 'ousAndGroups'
 def lastCacheName = "_report_${cacheName}_last"
 def dataCacheName = "_report_${cacheName}_data"
+
+/* set same sizes for varchars as in reportserver */
+def varcharSize = 128
 
 /* check registry: we cache the report for 10 minutes */
 def last = GLOBALS.services['registry'].get(lastCacheName)
@@ -30,36 +33,28 @@ userManagerService = GLOBALS.getInstance(UserManagerService)
 historyService = GLOBALS.getInstance(HistoryService)
 
 /* prepare result */
-TableDefinition tableDefinition = new TableDefinition(
-      [
-         'USER_ID', // USER_ information for user nodes
-         'USER_FIRSTNAME',
-         'USER_LASTNAME',
-         'USERNAME',
-         'GROUP_ID', // GROUP_ information for group nodes
-         'GROUP_NAME',
-         'OU_ID', // OU_ information for OU nodes
-         'OU_NAME',
-         'CHILD_OF_OU', // the node is inside this OU
-         'CHILD_OF_OU_ID',
-         'MEMBER_OF_GROUPS' // the node is a member of these groups
-      ],
-      [
-         Long,
-         String,
-         String,
-         String,
-         Long,
-         String,
-         Long,
-         String,
-         String,
-         Long,
-         String
-      ]
-      )
+def tableDef = [
+   'USER_ID':           Long,       // USER_ information for user nodes
+   'USER_FIRSTNAME':    String,
+   'USER_LASTNAME':     String,
+   'USERNAME':          String,
+   'GROUP_ID':          Long,       // GROUP_ information for group nodes
+   'GROUP_NAME':        String,
+   'OU_ID':             Long,       // OU_ information for OU nodes
+   'OU_NAME':           String,
+   'CHILD_OF_OU':       String,     // the node is inside this OU
+   'CHILD_OF_OU_ID':    Long,
+   'MEMBER_OF_GROUPS':  String      // the node is a member of these groups
+]
 
-def result = new RSTableModel(tableDefinition)
+/* set same sizes for varchars as in reportserver */
+TableDefinition tableDefinition = new TableDefinition(
+   columnNames:     tableDef*.key,
+   columnTypes:     tableDef*.value,
+   displaySizes:    tableDef.collect{it instanceof String? varcharSize: 0}
+   )
+
+def result = new RSTableModel(tableDefinition: tableDefinition)
 
 addUsers result, tableDefinition
 addGroups result, tableDefinition
@@ -144,4 +139,4 @@ def collectOu(node) {
 GLOBALS.services['registry'].put(lastCacheName, new Date())
 GLOBALS.services['registry'].put(dataCacheName, result)
 
-return result
+result

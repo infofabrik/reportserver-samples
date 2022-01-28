@@ -18,11 +18,14 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportRights.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all reports together with all users and their rights on the corresponding report.
  */
+
+/* set same sizes for varchars as in reportserver */
+def varcharSize = 128
 
 /* check registry: we cache the report for 10 minutes */
 def cacheName = 'reportRights'
@@ -38,40 +41,30 @@ if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10
 def securityService = GLOBALS.getInstance(SecurityService)
 
 /* prepare result */
-TableDefinition tableDefinition = new TableDefinition(
-      [
-         'ID',
-         'NAME',
-         'TYPE',
-         'USER_ID',
-         'USER_FIRSTNAME',
-         'USER_LASTNAME',
-         'USERNAME',
-         'SUPER_USER',
-         'READ_RIGHT',
-         'WRITE_RIGHT',
-         'EXECUTE_RIGHT',
-         'DELETE_RIGHT',
-         'GRANT_RIGHTS'
-      ],
-      [
-         Long,
-         String,
-         String,
-         Long,
-         String,
-         String,
-         String,
-         Integer,
-         Integer,
-         Integer,
-         Integer,
-         Integer,
-         Integer
-      ]
-      )
+def tableDef = [
+   'ID':                Long,
+   'NAME':              String,
+   'TYPE':              String,
+   'USER_ID':           Long,
+   'USER_FIRSTNAME':    String,
+   'USER_LASTNAME':     String,
+   'USERNAME':          String,
+   'SUPER_USER':        Integer,
+   'READ_RIGHT':        Integer,
+   'WRITE_RIGHT':       Integer,
+   'EXECUTE_RIGHT':     Integer,
+   'DELETE_RIGHT':      Integer,
+   'GRANT_RIGHTS':      Integer
+]
 
-def result = new RSTableModel(tableDefinition)
+/* set same sizes for varchars as in reportserver */
+TableDefinition tableDefinition = new TableDefinition(
+   columnNames:     tableDef*.key,
+   columnTypes:     tableDef*.value,
+   displaySizes:    tableDef.collect{it instanceof String? varcharSize: 0}
+   )
+
+def result = new RSTableModel(tableDefinition: tableDefinition)
 
 /* loop over all reports */
 GLOBALS.getEntitiesByType(Report)
@@ -111,4 +104,4 @@ GLOBALS.getEntitiesByType(Report)
 GLOBALS.services['registry'].put(lastCacheName, new Date())
 GLOBALS.services['registry'].put(dataCacheName, result)
 
-return result
+result

@@ -13,7 +13,7 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportsInTeamspace.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Lists all reports contained in TeamSpaces and prints useful information about them.
@@ -34,58 +34,31 @@ if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10
 /* load services */
 TsDiskService tsDiskService = GLOBALS.getInstance(TsDiskService)
 
-/* prepare  result */
-TableDefinition tableDefinition = new TableDefinition(
-      [
-         'TEAMSPACE_ID',
-         'TEAMSPACE_NAME',
-         'TEAMSPACE_DESCRIPTION',
-         'REFERENCE_ID',
-         'REFERENCE_NAME',
-         'REFERENCE_PATH',
-         'REPORT_ID',
-         'REPORT_NAME',
-         'REPORT_DESCRIPTION',
-         'REPORT_TYPE',
-         'REPORT_OUTPUT_FORMAT',
-         'BASE_REPORT_ID',
-         'BASE_REPORT_NAME'
-      ],
-      [
-         Long,
-         String,
-         String,
-         Long,
-         String,
-         String,
-         Long,
-         String,
-         String,
-         String,
-         String,
-         Long,
-         String
-      ]
-      )
-
-
-tableDefinition.displaySizes = [
-   0,
-   varcharSize,
-   varcharSize,
-   0,
-   varcharSize,
-   varcharSize,
-   0,
-   varcharSize,
-   varcharSize,
-   varcharSize,
-   varcharSize,
-   0,
-   varcharSize
+/* prepare result */
+def tableDef = [
+   'TEAMSPACE_ID':              Long,
+   'TEAMSPACE_NAME':            String,
+   'TEAMSPACE_DESCRIPTION':     String,
+   'REFERENCE_ID':              Long,
+   'REFERENCE_NAME':            String,
+   'REFERENCE_PATH':            String,
+   'REPORT_ID':                 Long,
+   'REPORT_NAME':               String,
+   'REPORT_DESCRIPTION':        String,
+   'REPORT_TYPE':               String,
+   'REPORT_OUTPUT_FORMAT':      String,
+   'BASE_REPORT_ID':            Long,
+   'BASE_REPORT_NAME':          String
 ]
 
-def result = new RSTableModel(tableDefinition)
+/* set same sizes for varchars as in reportserver */
+TableDefinition tableDefinition = new TableDefinition(
+   columnNames:     tableDef*.key,
+   columnTypes:     tableDef*.value,
+   displaySizes:    tableDef.collect{it instanceof String? varcharSize: 0}
+   )
+
+def result = new RSTableModel(tableDefinition: tableDefinition)
 
 GLOBALS.getEntitiesByType(TeamSpace).each{ ts ->
    tsDiskService.getGeneralReferencesFor(ts).each{ reportRef ->
@@ -118,4 +91,4 @@ GLOBALS.getEntitiesByType(TeamSpace).each{ ts ->
 GLOBALS.services['registry'].put(lastCacheName, new Date())
 GLOBALS.services['registry'].put(dataCacheName, result)
 
-return result
+result

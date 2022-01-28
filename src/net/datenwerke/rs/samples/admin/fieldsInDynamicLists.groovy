@@ -12,7 +12,7 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * fieldsInDynamicLists.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all fields used in all dynamic lists' variants and prints useful information about them.
@@ -33,43 +33,25 @@ if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10
 /* load services */
 def reportService = GLOBALS.getInstance(ReportService.class)
 
-/* prepare  result */
-TableDefinition tableDefinition = new TableDefinition(
-      [
-         'BASE_REPORT_ID',
-         'BASE_REPORT_NAME',
-         'REPORT_ID',
-         'REPORT_NAME',
-         'COLUMN_ID',
-         'COLUMN_NAME',
-         'COLUMN_POSITION',
-         'COMPUTED_COLUMN_EXPRESSION'
-      ],
-      [
-         Long,
-         String,
-         Long,
-         String,
-         Long,
-         String,
-         Long,
-         String
-      ]
-      )
-
-/* set same sizes for varchars as in reportserver */
-tableDefinition.displaySizes = [
-   0,
-   varcharSize,
-   0,
-   varcharSize,
-   0,
-   varcharSize,
-   0,
-   varcharSize
+/* prepare result */
+def tableDef = [
+   'BASE_REPORT_ID':                Long,
+   'BASE_REPORT_NAME':              String,
+   'REPORT_ID':                     Long,
+   'REPORT_NAME':                   String,
+   'COLUMN_ID':                     Long,
+   'COLUMN_NAME':                   String,
+   'COLUMN_POSITION':               Long,
+   'COMPUTED_COLUMN_EXPRESSION':    String
 ]
 
-def result = new RSTableModel(tableDefinition)
+TableDefinition tableDefinition = new TableDefinition(
+   columnNames:     tableDef*.key, 
+   columnTypes:     tableDef*.value,
+   displaySizes:    tableDef.collect{it instanceof String? varcharSize: 0}
+   )
+
+def result = new RSTableModel(tableDefinition: tableDefinition)
 
 reportService.allReports
       .findAll{ report -> report instanceof TableReport }
@@ -92,4 +74,4 @@ reportService.allReports
 GLOBALS.services['registry'].put(lastCacheName, new Date())
 GLOBALS.services['registry'].put(dataCacheName, result)
 
-return result
+result

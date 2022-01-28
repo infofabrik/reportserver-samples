@@ -10,7 +10,7 @@ import org.apache.commons.lang3.time.DateUtils
 
 /**
  * userVariables.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all user variables with their corresponding values for each user.
@@ -21,11 +21,13 @@ def cacheName = 'userVariables'
 def lastCacheName = "_report_${cacheName}_last"
 def dataCacheName = "_report_${cacheName}_data"
 
+/* set same sizes for varchars as in reportserver */
+def varcharSize = 128
+
 /* check registry: we cache the report for 10 minutes */
 def last = GLOBALS.services['registry'].get(lastCacheName)
 if(null != last && last instanceof Date && DateUtils.addMinutes(last.clone(), 10).after(new Date()) )
    return GLOBALS.services['registry'].get(dataCacheName)
-
 
 /* load services */
 def userVarService = GLOBALS.getInstance(UserVariableService)
@@ -40,27 +42,23 @@ GLOBALS.getEntitiesByType(User).each{ user ->
 }
 
 /* prepare result */
+def tableDef = [
+   'USER_ID':           Long,
+   'USER_FIRSTNAME':    String,
+   'USER_LASTNAME':     String,
+   'USERNAME':          String,
+   'USER_VAR_TYPE':     String,
+   'USER_VAR_VALUE':    String
+]
+
+/* set same sizes for varchars as in reportserver */
 TableDefinition tableDefinition = new TableDefinition(
-      [
-         'USER_ID',
-         'USER_FIRSTNAME',
-         'USER_LASTNAME',
-         'USERNAME',
-         'USER_VAR_TYPE',
-         'USER_VAR_VALUE',
-      ],
-      [
-         Long,
-         String,
-         String,
-         String,
-         String,
-         String,
-      ]
-      )
+   columnNames:     tableDef*.key,
+   columnTypes:     tableDef*.value,
+   displaySizes:    tableDef.collect{it instanceof String? varcharSize: 0}
+   )
 
-def result = new RSTableModel(tableDefinition)
-
+def result = new RSTableModel(tableDefinition: tableDefinition)
 
 /* loop over all users and check their rights on the report */
 GLOBALS.getEntitiesByType(User).each{ user ->
@@ -86,4 +84,4 @@ GLOBALS.getEntitiesByType(User).each{ user ->
 GLOBALS.services['registry'].put(lastCacheName, new Date())
 GLOBALS.services['registry'].put(dataCacheName, result)
 
-return result
+result

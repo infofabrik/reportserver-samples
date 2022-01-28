@@ -1,16 +1,16 @@
 package net.datenwerke.rs.samples.admin
 
+import org.apache.commons.lang3.time.DateUtils
+
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableModel
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableRow
 import net.datenwerke.rs.base.service.reportengines.table.output.object.TableDefinition
 import net.datenwerke.rs.uservariables.service.uservariables.UserVariableService
 import net.datenwerke.security.service.usermanager.entities.User
 
-import org.apache.commons.lang3.time.DateUtils
-
 /**
  * userVariables.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all user variables with their corresponding values for each user.

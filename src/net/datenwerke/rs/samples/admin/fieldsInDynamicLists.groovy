@@ -1,18 +1,18 @@
 package net.datenwerke.rs.samples.admin
 
+import org.apache.commons.lang3.time.DateUtils
+
+import net.datenwerke.rs.base.service.reportengines.table.entities.ColumnReference
+import net.datenwerke.rs.base.service.reportengines.table.entities.TableReport
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableModel
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableRow
 import net.datenwerke.rs.base.service.reportengines.table.output.object.TableDefinition
-import net.datenwerke.rs.base.service.reportengines.table.entities.ColumnReference
-import net.datenwerke.rs.base.service.reportengines.table.entities.TableReport
 import net.datenwerke.rs.computedcolumns.service.computedcolumns.entities.ComputedColumn
 import net.datenwerke.rs.core.service.reportmanager.ReportService
 
-import org.apache.commons.lang3.time.DateUtils
-
 /**
  * fieldsInDynamicLists.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all fields used in all dynamic lists' variants and prints useful information about them.

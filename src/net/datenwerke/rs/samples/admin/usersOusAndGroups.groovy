@@ -1,19 +1,19 @@
 package net.datenwerke.rs.samples.admin
 
+import org.apache.commons.lang3.time.DateUtils
+
+import net.datenwerke.gf.service.history.HistoryService
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableModel
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableRow
 import net.datenwerke.rs.base.service.reportengines.table.output.object.TableDefinition
-import net.datenwerke.security.service.usermanager.entities.User
 import net.datenwerke.security.service.usermanager.UserManagerService
-import net.datenwerke.gf.service.history.HistoryService
 import net.datenwerke.security.service.usermanager.entities.Group
 import net.datenwerke.security.service.usermanager.entities.OrganisationalUnit
-
-import org.apache.commons.lang3.time.DateUtils
+import net.datenwerke.security.service.usermanager.entities.User
 
 /**
  * usersOusAndGroups.groovy
- * Version: 1.0.4
+ * Version: 1.0.5
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Shows all users, OUs and groups and their corresponding OU and group memberships.

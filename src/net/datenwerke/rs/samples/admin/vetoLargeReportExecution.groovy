@@ -1,11 +1,11 @@
-import net.datenwerke.rs.core.service.reportmanager.ReportService
 import net.datenwerke.rs.base.service.reportengines.table.TableReportUtils
-import net.datenwerke.rs.core.service.reportmanager.hooks.ReportExecutionNotificationHook
+import net.datenwerke.rs.core.service.reportmanager.ReportService
 import net.datenwerke.rs.core.service.reportmanager.exceptions.ReportExecutorException
+import net.datenwerke.rs.core.service.reportmanager.hooks.ReportExecutionNotificationHook
 
 /**
  * vetoLargeReportExecution.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Allows to veto report execution to different formats if a report has a large number of rows.

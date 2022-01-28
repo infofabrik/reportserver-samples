@@ -1,19 +1,19 @@
 package net.datenwerke.rs.samples.admin
 
+import org.apache.commons.lang3.time.DateUtils
+
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableModel
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableRow
 import net.datenwerke.rs.base.service.reportengines.table.output.object.TableDefinition
 import net.datenwerke.rs.core.service.reportmanager.interfaces.ReportVariant
+import net.datenwerke.rs.scheduleasfile.service.scheduleasfile.entities.ExecutedReportFileReference
 import net.datenwerke.rs.teamspace.service.teamspace.entities.TeamSpace
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.TsDiskService
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.entities.TsDiskReportReference
-import net.datenwerke.rs.scheduleasfile.service.scheduleasfile.entities.ExecutedReportFileReference
-
-import org.apache.commons.lang3.time.DateUtils
 
 /**
  * reportsInTeamspace.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
  * Lists all reports contained in TeamSpaces and prints useful information about them.

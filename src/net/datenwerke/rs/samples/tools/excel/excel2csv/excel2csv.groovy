@@ -12,7 +12,7 @@ import java.nio.file.Paths
 
 /**
  * excel2csv.groovy
- * Version: 2.0.1
+ * Version: 2.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Demonstrates how to read Excel files with help of Apache POI library, 
@@ -72,18 +72,19 @@ TRANSPOSE_SHIFT_LINE_IDS = true
 
 /* headers/table names in transpose mode */
 TRANSPOSE_FIELDS_DEF = [
-   TIMESTAMP: 'timestamp',
-   FILENAME: 'excel_file_name',
-   LINE_ID: 'excel_line_id',
-   COLUMN_ID: 'excel_col_id',
-   COLUMN_NAME: 'excel_column_name',
-   VALUE: 'excel_value'
+   TIMESTAMP:           'timestamp',
+   FILENAME:            'excel_file_name',
+   LINE_ID:             'excel_line_id',
+   COLUMN_ID:           'excel_col_id',
+   COLUMN_NAME:         'excel_column_name',
+   VALUE:               'excel_value'
    ]
 
 /* table settings for transposed mode */
 /* if true, saves the results into a db table instead of a file */
 TRANSPOSE_RESULTS_TO_DB = true
 
+/* the datasource id where your table resides */
 TRANSPOSE_DATASOURCE_ID = 58L
 TRANSPOSE_TABLE = 'table_name'
 
@@ -97,30 +98,21 @@ assert (new File(INPUT_FILES_DIR)).exists()
 assert (new File(OUTPUT_FILES_DIR)).exists() 
 assert (new File(ARCHIVE_FILES_DIR)).exists()
 
-// matches only Excel files
-def pattern = ~/(?ix)        # case insensitive(i), ignore space(x)
-^                           # start of line
-(\w*\s*)*                   # any number of word characters followed by any number of spaces
-\.xlsx$                     # ending .xlsx
-/
-
 numFormat = NumberFormat.getNumberInstance(LOCALE)
 numFormat.applyPattern NUMBER_FORMAT
 
 def inputDir = new File(INPUT_FILES_DIR)
-inputDir.eachFileMatch(pattern) { input -> 
-   try {
-      new XSSFWorkbook(new FileInputStream(input)).withCloseable { workbook ->
-         def sheet = workbook.getSheet(EXCEL_TAB_NAME)
-      
-         if (TRANSPOSE && TRANSPOSE_RESULTS_TO_DB)
-            insertIntoTable sheet, input
-         else 
-            createCsv sheet, input
-      }
-   } finally {
-      Files.move(input.toPath(), Paths.get("${ARCHIVE_FILES_DIR}/$input.name"))
+inputDir.eachFile{ input ->
+   if (!(input.name.endsWith('.xlsx'))) return
+   new XSSFWorkbook(new FileInputStream(input)).withCloseable { workbook ->
+      def sheet = workbook.getSheet(EXCEL_TAB_NAME)
+
+      if (TRANSPOSE && TRANSPOSE_RESULTS_TO_DB)
+         insertIntoTable sheet, input
+      else
+         createCsv sheet, input
    }
+   Files.move(input.toPath(), Paths.get("${ARCHIVE_FILES_DIR}/$input.name"))
 }
 
 def insertIntoTable(sheet, input) {
@@ -199,7 +191,6 @@ def convertCell(cell, rowVals) {
       case CellType.STRING:
          rowVals << convertTextCell(cell)
          break
-
    }
 }
 
@@ -262,7 +253,7 @@ def convertTransposeModus(sheet, input, Closure addHeaders, Closure addBody) {
             def rowVals = []
             def colIndex = cell.columnIndex
 
-            rowVals << (TRANSPOSE_RESULTS_TO_DB? new Date(): convertText((new Date()).format(DATE_FORMAT))) // TIMESTAMP
+            rowVals << convertText((new Date()).format(DATE_FORMAT)) // TIMESTAMP
                << convertText(input.name) // FILENAME
                << convertText(rowIndex) // LINE_ID
                << convertText(colIndex+1) // COLUMN_ID

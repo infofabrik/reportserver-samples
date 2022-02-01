@@ -12,7 +12,7 @@ import java.nio.file.Paths
 
 /**
  * excel2csv.groovy
- * Version: 2.0.2
+ * Version: 2.0.3
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Demonstrates how to read Excel files with help of Apache POI library, 
@@ -190,6 +190,9 @@ def convertCell(cell, rowVals) {
          break
       case CellType.STRING:
          rowVals << convertTextCell(cell)
+         break
+      case CellType.BLANK:
+         rowVals << ' '
          break
    }
 }

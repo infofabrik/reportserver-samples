@@ -9,7 +9,7 @@ import groovy.sql.InParameter
 
 /**
  * copyDbTableContents.groovy
- * Version: 1.0.2
+ * Version: 1.0.3
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Allows you to copy all contents of a given db-table into another db-table.
@@ -55,7 +55,6 @@ Date start = new Date()
 primaryKeys = primaryKeys*.toUpperCase()
 allColNames = []
 allColDataTypes = []
-insertStmt = ""
 primaryKeyIndexes = []
 logger = Logger.getLogger(getClass().name)
 
@@ -75,14 +74,16 @@ dbPoolService.getConnection(sourceDatasource.connectionConfig).get().withCloseab
       sourceSql = new Sql(sourceConn)
       destinationSql = new Sql(destinationConn)
 
-      collectMeta(sourceConn.metaData.getColumns(null, null, sourceTable, null))
+      def metaResultSet = sourceConn.metaData.getColumns(null, null, sourceTable, null)
+      readMetadata metaResultSet 
+      def insertStmt = prepareInsertStmt metaResultSet
 
       def selectStmt = "SELECT " + allColNames.join(',') + " FROM " + sourceTable
 
-      printDebugInfo(selectStmt)
+      printDebugInfo selectStmt, insertStmt
 
       destinationSql.withTransaction {
-         destinationSql.withBatch(batchSize, insertStmt as String) { stmt ->
+         destinationSql.withBatch(batchSize, insertStmt) { stmt ->
             sourceSql.eachRow(selectStmt) { row -> insertRow(row, stmt) }
          }
       }
@@ -95,23 +96,22 @@ tout.println "Completed. Total duration: $td"
 logger.log Level.INFO, "Completed. Total duration: $td"
 
 
-def collectMeta(metaResultSet) {
-   readColInfo(metaResultSet)
-   allColNames = allColNames*.toUpperCase()
+def prepareInsertStmt(metaResultSet) {
+   def insertingColNames = filterColumns allColNames
 
-   assert allColNames.containsAll(primaryKeys)
+   def insertStmt = "INSERT INTO $destinationTable ( ${insertingColNames.join(',')} ) "
+      << "values ( ${('?'*insertingColNames.size() as List).join(',')} )"
+      
+   return insertStmt as String
+}
 
-   def insertingColNames = allColNames
-   if (!copyPrimaryKeys) {
-      insertingColNames = allColNames.withIndex().findAll {
+def filterColumns(columnList) {
+   if (!copyPrimaryKeys)  {
+      // filter out all primary keys from list
+      return columnList.withIndex().findAll {
          element, index -> !primaryKeyIndexes.any{ index == it }
       }.collect{ element -> element[0] }
-   }
-
-   def placeHolders = insertingColNames.collect{'?'}
-
-   insertStmt = "INSERT INTO $destinationTable (${insertingColNames.join(',')}) "
-      << "values (${placeHolders.join(',')})"
+   } else return columnList
 }
 
 def insertRow(row, stmt) {
@@ -119,25 +119,20 @@ def insertRow(row, stmt) {
 
    def withTypes = vals.indexed().collect { idx, v ->
       [
-         getType: { -> allColDataTypes[idx] as int},
-         getValue: { -> v}
+         getType: { -> allColDataTypes[idx] as int },
+         getValue: { -> v }
       ] as InParameter
    }
    
-   if (!copyPrimaryKeys)  {
-      withTypes = withTypes.withIndex().findAll {
-         element, index -> !primaryKeyIndexes.any{ index == it }
-      }.collect{ element -> element[0] }
-   }
+   withTypes = filterColumns withTypes
    
 //   println "types: ${withTypes.collect{ it.getType().toString() } }"
 
-//   logger.log Level.FINE, "Inserting values: $vals"
+//   println "Inserting values: $vals"
    stmt.addBatch withTypes
 }
 
-def readColInfo(metaResultSet) {
-   def cols = []
+def readMetadata(metaResultSet) {
    def counter = 0
    while (metaResultSet.next()) {
       def columnName = metaResultSet.getString('COLUMN_NAME').toUpperCase()
@@ -146,7 +141,7 @@ def readColInfo(metaResultSet) {
          //primary key found
          primaryKeyIndexes << counter
       }
-      cols << columnName
+      allColNames << columnName.toUpperCase()
       
       //col type
       def dataType = metaResultSet.getString('DATA_TYPE')
@@ -155,12 +150,13 @@ def readColInfo(metaResultSet) {
       counter++
    }
    assert primaryKeyIndexes.size() == primaryKeys.size()
-   allColNames = cols
+   assert allColDataTypes.size() == allColNames.size()
+   assert allColNames.containsAll(primaryKeys)
 }
 
-def printDebugInfo(selectStmt) {
+def printDebugInfo(selectStmt, insertStmt) {
    tout.println "All colums: $allColNames"
-   tout.println  "Datatypes: $allColDataTypes"
+   tout.println "Datatypes: $allColDataTypes"
    tout.println "Indexes of primary keys: $primaryKeyIndexes"
    tout.println "SELECT statement: $selectStmt"
    tout.println "INSERT statement: $insertStmt"

@@ -2,7 +2,7 @@ import javax.net.ssl.SSLSocketFactory
 
 /**
  * sslTest.groovy
- * Version: 1.0.2
+ * Version: 1.0.3
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0-6053
  * Tests SSL. Based on SSLPoke.java: 
@@ -15,13 +15,13 @@ def port = 10636
 def sslsocketfactory = SSLSocketFactory.default
 def sslsocket = sslsocketfactory.createSocket host, port
 
-def in = sslsocket.inputStream
+def is = sslsocket.inputStream
 def out = sslsocket.outputStream
 
 // Write a test byte to get a reaction :)
 out.write 1
 
-while (in.available() > 0) 
- tout.print in.read()
+while (is.available() > 0) 
+ tout.print is.read()
   
 tout.println 'Successfully connected'

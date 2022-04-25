@@ -9,7 +9,7 @@ import net.datenwerke.dbpool.DbPoolService
 import net.datenwerke.rs.terminal.service.terminal.TerminalSession
 
 /**
- * insertFormData.groovy
+ * insertformdata.groovy
  * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6061

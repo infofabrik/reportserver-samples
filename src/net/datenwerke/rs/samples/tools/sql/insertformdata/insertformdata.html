@@ -299,25 +299,25 @@
       <script>
             //https://technotrampoline.com/articles/how-to-convert-form-data-to-json-with-jquery/
             function convertFormToJSON(form) {
-              return $(form)
-                .serializeArray()
-                .reduce(function (json, { name, value }) {
-                  json[name] = value;
-                  return json;
-                }, {});
+               return $(form)
+                  .serializeArray()
+                  .reduce(function (json, { name, value }) {
+                     json[name] = value;
+                     return json;
+                  }, {});
             }
          
             $("#contact-form").on("submit", function (e) {
-              e.preventDefault();
-              const form = $(e.target);
-              const json = JSON.stringify(convertFormToJSON(form));
+               e.preventDefault();
+               const form = $(e.target);
+               const json = JSON.stringify(convertFormToJSON(form));
               
-              var urlForData = "reportserver/scriptAccess?path=/bin/insertformdata.groovy"
-              $.post( urlForData, {args: encodeURIComponent(json)})
-                .done(function( data ) {
-                  alert( "Data saved into DB" );
-              });
-      		});
+               var urlForData = "reportserver/scriptAccess?path=/bin/insertformdata.groovy"
+               $.post( urlForData, {args: encodeURIComponent(json)})
+                  .done(function( data ) {
+                     alert( "Data saved into DB" );
+                  });
+             });
         </script>
     </body>
 </html>

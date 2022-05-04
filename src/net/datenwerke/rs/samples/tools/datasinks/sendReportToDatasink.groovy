@@ -7,7 +7,7 @@ import net.datenwerke.rs.core.service.datasinkmanager.DatasinkService
 
 /**
  * sendReportToDatasink.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6062
  * Executes a given report and exports it as PDF.
@@ -20,12 +20,6 @@ REPORT_ID = 123L
 OUTPUT_FORMAT = ReportExecutorService.OUTPUT_FORMAT_PDF
 FILE_ENDING = '.pdf'
 DATASINK_ID = 456L
-
-// email settings
-EMAIL_DATASINK = 'Default Email Datasink'
-EMAIL_ATTACHMENT_FILENAME = 'My Report'
-EMAIL_SUBJECT = 'Test Email Subject'
-EMAIL_TEXT = 'Test Email Message Body'
 
 /***********************/
 

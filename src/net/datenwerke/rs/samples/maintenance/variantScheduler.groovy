@@ -5,13 +5,14 @@ import net.datenwerke.scheduler.service.scheduler.SchedulerService
 import net.datenwerke.security.service.usermanager.UserManagerService
 import net.datenwerke.rs.emaildatasink.service.emaildatasink.action.ScheduleAsEmailFileAction
 import net.datenwerke.rs.scheduler.service.scheduler.jobs.report.ReportExecuteJob
+import net.datenwerke.rs.core.service.reportmanager.ReportExecutorService
 
 
 /**
 * variantScheduler.groovy
-* Version: 1.0.1
+* Version: 1.0.2
 * Type: Normal Script
-* Last tested with: ReportServer 4.0.0-6053
+* Last tested with: ReportServer 4.1.0-6062
 * Schedules a report via the report's ID and puts up all information necessary 
 * including an email datasink action.
 * Has to be called with -c flag to commit changes to the database.
@@ -23,7 +24,7 @@ REPORT_ID = 108285L
 DATE_EXPRESSION = 'at 01.08.2021 17:30'
 JOB_NAME = 'Test Job'
 JOB_DESCRIPTION = 'A Test Job Description'
-OUTPUT_FORMAT = 'PDF'
+OUTPUT_FORMAT = ReportExecutorService.OUTPUT_FORMAT_PDF
 OWNER_ID = 6L                       // the ID of the Owner
 EXECUTOR_ID = 6L                    // the ID of the Executor
 RECIPIENT_IDS = [6L, 7L]            // the IDs of the Recipients
@@ -54,6 +55,7 @@ def job = new ReportExecuteJob(report: report, owners: [owner] as Set,
  
 /* create a an action for the schedule, in this case an email file action */
 def emailDatasink = datasinkTreeService.getDatasinkByName(EMAIL_DATASINK)
+assert emailDatasink
 def action = new ScheduleAsEmailFileAction(emailDatasink: emailDatasink, name: EMAIL_ATTACHMENT_FILENAME,
    subject: EMAIL_SUBJECT, message: EMAIL_TEXT)
  

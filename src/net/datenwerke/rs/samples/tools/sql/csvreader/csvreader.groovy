@@ -19,7 +19,7 @@ import java.sql.Types
  * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6062
- * Reads an input csv file and writes the it into a DB table.
+ * Reads an input csv file and writes it into a DB table.
  */
 
 /**** USER SETTINGS ****/

@@ -16,7 +16,7 @@ import java.sql.Types
 
 /**
  * csvreader.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6062
  * Reads an input csv file and writes it into a DB table.
@@ -27,7 +27,7 @@ CSV_FILENAME = '/path/to/your/input.csv'
 DATE_FORMAT = 'dd.MM.yyyy'
 
 DATASOURCE_ID = 58L // the datasource where the table is found
-TABLE_NAME = 'myCsv' // the name of the table
+TABLE_NAME = 'your_table' // the name of the table where the data should be inserted to
 SQL_COLS = [
    A:       Types.INTEGER,
    B:       Types.VARCHAR,

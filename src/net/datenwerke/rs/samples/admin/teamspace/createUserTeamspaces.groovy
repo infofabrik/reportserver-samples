@@ -10,7 +10,7 @@ import net.datenwerke.security.service.usermanager.entities.UserProperty
 
 /**
  * createUserTeamspaces.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6064
  * Creates TeamSpaces for given users, sets these as default TeamSpaces for these users,
@@ -24,7 +24,7 @@ def userIds = [
    11431L
 ]
 
-def teamspacePrefix = "teamspace_"
+def teamspacePrefix = 'teamspace_'
 
 def reportIds = [
    374310L

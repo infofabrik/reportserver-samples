@@ -65,7 +65,6 @@ users.each{ user ->
    userManagerService.merge user
 
    def root = tsDiskService.getRoot teamspace
-   // import reports as reference
    reports.each{ report ->
       def reference = null
       if (!report.name && !report.description)

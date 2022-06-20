@@ -1,4 +1,4 @@
-package net.datenwerke.rs.samples.admin
+package net.datenwerke.rs.samples.admin.teamspace
 
 import org.apache.commons.lang3.time.DateUtils
 

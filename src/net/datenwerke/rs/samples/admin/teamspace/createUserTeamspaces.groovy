@@ -5,12 +5,11 @@ import net.datenwerke.security.service.usermanager.UserManagerService
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.TsDiskService
 import net.datenwerke.rs.core.service.reportmanager.ReportService
 import net.datenwerke.security.service.usermanager.UserPropertiesService
-import net.datenwerke.security.service.usermanager.entities.User
 import net.datenwerke.security.service.usermanager.entities.UserProperty
 
 /**
  * createUserTeamspaces.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6064
  * Creates TeamSpaces for given users, sets these as default TeamSpaces for these users,
@@ -27,7 +26,7 @@ def userIds = [
 def teamspacePrefix = 'teamspace_'
 
 def reportIds = [
-   374310L
+   12301L
 ]
 
 def copyReport = false

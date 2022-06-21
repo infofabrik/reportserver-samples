@@ -16,7 +16,7 @@ import net.datenwerke.rs.teamspace.service.teamspace.entities.TeamSpaceMember
 ///////////////////////////////////////////////////////////////
 
 def userIds = [
-   11431L,
+   11431L, 
    115254L
 ]
 
@@ -53,10 +53,9 @@ teamspaces.each{ teamspace ->
             teamspaceService.persist member
             teamspace.addMember member
          }
-
-         teamspaceService.merge teamspace
       }
    }
+   teamspaceService.merge teamspace
 }
 
 'Successfully added users to Teamspaces'

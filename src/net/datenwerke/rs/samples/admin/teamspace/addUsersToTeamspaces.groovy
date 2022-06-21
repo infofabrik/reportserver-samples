@@ -7,7 +7,7 @@ import net.datenwerke.rs.teamspace.service.teamspace.entities.TeamSpaceMember
 
 /**
  * addUsersToTeamspaces.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6064
  * Adds given users to given Teamspaces with a given role.

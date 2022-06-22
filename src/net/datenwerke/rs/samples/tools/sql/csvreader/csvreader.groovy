@@ -16,7 +16,7 @@ import java.sql.Types
 
 /**
  * csvreader.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6062
  * Reads an input csv file and writes it into a DB table.

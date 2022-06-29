@@ -6,7 +6,7 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
 
 /**
  * ldapUserVariableProcessorHooker.groovy
- * Version: 1.0.2
+ * Version: 1.0.3
  * Type: Hooker
  * Last tested with: ReportServer 4.0.0-6053
  *
@@ -44,7 +44,7 @@ def callback = [
                } else {
                   // create instance
                   userVarInstance = userVarDef.createVariableInstance()
-                  userVarInstance.setFolk node
+                  userVarInstance.folk = node
                   userVarService.persist userVarInstance
                }
    

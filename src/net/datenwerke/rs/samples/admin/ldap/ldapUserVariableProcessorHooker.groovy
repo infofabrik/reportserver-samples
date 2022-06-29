@@ -48,7 +48,7 @@ def callback = [
                   userVarService.persist userVarInstance
                }
    
-               userVarInstance.setValue ldapService.getStringAttribute(searchResult, ldapProp)
+               userVarInstance.value = ldapService.getStringAttribute(searchResult, ldapProp)
             }
       }
    }

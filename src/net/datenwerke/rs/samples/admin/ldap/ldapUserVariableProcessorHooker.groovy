@@ -6,7 +6,7 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
 
 /**
  * ldapUserVariableProcessorHooker.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Hooker
  * Last tested with: ReportServer 4.0.0-6053
  *

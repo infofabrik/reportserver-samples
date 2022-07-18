@@ -6,13 +6,14 @@ import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableM
 import net.datenwerke.rs.base.service.reportengines.table.output.object.RSTableRow
 import net.datenwerke.rs.base.service.reportengines.table.output.object.TableDefinition
 import net.datenwerke.rs.teamspace.service.teamspace.entities.TeamSpace
+import net.datenwerke.security.service.usermanager.entities.User
 
 /**
  * usersInTeamspace.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script datasource
  * Last tested with: ReportServer 4.0.0-6053
- * Shows all users in all teamspaces and their corresponding roles.
+ * Shows all users and groups in all teamspaces and their corresponding roles.
  */
 
 /* set same sizes for varchars as in reportserver */
@@ -33,10 +34,10 @@ def tableDef = [
    'TEAMSPACE_ID':              Long,
    'TEAMSPACE_NAME':            String,
    'TEAMSPACE_DESCRIPTION':     String,
-   'USER_ID':                   Long,
+   'FOLK_ID':                   Long,
    'USER_FIRSTNAME':            String,
    'USER_LASTNAME':             String,
-   'USERNAME':                  String,
+   'USERNAME_OR_GROUP_NAME':    String,
    'ROLE':                      String
 ]
 
@@ -57,9 +58,9 @@ GLOBALS.getEntitiesByType(TeamSpace).each { teamspace ->
          teamspace.name,
          teamspace.description,
          member.folk.id,
-         member.folk.firstname,
-         member.folk.lastname,
-         member.folk.username,
+         member.folk instanceof User? member.folk.firstname: null as String,
+         member.folk instanceof User? member.folk.lastname: null as String,
+         member.folk instanceof User? member.folk.username: member.folk.name,
          member.role as String
       ]
 

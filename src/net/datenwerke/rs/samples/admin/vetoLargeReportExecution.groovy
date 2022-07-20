@@ -5,12 +5,12 @@ import net.datenwerke.rs.core.service.reportmanager.hooks.ReportExecutionNotific
 
 /**
  * vetoLargeReportExecution.groovy
- * Version: 1.0.2
- * Type: Normal Script
+ * Version: 1.0.3
+ * Type: Hook
  * Last tested with: ReportServer 4.0.0-6053
  * Allows to veto report execution to different formats if a report has a large number of rows.
  *
- * You can put this report in onstartup.d to hook up automatically.
+ * You can place this script in onstartup.d to hook up automatically.
  */
 
 def HOOK_NAME = 'PROHIBIT_EXECUTION'

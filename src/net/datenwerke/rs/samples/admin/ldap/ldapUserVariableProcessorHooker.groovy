@@ -7,7 +7,7 @@ import net.datenwerke.rs.ldap.service.ldap.LdapService
 /**
  * ldapUserVariableProcessorHooker.groovy
  * Version: 1.0.4
- * Type: Hooker
+ * Type: Hook
  * Last tested with: ReportServer 4.0.0-6053
  *
  * Allows you to post-process LDAP users after they are imported by 

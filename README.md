@@ -9,6 +9,7 @@ The example scripts have one script type. The specific type is available in the 
 * Script report: can be used for generating reports via script. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Reporting/).
 * Script datasource: can be used for producing datasources and showing any kind of data via scripts. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Datasources/). 
 * Hooker: can be used for adapting ReportServer for your specific needs. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Tapping-into-ReportServer/). 
+* Library: can be imported into another scripts. Note that virtually all scripts can be used as a library. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Nesting-Scripts-Calling-Scripts-from-Scripts/). 
 
 Note that script reports and script datasources can be scheduled via report scheduling. Details [here](https://reportserver.net/en/guides/user/chapters/Scheduling/) and [here](https://reportserver.net/en/guides/admin/chapters/Scheduling-of-Reports/).
 

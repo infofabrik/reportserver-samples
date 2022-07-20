@@ -10,10 +10,11 @@ import net.datenwerke.rs.core.service.mail.SimpleAttachment
 
 /**
  * sendToEmail.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Hook
  * Last tested with: ReportServer 4.2.0-6066
  * Allows to add an entry to the send-to menu, sending the report via email.
+ * https://reportserver.net/en/guides/script/chapters/Send-To/
  *
  * You can place this script in onstartup.d to hook up automatically.
  */

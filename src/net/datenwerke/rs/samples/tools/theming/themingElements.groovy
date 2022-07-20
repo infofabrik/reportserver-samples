@@ -4,9 +4,9 @@ import net.datenwerke.gf.service.theme.ThemeService
 
 /**
  * themingElements.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 4.4.2.0-6066
+ * Last tested with: ReportServer 4.2.0-6066
  * Lists all available theming element groups.
  * https://reportserver.net/en/tutorials/tutorial-theming/
  */

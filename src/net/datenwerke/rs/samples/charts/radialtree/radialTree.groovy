@@ -11,7 +11,7 @@ import groovy.json.JsonBuilder
 
 /**
  * radialTree.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script report
  * Last tested with: ReportServer 4.0.0-6053
  * Visualize ReportServer entities structures as radial tree chart
@@ -139,8 +139,7 @@ def treeAsJson = new JsonBuilder(completeTree).toPrettyString()
         const node = svg.append("g")
           .selectAll("a")
           .data(root.descendants())
-          .join("a")
-            .attr("xlink:href", link == null ? null : d => link(d.data, d))
+          .join("a")            
             .attr("target", link == null ? null : linkTarget)
             .attr("transform", d => `rotate(\${d.x * 180 / Math.PI - 90}) translate(\${d.y},0)`);
       
@@ -169,7 +168,6 @@ def treeAsJson = new JsonBuilder(completeTree).toPrettyString()
     var svg = Tree(${treeAsJson}, {
           label: d => d.name,
           title: (d, n) => `\${n.ancestors().reverse().map(d => d.data.name).join(".")}`, // hover text
-          link: (d, n) => `https://github.com/prefuse/Flare/\${n.children ? "tree" : "blob"}/master/flare/src/\${n.ancestors().reverse().map(d => d.data.name).join("/")}\${n.children ? "" : ".as"}`,
           width: ${chartWidth},
           height: ${chartHeight},
           margin: 100
@@ -184,7 +182,6 @@ def treeAsJson = new JsonBuilder(completeTree).toPrettyString()
 def addChildrenToMap(List<AbstractFileServerNode> children) {
   def childmaps = []
   children
-    .stream()
     .each{
        if(it.children.isEmpty()) {
           childmaps.add(['name' : it.name])

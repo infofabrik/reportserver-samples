@@ -11,9 +11,9 @@ import groovy.json.JsonBuilder
 
 /**
  * radialTree.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script report
- * Last tested with: ReportServer 4.0.0-6053
+ * Last tested with: ReportServer 4.2.0-6066
  * Visualize ReportServer entities structures as radial tree chart
  *
  * Necessary for installation:
@@ -37,6 +37,7 @@ Map allTreeDbServices       =[ 'Dashboard Manager':     GLOBALS.getInstance(Dash
                                'User Manager':          GLOBALS.getInstance(UserManagerService)]
 
 /* --------config---------*/
+/* Depending on your data, you may have to adjust the height/width to let the chart have more space. */
 def chartHeight = 800
 def chartWidth = 1800
 

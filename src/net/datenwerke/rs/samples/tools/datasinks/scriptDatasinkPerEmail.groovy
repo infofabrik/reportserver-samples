@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 
 /**
  * scriptDatasinkPerEmail.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Script datasink
  * Last tested with: ReportServer 4.3.0
  * Sends a given report/given files per email
@@ -31,21 +31,19 @@ def content = "ReportServer script datasink ${LocalDateTime.now()}"
 // name of the zip
 def attachmentFilename = 'data.zip'
 
-
 def attachments = [
-   new SimpleAttachment(data,
+   new SimpleAttachment(data, // you can also use report
    mimeUtils.getMimeTypeByExtension(datasinkConfiguration.filename),
    datasinkConfiguration.filename),
-   new SimpleAttachment(script.data, script.contentType, script.name)
+   // add the script
+   new SimpleAttachment(script.data, script.contentType, script.name) 
 ]
 
 def mail = mailBuilder.create(
       subject,
       content,
-      to.collect{userId ->
-         userService.getNodeById(userId)
-      }
-      ).withAttachments(attachments)
+      to.collect{userId -> userService.getNodeById(userId)})
+      .withAttachments(attachments)
       .withZippedAttachments(attachmentFilename)
       .build()
 

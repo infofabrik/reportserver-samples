@@ -11,12 +11,11 @@ import java.time.LocalDateTime
 
 /**
  * scriptDatasinkPerEmail.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script datasink
  * Last tested with: ReportServer 4.3.0
  * Sends a given report/given files per email
  * and includes the script groovy file in the ZIP.
- * Finally, sends the PDF to a given datasink.
  */
 
 def mailBuilder = GLOBALS.getInstance(MailBuilderFactory)

@@ -7,11 +7,12 @@ import net.datenwerke.rs.fileserver.service.fileserver.FileServerService
 import net.datenwerke.rs.fileserver.service.fileserver.entities.AbstractFileServerNode
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.TsDiskService
 import net.datenwerke.security.service.usermanager.UserManagerService
+import net.datenwerke.rs.tsreportarea.service.tsreportarea.entities.TsDiskRoot
 import groovy.json.JsonBuilder
 
 /**
  * radialTree.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Script report
  * Last tested with: ReportServer 4.2.0-6066
  * Visualize ReportServer entities structures as radial tree chart
@@ -48,12 +49,22 @@ int chartWidth = parameterMap.chartWidth? parameterMap.chartWidth as Integer : 1
 
 
 /* --------script---------*/
-def choosenTreeDbService = parameterMap['treeDbService']
-assert choosenTreeDbService && allTreeDbServices.keySet().contains(choosenTreeDbService) : "Invalid text paramenter value treeDbService: ${parameterMap}"
+def choosenTreeDbServiceInput = parameterMap['treeDbService']
+assert choosenTreeDbServiceInput && allTreeDbServices.keySet().contains(choosenTreeDbServiceInput) : "Invalid text paramenter value treeDbService: ${parameterMap}"
+def choosenTreeDbService = allTreeDbServices[choosenTreeDbServiceInput]
 
 Map completeTree = [:]
-completeTree.name = choosenTreeDbService
-completeTree.children = addChildrenToMap(allTreeDbServices[choosenTreeDbService].roots[0].children)
+completeTree.name = choosenTreeDbServiceInput
+boolean skipRootElement = choosenTreeDbService.roots.size() <=1
+
+if(choosenTreeDbService instanceof TsDiskService){
+  completeTree.children = addChildrenToMapTeamSpace(choosenTreeDbService.roots)
+} else if (skipRootElement) {
+  completeTree.children = addChildrenToMap(choosenTreeDbService.roots[0].children)  
+} else {
+  completeTree.children = addChildrenToMap(choosenTreeDbService.roots)
+}
+
 def treeAsJson = new JsonBuilder(completeTree).toPrettyString()
                            
 """
@@ -193,6 +204,21 @@ def addChildrenToMap(List<AbstractFileServerNode> children) {
           childmaps.add(['name' : it.name])
        } else {
           childmaps.add(['name' : it.name, 'children' : addChildrenToMap(it.children)])
+       }
+    }
+  return childmaps
+}
+
+def addChildrenToMapTeamSpace(List<AbstractFileServerNode> children) {
+  def childmaps = []
+  def name = ""
+  children
+    .each{
+       name = it instanceof TsDiskRoot? it.teamSpace.name : it.name
+       if(it.children.isEmpty()) {
+          childmaps.add(['name' : name])
+       } else {
+          childmaps.add(['name' : name, 'children' : addChildrenToMap(it.children)])
        }
     }
   return childmaps

@@ -11,7 +11,7 @@ import groovy.json.JsonBuilder
 
 /**
  * radialTree.groovy
- * Version: 1.0.2
+ * Version: 1.0.3
  * Type: Script report
  * Last tested with: ReportServer 4.2.0-6066
  * Visualize ReportServer entities structures as radial tree chart

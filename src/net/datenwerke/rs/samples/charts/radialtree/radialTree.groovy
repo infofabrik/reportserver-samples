@@ -18,7 +18,13 @@ import groovy.json.JsonBuilder
  *
  * Necessary for installation:
  * <ul>
- * <li>Script report containing text parameter "treeDbService" || for all possible entity types see allTreeDbServices below</li>
+ * <li>Script report containing parameter "treeDbService" || for all possible entity types see allTreeDbServices below</li>
+ * </ul>
+ * 
+ * Optional configuration:
+ * <ul>
+ * <li>Script report parameter chartHeight || requires an integer</li>
+ * <li>Script report parameter chartWidth || requires an integer</li>
  * </ul>
  *
  * Output for report parameter's value ('File Server'):
@@ -37,9 +43,8 @@ Map allTreeDbServices       =[ 'Dashboard Manager':     GLOBALS.getInstance(Dash
                                'User Manager':          GLOBALS.getInstance(UserManagerService)]
 
 /* --------config---------*/
-/* Depending on your data, you may have to adjust the height/width to let the chart have more space. */
-def chartHeight = 800
-def chartWidth = 1800
+int chartHeight = parameterMap.chartHeight? parameterMap.chartHeight as Integer : 1000 //default value
+int chartWidth = parameterMap.chartWidth? parameterMap.chartWidth as Integer : 1800 //default value
 
 
 /* --------script---------*/

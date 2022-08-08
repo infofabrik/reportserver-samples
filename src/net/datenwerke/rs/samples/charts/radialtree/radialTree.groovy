@@ -12,7 +12,7 @@ import groovy.json.JsonBuilder
 
 /**
  * radialTree.groovy
- * Version: 1.0.4
+ * Version: 1.0.5
  * Type: Script report
  * Last tested with: ReportServer 4.2.0-6066
  * Visualize ReportServer entities structures as radial tree chart
@@ -34,14 +34,13 @@ import groovy.json.JsonBuilder
  * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialtree-html-output.html
  */
 
-Map allTreeDbServices       =[ 'Dashboard Manager':     GLOBALS.getInstance(DashboardManagerService),
-                               'Dashboard':             GLOBALS.getInstance(DashboardService),
-                               'Datasink':              GLOBALS.getInstance(DatasinkTreeService),
-                               'Datasource':            GLOBALS.getInstance(DatasourceService),
-                               'File Server':           GLOBALS.getInstance(FileServerService),
-                               'Report':                GLOBALS.getInstance(ReportService),
-                               'Ts Disk':               GLOBALS.getInstance(TsDiskService),
-                               'User Manager':          GLOBALS.getInstance(UserManagerService)]
+Map allTreeDbServices       =[ 'Dashboards':             GLOBALS.getInstance(DashboardService),
+                               'Datasinks':              GLOBALS.getInstance(DatasinkTreeService),
+                               'Datasources':            GLOBALS.getInstance(DatasourceService),
+                               'Files':           GLOBALS.getInstance(FileServerService),
+                               'Reports':                GLOBALS.getInstance(ReportService),
+                               'TeamSpaces':               GLOBALS.getInstance(TsDiskService),
+                               'Users':          GLOBALS.getInstance(UserManagerService)]
 
 /* --------config---------*/
 int chartHeight = parameterMap.chartHeight? parameterMap.chartHeight as Integer : 1000 //default value

@@ -34,12 +34,12 @@ import groovy.json.JsonBuilder
  * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialtree-html-output.html
  */
 
-Map allTreeDbServices       =[ 'Dashboards':             GLOBALS.getInstance(DashboardService),
-                               'Datasinks':              GLOBALS.getInstance(DatasinkTreeService),
-                               'Datasources':            GLOBALS.getInstance(DatasourceService),
-                               'Files':           GLOBALS.getInstance(FileServerService),
-                               'Reports':                GLOBALS.getInstance(ReportService),
-                               'TeamSpaces':               GLOBALS.getInstance(TsDiskService),
+Map allTreeDbServices       =[ 'Dashboards':     GLOBALS.getInstance(DashboardService),
+                               'Datasinks':      GLOBALS.getInstance(DatasinkTreeService),
+                               'Datasources':    GLOBALS.getInstance(DatasourceService),
+                               'Files':          GLOBALS.getInstance(FileServerService),
+                               'Reports':        GLOBALS.getInstance(ReportService),
+                               'Teamspaces':     GLOBALS.getInstance(TsDiskService),
                                'Users':          GLOBALS.getInstance(UserManagerService)]
 
 /* --------config---------*/

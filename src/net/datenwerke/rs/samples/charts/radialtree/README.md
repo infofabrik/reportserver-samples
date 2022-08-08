@@ -1,15 +1,14 @@
 # Visualize ReportServer Datastructures with Radial Tree and ScriptReports
 
 With the Script [radialTree.groovy](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialTree.groovy)
-you are able to visualize the underlying tree structure of the following services:
-* DashboardManagerService
-* DashboardService
-* DatasinkTreeService
-* DatasourceService
-* FileServerService
-* ReportService
-* TsDiskService
-* UserManagerService
+you are able to visualize the underlying tree structure of the following entities:
+* Dashboards
+* Datasinks
+* Datasources
+* Files
+* Reports
+* Teamspaces
+* Users
 
 ## Preview
 ![An example file server](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialtree-output.png)

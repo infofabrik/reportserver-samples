@@ -12,11 +12,11 @@ you are able to visualize the underlying tree structure of the following service
 * UserManagerService
 
 ## Preview
-![An example file server](https://github.com/infofabrik/reportserver-samples/blob/adrian1703-radialTree-1.0.3/src/net/datenwerke/rs/samples/charts/radialtree/radialtree-output.png)
+![An example file server](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialtree-output.png)
 
 ## Installing Radial Tree as ScriptReport
 
-1. Download and import [radialTree.groovy](https://github.com/infofabrik/reportserver-samples/blob/adrian1703-radialTree-1.0.3/src/net/datenwerke/rs/samples/charts/radialtree/radialTree.groovy)
+1. Download and import [radialTree.groovy](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialTree.groovy)
 into your ReportServer filesystem
 2. Create a new ScriptReport and set the downloaded groovy file as 'Script' source
 3. Configure parameters: the script has the following parameters:
@@ -24,7 +24,7 @@ into your ReportServer filesystem
     * optional: *chartHeight* 
     * optional: *chartWidth* 
 ### Parameter treeDbService
-For ease of configuration you may configure the key **treeDbService** as an ScriptParamter with [treeDbServiceSelector_scriptParameter.html](https://github.com/infofabrik/reportserver-samples/blob/adrian1703-radialTree-1.0.3/src/net/datenwerke/rs/samples/charts/radialtree/treeDbServiceSelector_scriptParameter.html)
+For ease of configuration you may configure the key **treeDbService** as an ScriptParamter with [treeDbServiceSelector_scriptParameter.html](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/treeDbServiceSelector_scriptParameter.html)
 as its source: 
 
 ![image](https://user-images.githubusercontent.com/65605180/183250844-8e75ad14-0f0c-402e-ab9e-30514c4b4ce7.png)

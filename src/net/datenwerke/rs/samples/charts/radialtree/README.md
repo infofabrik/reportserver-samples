@@ -1,6 +1,6 @@
 # Visualize ReportServer Datastructures with Radial Tree and ScriptReports
 
-With the Script [radialTree.groovy](https://github.com/infofabrik/reportserver-samples/blob/adrian1703-radialTree-1.0.3/src/net/datenwerke/rs/samples/charts/radialtree/radialTree.groovy)
+With the Script [radialTree.groovy](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialTree.groovy)
 you are able to visualize the underlying tree structure of the following services:
 * DashboardManagerService
 * DashboardService

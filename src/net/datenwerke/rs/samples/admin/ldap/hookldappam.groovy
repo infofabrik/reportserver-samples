@@ -158,6 +158,6 @@ public class LdapAuthenticator {
       String origin = user.origin
 
       int i = user.origin.lastIndexOf('/')
-      return origin[(i + 1)..origin.size()-1]
+      return origin[(i + 1)..(origin.size()-1)]
    }
 }

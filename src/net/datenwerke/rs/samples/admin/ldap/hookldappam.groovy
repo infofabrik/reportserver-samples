@@ -19,6 +19,16 @@ import net.datenwerke.security.service.usermanager.entities.User
 
 import com.google.inject.Inject
 
+/**
+ * hookldappam.groovy
+ * Version: 1.0.1
+ * Type: Hook
+ * Last tested with: ReportServer 4.2.0-6070
+ * Allows LDAP users to login into ReportServer
+ *
+ * You can place this script in onstartup.d to hook up automatically.
+ */
+
 /* If true, RS users are allowed alongside LDAP users. If false, only LDAP users are allowed. */
 def ALLOW_LOCAL_USERS = true
 

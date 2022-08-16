@@ -21,10 +21,13 @@ import com.google.inject.Inject
 
 /**
  * hookldappam.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Hook
  * Last tested with: ReportServer 4.2.0-6070
- * Allows LDAP users to login into ReportServer
+ * Allows LDAP users to login into ReportServer.
+ * 
+ * Note that as of ReportServer 4.3.0, this is supported out-of-the-box,
+ * so you don't have to use this script manually.
  *
  * You can place this script in onstartup.d to hook up automatically.
  */

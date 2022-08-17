@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: ui/theme.cf
+ 
+ Allows to adapt the look and feel of ReportServer
+ This file is only active in ReportServer Enterprise Edition 
+-->
+<configuration>
+  <theme type="default">
+    <header>
+    	<height>40</height>
+    </header>
+    <logo>
+      <login>
+	      <html><![CDATA[<span class="rs-login-logo"><i class="icon-rs-logo"></i></span><span class="rs-login-edition">Enterprise Edition</span><span class="rs-login-bg"><i class="icon-rs-logo-square"></i></span>]]></html>
+    	  <width>200px</width>
+      </login>
+      <header>
+          <html><![CDATA[<span class="rs-header-logo"><i class="icon-rs-Report"></i><i class="icon-rs-Server"></i></span>]]></html>
+    	  <width>185px</width>
+      </header>
+      <!--<report>Some URI pointing to a Logo for use in internal reporting.</report> -->
+    </logo>
+    
+    <colors>
+      <color name="white" color="#FFFFFF"/> 
+      <color name="black" color="#000000"/>       
+      <color name="black-almost" color="#132834"/>             
+
+      <color name="purple-dark" color="#3E4059"/> 
+      <color name="purple-light" color="#DFE0EB"/>       
+      
+      <color name="gray-light" color="#EEEEEE"/>
+      <color name="gray-dark" color="#B8BDC0"/>      
+      <color name="gray-very-dark" color="#6D708B"/>
+      
+      <color name="terminal-green" color="#00B000"/>             
+    </colors>
+    
+    <colorMapping>
+      <map useFor="bg" colorRef="gray-dark"/>
+      <map useFor="bg.text" colorRef="black"/>
+      
+      <map useFor="bg.light" colorRef="white"/>
+      <map useFor="light.text" colorRef="black"/>
+      
+      <map useFor="bg.shaded" colorRef="gray-light"/>
+      <map useFor="shaded.text" color="#666666"/>
+      
+      <map useFor="hl.dark.bg" colorRef="purple-dark"/>
+      <map useFor="hl.dark.text" colorRef="white"/>
+
+	  <map useFor="hl.light.bg" colorRef="purple-light"/>
+      <map useFor="hl.light.text" colorRef="black"/>
+            
+      <map useFor="header.bg" colorRef="black-almost"/>
+      <map useFor="header.text.active" colorRef="white"/>
+      <map useFor="header.text.inactive" color="#BBBBBB"/>
+	  <map useFor="header.text.right" color="#BBBBBB"/>      
+
+      <map useFor="terminal.bg" colorRef="black"/>
+      <map useFor="terminal.text" colorRef="terminal-green"/>
+      <map useFor="terminal.hl.bg" colorRef="gray-very-dark"/>      
+ 	  <map useFor="terminal.link" colorRef="white"/>      
+
+      <map useFor="border.light" colorRef="gray-dark"/>
+
+      <map useFor="tbar.btn.bg" colorRef="gray-dark"/>
+      
+      <map useFor="icon.light" color="#999999"/>      
+
+    </colorMapping>
+    
+    <css>
+      .icon-rs-Report {
+        color: #FFF !important;
+      }
+    </css>
+  </theme>
+</configuration>

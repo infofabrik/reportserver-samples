@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <pdf>
+      <fontDirectories registerDefaultDirectories="false">
+      	<!--
+      	  <dir>PathToFontDirectory</dir>
+      	  <dir>PathToFontDirectory</dir>
+      	-->
+      </fontDirectories>
+      <!--
+      <fonts>
+      	<font>
+      		<path></path>
+      		<encoding></encoding>
+      		<embed></embed>
+  		</font>
+  		<font>
+      		<path></path>
+      		<encoding></encoding>
+      		<embed></embed>
+  		</font> 
+      </fonts>
+  	  -->      
+   </pdf>
+</configuration>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: sso/ldap.cf
+ 
+ Configures LDAP
+-->
+<configuration>
+  <provider>
+     <host>directory.example.com</host>
+     <port>389</port>
+  </provider>
+  <security>
+    <!-- 
+    Allowed values are: none/starttls/ssl
+    Recommended is starttls.
+    -->
+    <encryption>none</encryption>
+    <principal>CN=ldaptest,CN=Users,DC=directory,DC=example,DC=com</principal>
+    <credentials>password</credentials>
+  </security>
+  <base>OU=EXAMPLE,DC=directory,DC=example,DC=com</base>
+  <filter>(|(objectClass=organizationalUnit)(objectClass=user)(objectClass=group))</filter>
+  <externalDir>/usermanager/external</externalDir>
+  <writeProtection>true</writeProtection>
+  <includeNamespace>false</includeNamespace>
+  <logResultingTree>false</logResultingTree>
+  <attributes>
+    <objectClass>objectClass</objectClass>
+    <guid>entryUUID</guid>
+    <organizationalUnit>
+      <objectClass>organizationalUnit</objectClass>
+      <name>name</name>
+    </organizationalUnit>
+    <group>
+      <objectClass>group</objectClass>
+      <name>name</name>
+      <member>member</member>
+    </group>
+    <user>
+      <objectClass>inetOrgPerson</objectClass>
+      <firstname>givenName</firstname>
+      <lastname>sn</lastname>
+      <username>sAMAccountName</username>
+      <mail>mail</mail>
+    </user>
+    <additional>
+    	<!-- 
+    	You can request additional attributes including them here as:
+    	<attribute>myAttribute1</attribute>
+    	<attribute>myAttribute2</attribute>
+    	-->
+    </additional>
+  </attributes>
+</configuration>

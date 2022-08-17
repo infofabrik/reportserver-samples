@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <cryptocredentials>
+     <!--
+      <provider type="signature">
+         <class>net.datenwerke.rs.incubator.service.crypto.FileServerKeyStoreKryptoCredentialProvider</class>
+         <alias>rs</alias>
+         <secret>secret</secret>
+         <type>jks</type>
+         <location>/fileserver/keystore.jks</location>
+      </provider>
+      <provider type="sftp">
+         <class>net.datenwerke.rs.incubator.service.crypto.FileServerKeyStoreKryptoCredentialProvider</class>
+         <alias/>
+         <secret/>
+         <type/>
+         <location/>
+      </provider>
+      <provider type="user">
+         <class>net.datenwerke.rs.incubator.service.crypto.FileServerKeyStoreKryptoCredentialProvider</class>
+         <alias>rs</alias>
+         <secret>secret</secret>
+         <type>jks</type>
+         <location>/fileserver/keystore-usr.jks</location>
+      </provider>
+      -->
+  </cryptocredentials>
+   <pbe>
+      <salt>The salt to be used for encryption. This should simply be a long string.</salt>
+      <passphrase>The Passphrase</passphrase>
+      <keylength>128</keylength>
+   </pbe>
+   <hmac>
+      <passphrase>This is the Passphrase used to compute the HMAC key for reportServer passwords.</passphrase>
+   </hmac>
+</configuration>

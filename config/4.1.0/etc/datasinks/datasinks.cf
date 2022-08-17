@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasinks/datasinks.cf
+ 
+ Configures datasinks including default datasinks for each datasink type.
+ You can select the default datasink by name:
+ <defaultDatasinkName>Default Datasink</defaultDatasinkName>
+ or by id:
+ <defaultDatasinkId>14</defaultDatasinkId>
+-->
+<configuration>
+  <email disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Email Datasink</defaultDatasinkName>
+  </email>
+  <tabledatasink disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Table Datasink</defaultDatasinkName>
+  </tabledatasink>
+  <sftp disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default SFTP Datasink</defaultDatasinkName>
+  </sftp>
+  <ftps disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default FTPS Datasink</defaultDatasinkName>
+  </ftps>
+  <ftp disabled="false" supportsScheduling="true" >
+    <defaultDatasinkName>Default FTP Datasink</defaultDatasinkName>
+  </ftp>
+  <samba disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Samba Datasink</defaultDatasinkName>
+  </samba>
+  <scp disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default SCP Datasink</defaultDatasinkName>
+  </scp>
+  <localfilesystem disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Local FileSystem Datasink</defaultDatasinkName>
+  </localfilesystem>
+  <dropbox disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Dropbox Datasink</defaultDatasinkName>
+  </dropbox>
+  <onedrive disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default OneDrive - SharePoint O365 Datasink</defaultDatasinkName>
+  </onedrive>
+  <googledrive disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Google Drive Datasink</defaultDatasinkName>
+  </googledrive>
+  <amazons3 disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default S3 Datasink</defaultDatasinkName>
+  </amazons3>
+  <box disabled="false" supportsScheduling="true">
+    <defaultDatasinkName>Default Box Datasink</defaultDatasinkName>
+  </box>
+</configuration>

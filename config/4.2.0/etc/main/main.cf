@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <install>
+      <basedata>true</basedata>
+   </install>
+   <default>
+      <charset>UTF-8</charset>
+   </default>
+   <tempdir>tempdir</tempdir>
+   <!-- Explicitly sets the log directory path. Default uses catalina.home path.
+   <logdir>logdir</logdir>
+   -->
+   <tempfile>
+      <lifetime>3600</lifetime>
+   </tempfile>
+   <maintenance>
+      <tasks>
+         <interval>600000</interval>
+      </tasks>
+   </maintenance>
+   <search>
+      <timeout>5000</timeout>
+   </search>
+   <pagetitle>ReportServer</pagetitle>
+   <scheduler>
+     <email>
+       <defaultcompression>false</defaultcompression>
+     </email>
+   </scheduler>
+</configuration>

@@ -23,15 +23,36 @@ into your ReportServer filesystem
     * optional: *chartHeight* 
     * optional: *chartWidth* 
 ### Parameter treeDbService
-For ease of configuration you may configure the key **treeDbService** as an ScriptParamter with [treeDbServiceSelector_scriptParameter.html](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/treeDbServiceSelector_scriptParameter.html)
-as its source: 
+For ease of configuration you may configure the key **treeDbService** as a Datasource parameter.
+![image](https://user-images.githubusercontent.com/65605180/186396964-e37e92f5-7905-4899-a894-f24972b97de7.png)
 
-![image](https://user-images.githubusercontent.com/65605180/183521582-47fc0656-ade6-46db-9d80-aabd49970c7d.png)
-![image](https://user-images.githubusercontent.com/65605180/183250885-d349571a-f979-42cc-a1dd-6e08685b13a6.png)
+
+For its source use a CSV List datasource with the connector: *Arguement Connector*
+![image](https://user-images.githubusercontent.com/65605180/186397830-d5f767e4-0ec0-41ee-a5a7-cc570a385f9d.png)
+
+Fill the parameter data with the following:
+```
+VALUE;DISPLAY
+Dashboards;Dashboards
+Datasinks;Datasinks
+Datasources;Datasources
+Files;Files
+Reports;Reports
+Teamspaces;Teamspaces
+Users;Users
+Everything;Everything
+```
+![image](https://user-images.githubusercontent.com/65605180/186398550-6a780d8e-dd08-4a69-b5c2-65cfab43248c.png)
+
+Finally configure the *Selection mode*, *Selection style* and *Datatype* as the following:
+![image](https://user-images.githubusercontent.com/65605180/186398860-c5112a5b-1567-4c35-aa36-88fb4679e6e5.png)
+
+
+
 
 This will allow you to choose from a drop down list the item you wish to select:
 
-![image](https://user-images.githubusercontent.com/65605180/183521818-c5eefc2f-ad55-48c0-9a79-23e52d8f2867.png)
+![image](https://user-images.githubusercontent.com/65605180/186399121-4a06a753-d139-45f9-8772-5b0537cc98c6.png)
 
 
 ### Parameter chartHeight and chartWidth

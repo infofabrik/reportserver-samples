@@ -1,14 +1,13 @@
+import groovy.json.JsonBuilder
 import net.datenwerke.rs.core.service.datasinkmanager.DatasinkTreeService
 import net.datenwerke.rs.core.service.datasourcemanager.DatasourceService
 import net.datenwerke.rs.core.service.reportmanager.ReportService
-import net.datenwerke.rs.dashboard.service.dashboard.DashboardManagerService
 import net.datenwerke.rs.dashboard.service.dashboard.DashboardService
 import net.datenwerke.rs.fileserver.service.fileserver.FileServerService
 import net.datenwerke.rs.fileserver.service.fileserver.entities.AbstractFileServerNode
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.TsDiskService
-import net.datenwerke.security.service.usermanager.UserManagerService
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.entities.TsDiskRoot
-import groovy.json.JsonBuilder
+import net.datenwerke.security.service.usermanager.UserManagerService
 
 /**
  * radialTree.groovy
@@ -49,19 +48,17 @@ int chartWidth = parameterMap.chartWidth? parameterMap.chartWidth as Integer : 1
 
 /* --------script---------*/
 def choosenTreeDbServiceInput = parameterMap['treeDbService']
-assert choosenTreeDbServiceInput && allTreeDbServices.keySet().contains(choosenTreeDbServiceInput) : "Invalid text paramenter value treeDbService: ${parameterMap}"
-def choosenTreeDbService = allTreeDbServices[choosenTreeDbServiceInput]
+boolean everythingSelected  = choosenTreeDbServiceInput.equals('Everything')
+//validate input of treeDbService
+assert choosenTreeDbServiceInput && (allTreeDbServices.keySet().contains(choosenTreeDbServiceInput)) || everythingSelected : "Invalid text paramenter value treeDbService: ${parameterMap}"
 
 Map completeTree = [:]
-completeTree.name = choosenTreeDbServiceInput
-boolean skipRootElement = choosenTreeDbService.roots.size() <=1
-
-if(choosenTreeDbService instanceof TsDiskService){
-  completeTree.children = addChildrenToMapTeamSpace(choosenTreeDbService.roots)
-} else if (skipRootElement) {
-  completeTree.children = addChildrenToMap(choosenTreeDbService.roots[0].children)  
+if(everythingSelected) {
+   completeTree.name = ''
+   completeTree.children = 
+      allTreeDbServices.keySet().stream().map{service -> getMapForTreeDbService(service, allTreeDbServices[service])}.toList()
 } else {
-  completeTree.children = addChildrenToMap(choosenTreeDbService.roots)
+   completeTree  = getMapForTreeDbService(choosenTreeDbServiceInput, allTreeDbServices[choosenTreeDbServiceInput])
 }
 
 def treeAsJson = new JsonBuilder(completeTree).toPrettyString()
@@ -197,19 +194,6 @@ def treeAsJson = new JsonBuilder(completeTree).toPrettyString()
 
 def addChildrenToMap(List<AbstractFileServerNode> children) {
   def childmaps = []
-  children
-    .each{
-       if(it.children.isEmpty()) {
-          childmaps.add(['name' : it.name])
-       } else {
-          childmaps.add(['name' : it.name, 'children' : addChildrenToMap(it.children)])
-       }
-    }
-  return childmaps
-}
-
-def addChildrenToMapTeamSpace(List<AbstractFileServerNode> children) {
-  def childmaps = []
   def name = ""
   children
     .each{
@@ -221,5 +205,20 @@ def addChildrenToMapTeamSpace(List<AbstractFileServerNode> children) {
        }
     }
   return childmaps
+}
+
+def getMapForTreeDbService(String serviceName, def service) {
+   Map tree = [:]
+   tree.name = serviceName
+   boolean skipRootElement = service.roots.size() <=1
+   
+   if(service instanceof TsDiskService){
+     tree.children = addChildrenToMap(service.roots)
+   } else if (skipRootElement) {
+     tree.children = addChildrenToMap(service.roots[0].children)
+   } else {
+     tree.children = addChildrenToMap(service.roots)
+   }
+   return tree
 }
 

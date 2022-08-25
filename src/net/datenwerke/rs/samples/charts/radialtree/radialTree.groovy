@@ -1,3 +1,5 @@
+package net.datenwerke.rs.samples.charts.radialtree
+
 import groovy.json.JsonBuilder
 import net.datenwerke.rs.core.service.datasinkmanager.DatasinkTreeService
 import net.datenwerke.rs.core.service.datasourcemanager.DatasourceService

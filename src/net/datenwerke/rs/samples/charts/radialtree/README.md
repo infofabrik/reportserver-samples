@@ -16,7 +16,7 @@ you are able to visualize the underlying tree structure of the following entitie
 ## Installing Radial Tree as ScriptReport
 
 1. Download and import [radialTree.groovy](https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/radialtree/radialTree.groovy)
-into your ReportServer filesystem
+into your ReportServer filesystem. Remember scripts have to be placed inside of your bin directory.
 2. Create a new ScriptReport and set the downloaded groovy file as 'Script' source
 3. Configure parameters: the script has the following parameters:
     * mandatory: **treeDbService**

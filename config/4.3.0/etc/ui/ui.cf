@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: ui/ui.cf
+
+-->
+<configuration>
+  <contexthelp enable="false"/>
+  <warnonexit>true</warnonexit>
+  <useReportServerHtml>false</useReportServerHtml>
+  <popupDownloadMethod>false</popupDownloadMethod>
+  <exportReportsInline>false</exportReportsInline>
+  <mandatoryParameterPrefix></mandatoryParameterPrefix>
+  <mandatoryParameterSuffix></mandatoryParameterSuffix>
+  <optionalParameterPrefix></optionalParameterPrefix>
+  <optionalParameterSuffix></optionalParameterSuffix>
+</configuration>

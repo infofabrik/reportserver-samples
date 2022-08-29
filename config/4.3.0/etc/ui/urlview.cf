@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: ui/urlview.cf
+
+-->
+<configuration>
+   <adminviews>
+      <!--<view>
+         <types>net.datenwerke.rs.core.client.reportmanager.dto.reports.ReportDto/types>
+         <name>Some URL in a Tab</name>
+		 <url>/reportserver/foobar/id=${id}&amp;type=${type}</url>
+	 </view>-->
+   </adminviews>
+   <objectinfo>
+     <view>
+       <types>net.datenwerke.rs.tsreportarea.client.tsreportarea.dto.TsDiskReportReferenceDto</types>
+       <name>${msgs['net.datenwerke.rs.core.service.urlview.locale.UrlViewMessages']['info']}</name>
+       <url>rs:reportdoc://${reportId}/${id}</url>
+     </view>   
+     <view>
+      <types>net.datenwerke.rs.tsreportarea.client.tsreportarea.dto.TsDiskReportReferenceDto</types>
+      <name>${msgs['net.datenwerke.rs.core.service.urlview.locale.UrlViewMessages']['history']}</name>
+      <url>rs:revisions://${reportId}</url>
+     </view>
+	 <view>
+      <types>net.datenwerke.rs.tsreportarea.client.tsreportarea.dto.TsDiskReportReferenceDto</types>
+      <name>${msgs['net.datenwerke.rs.core.service.urlview.locale.UrlViewMessages']['preview']}</name>
+      <url>rs:reportpreview://${reportId}</url>
+     </view>
+   </objectinfo>
+</configuration>

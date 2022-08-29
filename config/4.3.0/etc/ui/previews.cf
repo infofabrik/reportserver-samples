@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: ui/previews.cf
+ 
+ Configures how previews are rendered 
+-->
+<configuration>
+   <pdf>
+   	  <!-- possible values are: 
+   	    native: to use the browsers native rendering engine
+   	    jsviewer: to use a javascript based engine
+   	    image: to not render PDFs but only provide the first page as an image
+   	    -->
+      <mode>native</mode>
+   </pdf>
+   <dynamicList>
+      <defaultColumnWidth>200</defaultColumnWidth>
+      <maxColumnWidth>800</maxColumnWidth>
+   </dynamicList> 
+</configuration>

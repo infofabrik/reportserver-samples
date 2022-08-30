@@ -13,7 +13,7 @@ import java.time.LocalDateTime
  * scriptDatasinkPerEmail.groovy
  * Version: 1.0.2
  * Type: Script datasink
- * Last tested with: ReportServer 4.3.0
+ * Last tested with: ReportServer 4.3.0-6074
  * Sends a given report/given files per email
  * and includes the script groovy file in the ZIP.
  */

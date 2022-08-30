@@ -28,7 +28,7 @@ def reportNames = [
    'MY_OTHER_GRID_REPORT'
 ]
 // the user ids. They have to exist and the ids are passed as long (L)
-def to = [6L]
+def to = [123L, 456L]
 
 ///////////////////////////////////////////////////////////
 

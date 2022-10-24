@@ -65,28 +65,28 @@ GLOBALS.getEntitiesByType(TeamSpace).each{ ts ->
    tsDiskService.getGeneralReferencesFor(ts)
   	.findAll{ !(it instanceof TsDiskFileReference) }
   	.each{ reportRef ->
-      def report = (!(reportRef instanceof TsDiskReportReference)? reportRef.compiledReport.report : reportRef.report)
-      def baseReport = (null != report && report instanceof ReportVariant) ? report.parent : null
-      def referencePath = reportRef.rootLine.collect({reportRef.name}).reverse().join("/")
-
-      def resultLine = [
-         ts.id,
-         ts.name,
-         ts.description,
-         reportRef?.id,
-         reportRef?.name,
-         referencePath,
-         report.id,
-         report.name,
-         report.description,
-         report.class.simpleName,
-         reportRef instanceof ExecutedReportFileReference? reportRef.outputFormat: null,
-         baseReport?.id,
-         baseReport?.name
-      ]
-
-      /* add to result */
-      result.addDataRow(new RSTableRow(tableDefinition, resultLine.toArray()))
+         def report = (!(reportRef instanceof TsDiskReportReference)? reportRef.compiledReport.report : reportRef.report)
+         def baseReport = (null != report && report instanceof ReportVariant) ? report.parent : null
+         def referencePath = reportRef.rootLine.collect({reportRef.name}).reverse().join("/")
+   
+         def resultLine = [
+            ts.id,
+            ts.name,
+            ts.description,
+            reportRef?.id,
+            reportRef?.name,
+            referencePath,
+            report.id,
+            report.name,
+            report.description,
+            report.class.simpleName,
+            reportRef instanceof ExecutedReportFileReference? reportRef.outputFormat: null,
+            baseReport?.id,
+            baseReport?.name
+         ]
+   
+         /* add to result */
+         result.addDataRow(new RSTableRow(tableDefinition, resultLine.toArray()))
    }
 }
 

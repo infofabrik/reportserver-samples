@@ -10,12 +10,13 @@ import net.datenwerke.rs.scheduleasfile.service.scheduleasfile.entities.Executed
 import net.datenwerke.rs.teamspace.service.teamspace.entities.TeamSpace
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.TsDiskService
 import net.datenwerke.rs.tsreportarea.service.tsreportarea.entities.TsDiskReportReference
+import net.datenwerke.rs.tsreportarea.service.tsreportarea.entities.TsDiskFileReference
 
 /**
  * reportsInTeamspace.groovy
- * Version: 1.0.4
+ * Version: 1.0.5
  * Type: Script datasource
- * Last tested with: ReportServer 4.0.0-6053
+ * Last tested with: ReportServer 4.3.0-6079
  * Lists all reports contained in TeamSpaces and prints useful information about them.
  */
 
@@ -61,7 +62,9 @@ TableDefinition tableDefinition = new TableDefinition(
 def result = new RSTableModel(tableDefinition: tableDefinition)
 
 GLOBALS.getEntitiesByType(TeamSpace).each{ ts ->
-   tsDiskService.getGeneralReferencesFor(ts).each{ reportRef ->
+   tsDiskService.getGeneralReferencesFor(ts)
+  	.findAll{ !(it instanceof TsDiskFileReference) }
+  	.each{ reportRef ->
       def report = (!(reportRef instanceof TsDiskReportReference)? reportRef.compiledReport.report : reportRef.report)
       def baseReport = (null != report && report instanceof ReportVariant) ? report.parent : null
       def referencePath = reportRef.rootLine.collect({reportRef.name}).reverse().join("/")

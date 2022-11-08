@@ -77,5 +77,28 @@
         color: #FFF !important;
       }
     </css>
+    
+    <saikuCharts>
+      <color>#1f77b4</color>
+      <color>#aec7e8</color>
+      <color>#ff7f0e</color>
+      <color>#ffbb78</color>
+      <color>#2ca02c</color>
+      <color>#98df8a</color>
+      <color>#d62728</color>
+      <color>#ff9896</color>
+      <color>#9467bd</color>
+      <color>#c5b0d5</color>
+      <color>#8c564b</color>
+      <color>#c49c94</color>
+      <color>#e377c2</color>
+      <color>#f7b6d2</color>
+      <color>#7f7f7f</color>
+      <color>#c7c7c7</color>
+      <color>#bcbd22</color>
+      <color>#dbdb8d</color>
+      <color>#17becf</color>
+      <color>#9edae5</color>
+    </saikuCharts>
   </theme>
 </configuration>

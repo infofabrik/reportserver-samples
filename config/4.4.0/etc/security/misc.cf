@@ -8,6 +8,6 @@
    <errorMessages>
       <hideViolatedSecurityExceptionDetails>false</hideViolatedSecurityExceptionDetails>
    </errorMessages>
-   <knownHosts>/path/to/.ssh/known_hosts</knownHosts>
+   <knownHosts>/path/to/your/machine/.ssh/known_hosts</knownHosts>
    <disableLostPassword>false</disableLostPassword>
 </configuration>

@@ -4,9 +4,9 @@ import net.datenwerke.rs.base.service.reportengines.table.entities.TableReportVa
 
 /**
  * pivotVariantsUpdate.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 4.4.0
+ * Last tested with: ReportServer 4.4.0-6084
  * Upgrades your pivot variants to ReportServer 4.4.0. Only execute this script if you upgraded to 4.4.0 or above.
  * Execute this script like this: "exec -c pivotUpdate.groovy". The -c flag is important in order to commit/save 
  * your changes into the database.

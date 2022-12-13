@@ -23,6 +23,7 @@ class B {
       def cSource = GLOBALS.read('C.groovy')
       def cClass = new GroovyClassLoader().parseClass( cSource )
       // do not use clazz.newInstance(): https://stackoverflow.com/questions/195321/why-is-class-newinstance-evil
+      // use getDeclaredConstructor() instead:
       def cInstance = cClass.getDeclaredConstructor().newInstance()
 
       return cInstance.prepareString()

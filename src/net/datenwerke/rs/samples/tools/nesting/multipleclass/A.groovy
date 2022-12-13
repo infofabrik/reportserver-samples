@@ -4,14 +4,14 @@ import net.datenwerke.rs.scripting.service.scripting.scriptservices.GlobalsWrapp
 
 /**
  * A.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.4.0-6084
  * Nested script demonstration for nested classes.
  * You can test the script with "exec A.groovy" and it should print C's output.
  */
 
-def loader = new GroovyClassLoader()
+def loader = new GroovyClassLoader(getClass().classLoader)
 def myLibrariesSource = GLOBALS.read('myLibraries.groovy')
 loader.parseClass(myLibrariesSource)
 

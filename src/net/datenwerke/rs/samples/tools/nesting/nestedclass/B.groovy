@@ -4,7 +4,7 @@ import net.datenwerke.rs.scripting.service.scripting.scriptservices.GlobalsWrapp
 
 /**
  * B.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.4.0-6084
  * Nested script demonstration for nested classes.
@@ -21,7 +21,7 @@ class B {
    
    public String prepareString() {
       def cSource = GLOBALS.read('C.groovy')
-      def cClass = new GroovyClassLoader().parseClass( cSource )
+      def cClass = new GroovyClassLoader(getClass().classLoader).parseClass( cSource )
       // do not use clazz.newInstance(): https://stackoverflow.com/questions/195321/why-is-class-newinstance-evil
       // use getDeclaredConstructor() instead:
       def cInstance = cClass.getDeclaredConstructor().newInstance()

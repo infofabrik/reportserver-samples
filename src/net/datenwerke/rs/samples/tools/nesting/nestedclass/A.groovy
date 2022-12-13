@@ -4,7 +4,7 @@ import net.datenwerke.rs.scripting.service.scripting.scriptservices.GlobalsWrapp
 
 /**
  * A.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Normal Script
  * Last tested with: ReportServer 4.5.0
  * Nested script demonstration for nested classes.
@@ -13,7 +13,7 @@ import net.datenwerke.rs.scripting.service.scripting.scriptservices.GlobalsWrapp
 
 // use absolute (e.g. /fileserver/bin/B.groovy) or relative path
 def bClass = GLOBALS.loadClass('B.groovy', 'net.datenwerke.rs.samples.tools.nesting.nestedclass.B')
-def bInstance = bClass.getDeclaredConstructor(GlobalsWrapper).newInstance(GLOBALS)
+def bInstance = GLOBALS.newInstance(bClass, [GlobalsWrapper], [GLOBALS])
 
 return bInstance.prepareString()
 

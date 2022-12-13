@@ -2,7 +2,7 @@ package net.datenwerke.rs.samples.tools.nesting.multipleclass
 
 /**
  * myLibraries.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.5.0
  * Nested script demonstration for nested classes.
@@ -12,7 +12,7 @@ package net.datenwerke.rs.samples.tools.nesting.multipleclass
 class B {
    public String prepareString() {
       def cInstance = new C()
-      return cInstance.prepareString()
+      return "B says: ${cInstance.prepareString()}"
    }
 }
 

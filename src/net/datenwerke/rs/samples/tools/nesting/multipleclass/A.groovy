@@ -4,7 +4,7 @@ import net.datenwerke.rs.scripting.service.scripting.scriptservices.GlobalsWrapp
 
 /**
  * A.groovy
- * Version: 1.0.3
+ * Version: 1.0.4
  * Type: Normal Script
  * Last tested with: ReportServer 4.5.0
  * Nested script demonstration for nested classes.
@@ -16,13 +16,11 @@ def loadedClasses = GLOBALS.loadClasses('myLibraries.groovy',
                                          'net.datenwerke.rs.samples.tools.nesting.multipleclass.C'])
 
 // use B loaded into loadedClasses[0]
-// do not use clazz.newInstance(): https://stackoverflow.com/questions/195321/why-is-class-newinstance-evil
-// use getDeclaredConstructor() instead:
-def bInstance = loadedClasses[0].getDeclaredConstructor().newInstance()
+def bInstance = GLOBALS.newInstance(loadedClasses[0])
 tout.println "Using B: ${bInstance.prepareString()}"
 
 // use C loaded into loadedClasses[1]
-def cInstance = loadedClasses[1].getDeclaredConstructor().newInstance()
+def cInstance = GLOBALS.newInstance(loadedClasses[1])
 tout.println "Using C: ${cInstance.prepareString()}"
 
 

@@ -20,9 +20,10 @@ class B {
    }
    
    public String prepareString() {
-      def cSource = GLOBALS.read('/fileserver/bin/C.groovy')
+      def cSource = GLOBALS.read('C.groovy')
       def cClass = new GroovyClassLoader().parseClass( cSource )
-      def cInstance = cClass.newInstance()
+      // do not use clazz.newInstance(): https://stackoverflow.com/questions/195321/why-is-class-newinstance-evil
+      def cInstance = cClass.getDeclaredConstructor().newInstance()
 
       return cInstance.prepareString()
    }

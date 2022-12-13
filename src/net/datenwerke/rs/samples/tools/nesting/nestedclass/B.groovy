@@ -18,6 +18,7 @@ class B {
    public B(GlobalsWrapper GLOBALS) {
       this.GLOBALS = GLOBALS
    }
+   
    public String prepareString() {
       def cSource = GLOBALS.read('/fileserver/bin/C.groovy')
       def cClass = new GroovyClassLoader().parseClass( cSource )

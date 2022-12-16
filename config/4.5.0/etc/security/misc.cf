@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <juel>
+      <expression>
+         <blacklist>getClass</blacklist>
+      </expression>
+   </juel>
+   <errorMessages>
+      <hideViolatedSecurityExceptionDetails>false</hideViolatedSecurityExceptionDetails>
+   </errorMessages>
+   <knownHosts>/path/to/your/machine/.ssh/known_hosts</knownHosts>
+   <disableLostPassword>false</disableLostPassword>
+</configuration>

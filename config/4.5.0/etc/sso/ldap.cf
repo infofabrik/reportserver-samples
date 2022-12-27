@@ -20,7 +20,11 @@
     <credentials>password</credentials>
   </security>
   <base>OU=EXAMPLE,DC=directory,DC=example,DC=com</base>
-  <filter>(|(objectClass=organizationalUnit)(objectClass=user)(objectClass=group))</filter>
+    <filter>
+    <![CDATA[
+(|(objectClass=organizationalUnit)(objectClass=user)(objectClass=group))
+  ]]>
+  </filter>
   <externalDir>/usermanager/external</externalDir>
   <writeProtection>true</writeProtection>
   <includeNamespace>false</includeNamespace>
@@ -46,11 +50,11 @@
       <mail>mail</mail>
     </user>
     <additional>
-    	<!-- 
-    	You can request additional attributes including them here as:
-    	<attribute>myAttribute1</attribute>
-    	<attribute>myAttribute2</attribute>
-    	-->
+      <!-- 
+      You can request additional attributes including them here as:
+      <attribute>myAttribute1</attribute>
+      <attribute>myAttribute2</attribute>
+      -->
     </additional>
   </attributes>
   <authentication>

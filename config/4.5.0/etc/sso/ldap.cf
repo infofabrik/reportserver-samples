@@ -56,7 +56,4 @@
       -->
     </additional>
   </attributes>
-  <authentication>
-    <allowLocalUsers>true</allowLocalUsers>
-  </authentication>
 </configuration>

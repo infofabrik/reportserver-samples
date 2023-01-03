@@ -27,7 +27,6 @@
   </filter>
   <externalDir>/usermanager/external</externalDir>
   <writeProtection>true</writeProtection>
-  <includeNamespace>false</includeNamespace>
   <logResultingTree>false</logResultingTree>
   <flattenTree>false</flattenTree>
   <attributes>

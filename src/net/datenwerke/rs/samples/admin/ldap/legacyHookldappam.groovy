@@ -20,8 +20,8 @@ import net.datenwerke.security.service.usermanager.entities.User
 import com.google.inject.Inject
 
 /**
- * hookldappam.groovy
- * Version: 1.0.2
+ * legacyHookldappam.groovy
+ * Version: 1.2.0
  * Type: Hook
  * Last tested with: ReportServer 4.2.0-6070
  * Allows LDAP users to login into ReportServer.
@@ -47,7 +47,7 @@ def callback = [
    }
 ] as PAMHook
 
-GLOBALS.services.callbackRegistry.attachHook('LDAP_PAM', PAMHook, callback)
+GLOBALS.services.callbackRegistry.attachHook('Legacy_LDAP_PAM', PAMHook, callback)
 
 
 

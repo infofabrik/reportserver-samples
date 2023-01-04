@@ -2,13 +2,12 @@ package net.datenwerke.rs.samples.admin.ldap
 import net.datenwerke.rs.uservariables.service.uservariables.UserVariableService
 import net.datenwerke.rs.ldap.service.ldap.hooks.LdapNodePostProcessHook
 import net.datenwerke.security.service.usermanager.entities.User
-import net.datenwerke.rs.ldap.service.ldap.LdapService
 
 /**
  * ldapUserVariableProcessorHooker.groovy
- * Version: 1.0.4
+ * Version: 1.2.0
  * Type: Hook
- * Last tested with: ReportServer 4.0.0-6053
+ * Last tested with: ReportServer 4.5.0
  *
  * Allows you to post-process LDAP users after they are imported by 
  * setting a given user-variable's value to a given LDAP property value.
@@ -24,10 +23,9 @@ def userVar = 'myUserVar'
 /* The LDAP property to read. It must exist in your LDAP installation.
  * If not standard, it must be included into the "additional" attributes in ldap.cf 
  */
-def ldapProp = 'department'
+def ldapProp = 'mail'
 
 def userVarService = GLOBALS.getInstance(UserVariableService)
-def ldapService = GLOBALS.getInstance(LdapService)
 
 def callback = [
    postProcessNode : { node, searchResult -> {
@@ -48,7 +46,7 @@ def callback = [
                   userVarService.persist userVarInstance
                }
    
-               userVarInstance.value = ldapService.getStringAttribute(searchResult, ldapProp)
+               userVarInstance.value = searchResult.getAttributeValue(ldapProp)
             }
       }
    }

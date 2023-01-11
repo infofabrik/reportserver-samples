@@ -22,8 +22,6 @@
             <property>executing_user_firstname</property>
             <property>executing_user_lastname</property>
 
-            Datasource: bundle? etc, query
-
             General Properties
             <property>java_version</property>
             <property>java_vm_arguments</property>

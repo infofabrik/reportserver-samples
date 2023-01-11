@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <reportExecutionException>
+      <properties>
+         <property>error</property>
+         <property>report_id</property>
+         <property>report_name</property>
+         <property>base_report_id</property>
+         <property>base_report_name</property>
+         <property>executing_user_id</property>
+         <property>report_output_format</property>
+         <property>report_uuid</property>
+         <!--
+            Report Properties:
+            <property>report_key</property>
+            <property>report_type</property>
+            <property>base_report_key</property>
+            <property>base_report_type</property>
+
+            User Properties
+            <property>executing_user_username</property>
+            <property>executing_user_firstname</property>
+            <property>executing_user_lastname</property>
+
+            Datasource: bundle? etc, query
+
+            General Properties
+            <property>java_version</property>
+            <property>java_vm_arguments</property>
+            <property>application_server</property>
+            <property>os_version</property>
+            <property>reportserver_version</property>
+            <property>locale</property>
+            <property>jvm_locale</property>
+            <property>supported_ssl_protocols</property>
+            <property>default_ssl_protocols</property>
+            <property>enabled_ssl_protocols</property>
+            <property>groovy_version</property>
+            <property>static_pams</property>
+
+            Memory Properties
+            <property>memory_used</property>
+            <property>memory_free</property>
+            <property>memory_total</property>
+            <property>memory_max</property>
+          -->
+      </properties>
+   </reportExecutionException>
+</configuration>

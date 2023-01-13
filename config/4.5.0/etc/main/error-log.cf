@@ -11,13 +11,22 @@
          <property>report_output_format</property>
          <property>report_uuid</property>
          <!--
+            Available:
+
             Report Properties:
+            <property>report_id</property>
+            <property>report_name</property>
             <property>report_key</property>
             <property>report_type</property>
+            <property>base_report_id</property>
+            <property>base_report_name</property>
             <property>base_report_key</property>
             <property>base_report_type</property>
+            <property>report_output_format</property>
+            <property>report_uuid</property>
 
             User Properties
+            <property>executing_user_id</property>
             <property>executing_user_username</property>
             <property>executing_user_firstname</property>
             <property>executing_user_lastname</property>

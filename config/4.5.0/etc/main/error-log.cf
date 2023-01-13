@@ -13,6 +13,9 @@
          <!--
             Available:
 
+            Error Properties:
+            <property>error</property>
+
             Report Properties:
             <property>report_id</property>
             <property>report_name</property>

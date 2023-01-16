@@ -37,6 +37,7 @@
             Datasource Properties
             <property>datasource_id</property>
             <property>datasource_name</property>
+            <property>datasource_path</property>
             <property>datasource_type</property>
             <property>datasource_query</property>
             <property>datasource_general_info</property>

@@ -46,6 +46,7 @@
             <property>java_version</property>
             <property>java_vm_arguments</property>
             <property>application_server</property>
+            <property>config_dir</property>
             <property>os_version</property>
             <property>reportserver_version</property>
             <property>locale</property>

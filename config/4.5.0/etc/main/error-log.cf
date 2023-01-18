@@ -39,9 +39,9 @@
             <property>datasource_name</property>
             <property>datasource_path</property>
             <property>datasource_type</property>
-            <property>datasource_query</property>
-            <property>datasource_general_info</property>
-            <property>datasource_jdbc_properties</property>
+            <property>datasource_database_query</property>
+            <property>datasource_database_information</property>
+            <property>datasource_database_jdbc_properties</property>
 
             General Properties
             <property>java_version</property>

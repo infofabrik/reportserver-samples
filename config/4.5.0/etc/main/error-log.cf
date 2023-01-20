@@ -47,6 +47,12 @@
             <property>java_version</property>
             <property>java_vm_arguments</property>
             <property>application_server</property>
+            <property>request_url</property>
+            <property>request_scheme</property>
+            <property>request_server_name</property>
+            <property>request_server_port</property>
+            <property>request_context_path</property>
+            <property>request_protocol</property>
             <property>config_dir</property>
             <property>os_version</property>
             <property>reportserver_version</property>

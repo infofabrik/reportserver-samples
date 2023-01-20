@@ -45,8 +45,11 @@
 
             General Properties
             <property>java_version</property>
+            <property>java_home</property>
             <property>java_vm_arguments</property>
             <property>application_server</property>
+            <property>catalina_home</property>
+            <property>catalina_base</property>
             <property>request_url</property>
             <property>request_scheme</property>
             <property>request_server_name</property>
@@ -58,6 +61,10 @@
             <property>reportserver_version</property>
             <property>locale</property>
             <property>jvm_locale</property>
+            <property>jvm_user_language</property>
+            <property>jvm_user_country</property>
+            <property>jvm_user_timezone</property>
+            <property>jvm_file_encoding</property>
             <property>supported_ssl_protocols</property>
             <property>default_ssl_protocols</property>
             <property>enabled_ssl_protocols</property>

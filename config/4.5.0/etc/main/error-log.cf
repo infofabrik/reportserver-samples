@@ -66,6 +66,7 @@
             <property>jvm_user_country</property>
             <property>jvm_user_timezone</property>
             <property>jvm_file_encoding</property>
+            <property>known_hosts_file</property>
             <property>supported_ssl_protocols</property>
             <property>default_ssl_protocols</property>
             <property>enabled_ssl_protocols</property>

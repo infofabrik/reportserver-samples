@@ -10,7 +10,7 @@ import net.datenwerke.rs.core.service.mail.SimpleAttachment
 
 /**
  * sendToEmail.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Hook
  * Last tested with: ReportServer 4.2.0-6066
  * Allows to add an entry to the send-to menu, sending the report via email.
@@ -46,10 +46,7 @@ def callback = [
 """
       return config
    },
-   getId : {
-      ->
-      return 'someUniqueId'
-   },
+   getId : { -> return 'someUniqueId' },
    sendTo : { report, values, execConfig ->
       def pdf = reportExec.execute(report, ReportExecutorService.OUTPUT_FORMAT_PDF, execConfig)
 

@@ -6,6 +6,7 @@
  Configures LDAP
 -->
 <configuration>
+  <disabled>true</disabled>
   <provider>
      <host>directory.example.com</host>
      <port>389</port>

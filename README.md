@@ -22,4 +22,8 @@ Also refer to the [documentation](https://reportserver.net/en/guides/script/chap
 
 ReportServer source code: https://github.com/infofabrik/reportserver
 
-Bitnami Builds: https://bitnami.com/stack/reportserver and https://bitnami.com/stack/reportserver-enterprise
+Demo: https://reportserver.net/en/demo/
+
+Forum: https://forum.reportserver.net
+
+Bitnami Builds: https://bitnami.com/stack/reportserver

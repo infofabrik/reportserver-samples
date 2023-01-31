@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: dynamiclists/computedcolumn.cf
+ 
+ Provides a white-list of functions that can be used for computed columns in dynamic lists. 
+-->
+<configuration>
+   <functions>
+      <function>abs</function>
+      <function>ceil</function>
+      <function>floor</function>
+      <function>mod</function>
+      <function>power</function>
+      <function>round</function>
+      <function>sign</function>
+      <function>sin</function>
+      <function>sqrt</function>
+      <function>trunc</function>
+      <function>exp</function>
+      <function>ln</function>
+      <function>log</function>
+      <function>concat</function>
+      <function>lower</function>
+      <function>upper</function>
+      <function>initcap</function>
+      <function>lpad</function>
+      <function>rpad</function>
+      <function>ltrim</function>
+      <function>rtrim</function>
+      <function>trim</function>
+      <function>replace</function>
+      <function>translate</function>
+      <function>substr</function>
+      <function>instr</function>
+      <function>length</function>
+      <function>add_months</function>
+      <function>last_day</function>
+      <function>months_between</function>
+      <function>round</function>
+      <function>sysdate</function>
+      <function>trunc</function>
+      <function>to_char</function>
+      <function>to_date</function>
+      <function>to_number</function>
+      <function>hextoraw</function>
+      <function>rawtohexcomput</function>
+   </functions>
+</configuration>

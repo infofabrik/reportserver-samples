@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <reportExecutionException>
+      <properties>
+         <property>error</property>
+         <property>report_id</property>
+         <property>report_name</property>
+         <property>base_report_id</property>
+         <property>base_report_name</property>
+         <property>executing_user_id</property>
+         <property>report_output_format</property>
+         <property>report_uuid</property>
+         <!--
+            Available:
+
+            Error Properties:
+            <property>error</property>
+
+            Report Properties:
+            <property>report_id</property>
+            <property>report_name</property>
+            <property>report_key</property>
+            <property>report_type</property>
+            <property>base_report_id</property>
+            <property>base_report_name</property>
+            <property>base_report_key</property>
+            <property>base_report_type</property>
+            <property>report_output_format</property>
+            <property>report_uuid</property>
+
+            User Properties
+            <property>executing_user_id</property>
+            <property>executing_user_username</property>
+            <property>executing_user_firstname</property>
+            <property>executing_user_lastname</property>
+
+            Datasource Properties
+            <property>datasource_id</property>
+            <property>datasource_name</property>
+            <property>datasource_path</property>
+            <property>datasource_type</property>
+            <property>datasource_database_query</property>
+            <property>datasource_database_information</property>
+            <property>datasource_database_jdbc_properties</property>
+
+            General Properties
+            <property>java_version</property>
+            <property>java_home</property>
+            <property>java_vm_arguments</property>
+            <property>application_server</property>
+            <property>catalina_home</property>
+            <property>catalina_base</property>
+            <property>log_files_directory</property>
+            <property>request_url</property>
+            <property>request_scheme</property>
+            <property>request_server_name</property>
+            <property>request_server_port</property>
+            <property>request_context_path</property>
+            <property>request_protocol</property>
+            <property>config_directory</property>
+            <property>os_version</property>
+            <property>reportserver_version</property>
+            <property>locale</property>
+            <property>jvm_locale</property>
+            <property>jvm_user_language</property>
+            <property>jvm_user_country</property>
+            <property>jvm_user_timezone</property>
+            <property>jvm_file_encoding</property>
+            <property>jvm_server_time</property>
+            <property>known_hosts_file</property>
+            <property>supported_ssl_protocols</property>
+            <property>default_ssl_protocols</property>
+            <property>enabled_ssl_protocols</property>
+            <property>groovy_version</property>
+            <property>static_pams</property>
+
+            Memory Properties
+            <property>memory_used</property>
+            <property>memory_free</property>
+            <property>memory_total</property>
+            <property>memory_max</property>
+          -->
+      </properties>
+   </reportExecutionException>
+</configuration>

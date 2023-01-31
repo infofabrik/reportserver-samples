@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: scripting/scripting.cf
+  
+-->
+<configuration>
+   <scripting>
+      <enable>true</enable>
+      <restrict>
+         <location>bin</location>
+      </restrict>
+      <startup>
+         <login>fileserver/bin/onlogin.d</login>
+         <rs>fileserver/bin/onstartup.d</rs>
+      </startup>
+      <cache>
+         <maxsize>10000</maxsize>
+         <expiresafter>30</expiresafter> <!-- in minutes -->
+      </cache>
+   </scripting>
+</configuration>

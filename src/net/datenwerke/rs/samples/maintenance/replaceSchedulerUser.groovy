@@ -6,11 +6,10 @@ import net.datenwerke.rs.scripting.service.jobs.ScriptExecuteJob
 import net.datenwerke.security.service.security.SecurityServiceSecuree
 import net.datenwerke.rs.scheduler.service.scheduler.genrights.SchedulingBasicSecurityTarget
 import net.datenwerke.security.service.security.rights.Execute
-import net.datenwerke.security.service.security.rights.Read
 
 /**
  * replaceSchedulerUser.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.5.0-6085
  * Replaces an old user with a new user in all owners, executors, scheduled-by and recipients 
@@ -91,8 +90,6 @@ private def assertReportJobPermissions(job) {
    def recipients = userManagerService.getUsers(job.recipientsIds)
    if (oldUser in recipients) {
       assert newUser.email, "'$newUser' email is empty"
-      assert securityService.checkRights(newUser, job.report, SecurityServiceSecuree, Read), 
-         "'$newUser' does not have 'Read' permission on report: ${reportToString(job.report)}"
    }
 }
 

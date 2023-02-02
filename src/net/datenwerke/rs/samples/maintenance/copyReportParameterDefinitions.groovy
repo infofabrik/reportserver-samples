@@ -15,8 +15,8 @@ import net.datenwerke.rs.core.service.reportmanager.interfaces.ReportVariant
 
 /**** USER SETTINGS ****/
 
-def REPORT_ID_FROM = 200802L
-def REPORT_ID_TO = 203899L
+def REPORT_ID_FROM = 123L
+def REPORT_ID_TO = 456L
 
 // should parameters with the same key be replaced or skipped?
 def REPLACE_EXISTING_PARAMETERS = true

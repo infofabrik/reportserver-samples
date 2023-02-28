@@ -9,7 +9,7 @@ import groovy.sql.Sql
  * sql2json.groovy
  * Version: 1.0.1
  * Type: Normal Script
- * Last tested with: ReportServer 4.1.0-6064
+ * Last tested with: ReportServer 4.5.0-6087
  *
  * Script to query a database and convert the resulting rows to a JSON
  *

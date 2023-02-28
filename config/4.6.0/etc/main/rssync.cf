@@ -6,7 +6,7 @@
          <!--
             <name-mapping>
                <remote>remote-name-1</remote>
-               <local>local-name-2</local>
+               <local>local-name-1</local>
             </name-mapping>
             <name-mapping>
                <remote>remote-name-2</remote>

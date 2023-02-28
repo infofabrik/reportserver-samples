@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <mappings>
+      <datasources>
+         <name-mappings>
+         <!--
+            <name-mapping>
+               <remote>remote-name-1</remote>
+               <local>local-name-2</local>
+            </name-mapping>
+            <name-mapping>
+               <remote>remote-name-2</remote>
+               <local>local-name-2</local>
+            </name-mapping>
+         -->
+         </name-mappings>
+      </datasources> 
+   </mappings>
+</configuration>

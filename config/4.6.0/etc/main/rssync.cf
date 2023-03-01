@@ -2,6 +2,10 @@
 <configuration>
    <mappings>
       <datasources>
+         <priorities>
+            <priority>mapping</priority>
+            <priority>same-name</priority>
+         </priorities>
          <name-mappings>
          <!--
             <name-mapping>

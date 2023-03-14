@@ -51,6 +51,7 @@
             <property>catalina_home</property>
             <property>catalina_base</property>
             <property>log_files_directory</property>
+            <property>rest_url</property>
             <property>request_url</property>
             <property>request_scheme</property>
             <property>request_server_name</property>

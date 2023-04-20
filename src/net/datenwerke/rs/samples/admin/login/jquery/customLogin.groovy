@@ -6,7 +6,7 @@ import groovy.json.JsonSlurper
 import java.nio.charset.StandardCharsets
 
 /**
- * customauth.groovy
+ * customLogin.groovy
  * Version: 1.0.0
  * Type: Authenticator
  * Last tested with: ReportServer 4.5.0-6088

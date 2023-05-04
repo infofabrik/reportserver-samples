@@ -8,6 +8,6 @@
 <configuration>
    <internaldb>
       <droponstartup>true</droponstartup>
-      <datasource>ReportServer Data Source</datasource>
+      <datasource>REPORTSERVER_DATASOURCE</datasource>
    </internaldb>
 </configuration>

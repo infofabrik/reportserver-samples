@@ -4,55 +4,55 @@
  filename: datasinks/datasinks.cf
  
  Configures datasinks including default datasinks for each datasink type.
- You can select the default datasink by name:
- <defaultDatasinkName>Default Datasink</defaultDatasinkName>
+ You can select the default datasink by key:
+ <defaultDatasinkKey>DEFAULT_DATASINK_KEY</defaultDatasinkKey>
  or by id:
  <defaultDatasinkId>14</defaultDatasinkId>
 -->
 <configuration>
   <email disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Email Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_EMAIL_DATASINK</defaultDatasinkKey>
   </email>
   <tabledatasink disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Table Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_TABLE_DATASINK</defaultDatasinkKey>
   </tabledatasink>
   <sftp disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default SFTP Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_SFTP_DATASINK</defaultDatasinkKey>
   </sftp>
   <ftps disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default FTPS Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_FTPS_DATASINK</defaultDatasinkKey>
   </ftps>
   <ftp disabled="false" supportsScheduling="true" >
-    <defaultDatasinkName>Default FTP Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_FTP_DATASINK</defaultDatasinkKey>
   </ftp>
   <samba disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Samba Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_SAMBA_DATASINK</defaultDatasinkKey>
   </samba>
   <scp disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default SCP Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_SCP_DATASINK</defaultDatasinkKey>
   </scp>
   <localfilesystem disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Local FileSystem Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_LOCAL_FILESYSTEM_DATASINK</defaultDatasinkKey>
   </localfilesystem>
   <dropbox disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Dropbox Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_DROPBOX_DATASINK</defaultDatasinkKey>
   </dropbox>
   <onedrive disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default OneDrive - SharePoint O365 Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_ONEDRIVE_SHAREPOINT_O365_DATASINK</defaultDatasinkKey>
   </onedrive>
   <googledrive disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Google Drive Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_GOOGLE_DRIVE_DATASINK</defaultDatasinkKey>
   </googledrive>
   <amazons3 disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default S3 Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_AMAZON_S3_DATASINK</defaultDatasinkKey>
   </amazons3>
   <box disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Box Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_BOX_DATASINK</defaultDatasinkKey>
   </box>
   <printer disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Printer Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_PRINTER_DATASINK</defaultDatasinkKey>
   </printer>
   <scriptdatasink disabled="false" supportsScheduling="true">
-    <defaultDatasinkName>Default Script Datasink</defaultDatasinkName>
+    <defaultDatasinkKey>DEFAULT_SCRIPT_DATASINK</defaultDatasinkKey>
   </scriptdatasink>
 </configuration>

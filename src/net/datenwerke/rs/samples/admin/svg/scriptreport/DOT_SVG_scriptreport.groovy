@@ -1,4 +1,5 @@
 package net.datenwerke.rs.samples.admin.svg.scriptreport
+
 import net.datenwerke.rs.dot.service.dot.DotService
 import net.datenwerke.rs.dot.service.dot.TextFormat
 import groovy.xml.*
@@ -12,7 +13,7 @@ import groovy.xml.*
  * Output: https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/admin/svg/scriptreport/DOT_SVG_scriptreport.png
  */
 
-net.datenwerke.rs.samples.admin.svg.scriptreporte(DotService)
+def dotService = GLOBALS.getInstance(DotService)
 
 def mySvgString = dotService.render(TextFormat.SVG, """
 digraph D {

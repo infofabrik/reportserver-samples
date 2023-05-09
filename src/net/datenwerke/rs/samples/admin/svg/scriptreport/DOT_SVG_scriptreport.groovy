@@ -9,6 +9,7 @@ import groovy.xml.*
  * Type: Script report
  * Last tested with: ReportServer 4.6.0
  * Parses and renders a DOT file to a SVG graph. Displays it on browser.
+ * Output: https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/admin/svg/scriptreport/DOT_SVG_scriptreport.png
  */
 
 net.datenwerke.rs.samples.admin.svg.scriptreporte(DotService)

@@ -7,7 +7,7 @@
 -->
 <configuration>
    <datasource>
-      <defaultDatasourceName>Demo Data</defaultDatasourceName>
+      <defaultDatasourceKey>DEMO_DATA</defaultDatasourceKey>
       <!-- or access via ID -->
       <!-- <defaultDatasource>14</defaultDatasource> -->
    </datasource>

@@ -1,12 +1,12 @@
 package net.datenwerke.rs.samples.admin.svg.scriptreport
 
 import net.datenwerke.rs.dot.service.dot.DotService
-import net.datenwerke.rs.dot.shared.dot.TextFormat
+import net.datenwerke.rs.dot.service.dot.TextFormat
 import groovy.xml.*
 
 /**
  * DOT_SVG_scriptreport.groovy
- * Version: 1.0.1
+ * Version: 1.0.0
  * Type: Script report
  * Last tested with: ReportServer 4.6.0
  * Parses and renders a DOT file to a SVG graph. Displays it on browser.

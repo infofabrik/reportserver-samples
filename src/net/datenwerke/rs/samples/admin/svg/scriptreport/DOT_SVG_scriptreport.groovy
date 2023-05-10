@@ -15,6 +15,7 @@ import groovy.xml.*
 
 def dotService = GLOBALS.getInstance(DotService)
 
+// note that the DOT below is static, but you can of course create a dynamic DOT based on your DB-data instead
 def mySvgString = dotService.render(TextFormat.SVG, """
 digraph D {
     

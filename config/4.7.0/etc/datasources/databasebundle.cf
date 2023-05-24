@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasources/databasebundle.cf
+ 
+ Configures available datasource keys in datasource bundles
+-->
+<configuration>
+   <!--
+   <bundletype>
+      <name>BaseBundle</name>
+      <keys>
+         <key>Production System</key>
+         <key>Test System</key>
+      </keys>
+   </bundletype>
+   -->
+</configuration>

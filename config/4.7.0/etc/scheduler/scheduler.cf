@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <scheduler>
+      <mailaction html="false">
+         <subject>ReportServer: ${subject}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['mailactionMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelMessage']} ${message}
+      </text>
+         <attachment>
+            <name>rep-${report.getName()}-${RS_CURRENT_DATE}</name>
+         </attachment>
+      </mailaction>
+      <fileaction disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelDescription']} ${description}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelTeamspace']} ${teamspace.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder.getName()}
+      </text>
+      </fileaction>
+      <fileactionEmailDatasink disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionEmailDatasinkMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionEmailDatasinkMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelMessage']} ${message}
+      </text>
+      </fileactionEmailDatasink>
+      <fileactionTableDatasink disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionTableDatasinkMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionTableDatasinkMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+      </text>
+      </fileactionTableDatasink>
+      <fileactionSftp disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionSftpMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionSftpMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionSftp>
+      <fileactionFtps disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionFtpsMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionFtpsMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionFtps>
+      <fileactionFtp disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionFtpMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionFtpMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionFtp>
+      <fileactionSamba disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionSambaMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionSambaMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionSamba>
+      <fileactionScp disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionScpMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionScpMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionScp>
+      <fileactionLocalFilesystem disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionLocalFileSystemMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionLocalFileSystemMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionLocalFilesystem>
+      <fileactionDropbox disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionDropboxMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionDropboxMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionDropbox>
+      <fileactionOneDrive disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionOneDriveMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionOneDriveMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionOneDrive>
+      <fileactionGoogleDrive disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionGoogleDriveMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionGoogleDriveMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionGoogleDrive>
+      <fileactionAmazonS3 disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionAmazonS3MsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionAmazonS3MsgText']}
+       
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionAmazonS3>
+      <fileactionBox disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionBoxMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionBoxMsgText']}
+       
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFilename']} ${filename}
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelFolder']} ${folder}
+      </text>
+      </fileactionBox>
+      <fileactionPrinter disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionPrinterDatasinkMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionPrinterDatasinkMsgText']}
+		 
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+      </text>
+      </fileactionPrinter>
+      <fileactionScriptDatasink disabled="false" html="false">
+         <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionPrinterDatasinkMsgSubject']}</subject>
+         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionPrinterDatasinkMsgText']}
+       
+  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+      </text>
+      </fileactionScriptDatasink>
+      <notification disabled="false" html="false">
+         <scheduled>
+            <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgScheduledSubject']}</subject>
+            <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgScheduledText']}
+
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelUser']} ${scheduleUser}
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgScheduledNextDates']} ${nextDates}
+		</text>
+         </scheduled>
+         <unscheduled>
+            <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgUnscheduledSubject']}</subject>
+            <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgUnscheduledText']}
+
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}</text>
+         </unscheduled>
+         <failed>
+            <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgFailedSubject']}</subject>
+            <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['notificationMsgFailedText']}
+
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelErrorMessage']} ${errMsg}
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelRecipient']} ${recipients}
+${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelErrorDetails']} ${stacktrace}
+		</text>
+         </failed>
+      </notification>
+      <properties>
+         <disabled>false</disabled>
+      </properties>
+  </scheduler>
+</configuration>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <csv>
+      <printHeader>true</printHeader>
+      <separator>;</separator>
+      <quote>"</quote>
+      <lineSeparator>\r\n</lineSeparator>
+   </csv>
+</configuration>

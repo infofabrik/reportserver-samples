@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <errors>
+      <html>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+&lt;html&gt;
+&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;${msgs['net.datenwerke.rs.core.client.locale.ReportServerMessages']['htmlErrorPageTitle']}&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;${baseurl}/rstheme&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;${baseurl}/../resources/rs-logo-font/style.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body class=&quot;rs-errorpage&quot;&gt;
+&lt;i class=&quot;icon-rs-logo&quot;&gt;&lt;/i&gt;
+&lt;div class=&quot;rs-errorpage-header&quot;&gt;${msgs['net.datenwerke.rs.core.client.locale.ReportServerMessages']['htmlErrorPageHeading']} ${headline}&lt;/div&gt;
+&lt;div class=&quot;rs-errorpage-msg&quot;&gt;${msg}&lt;/div&gt;
+&lt;div class=&quot;rs-errorpage-todo&quot;&gt;${msgs['net.datenwerke.rs.core.client.locale.ReportServerMessages']['htmlErrorInstructions']}&lt;/div&gt;
+&lt;div class=&quot;rs-errorpage-stacktrace-header&quot;&gt;${msgs['net.datenwerke.rs.core.client.locale.ReportServerMessages']['htmlErrorPageDetailSectionHeader']}&lt;/div&gt;
+&lt;div class=&quot;rs-errorpage-stacktrace&quot;&gt;${stacktrace}&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</html>
+   </errors>
+</configuration>

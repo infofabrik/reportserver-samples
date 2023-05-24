@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <mappings>
+      <datasources>
+         <priorities>
+            <priority>mapping</priority>
+            <priority>same-key</priority>
+         </priorities>
+         <key-mappings>
+         <!--
+            <key-mapping>
+               <remote>REMOTE_KEY_1</remote>
+               <local>LOCAL_KEY_1</local>
+            </key-mapping>
+            <key-mapping>
+               <remote>REMOTE_KEY_2</remote>
+               <local>LOCAL_KEY_2</local>
+            </key-mapping>
+         -->
+         </key-mappings>
+      </datasources> 
+   </mappings>
+</configuration>

@@ -11,7 +11,7 @@ The example scripts have one script type. The specific type is available in the 
 * Script datasink: can be used for sending reports/data to a custom datasink. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Datasinks/). 
 * Hook: can be used for adapting ReportServer for your specific needs. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Tapping-into-ReportServer/). 
 * Library: can be imported into another scripts. Note that virtually all scripts can be used as a library. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Nesting-Scripts-Calling-Scripts-from-Scripts/). 
-* Authenticator: can be used to customize the login page of ReportServer. Details can be found in the Configuration Guide.
+* Authenticator: can be used to customize the login page of ReportServer. Details can be found in the Configuration Guide, Section [Customization of the Login Page](https://reportserver.net/en/guides/config/chapters/UI-Customization/).
 
 Note that script reports and script datasources can be scheduled via report scheduling. Details [here](https://reportserver.net/en/guides/user/chapters/Scheduling/) and [here](https://reportserver.net/en/guides/admin/chapters/Scheduling-of-Reports/).
 

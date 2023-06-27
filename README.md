@@ -8,7 +8,7 @@ The example scripts have one script type. The specific type is available in the 
 * Normal Script: can be directly executed via "exec script.groovy" or "exec -c script.groovy", depending if you want to commit changes to the database or not. Details can be found [here](https://reportserver.net/en/tutorials/tutorial-scripting/). Note that these scripts can be scheduled directly. More information on scheduling scripts on the [documentation](https://reportserver.net/en/guides/script/chapters/Scheduling-Scripts/). 
 * Script report: can be used for generating reports via script. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Reporting/).
 * Script datasource: can be used for producing datasources and showing any kind of data via scripts. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Datasources/). 
-* Script datasink: can be used for sending reports/data to a custom datasink. 
+* Script datasink: can be used for sending reports/data to a custom datasink Details can be found [here](https://reportserver.net/en/guides/script/chapters/Script-Datasinks/). 
 * Hook: can be used for adapting ReportServer for your specific needs. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Tapping-into-ReportServer/). 
 * Library: can be imported into another scripts. Note that virtually all scripts can be used as a library. Details can be found [here](https://reportserver.net/en/guides/script/chapters/Nesting-Scripts-Calling-Scripts-from-Scripts/). 
 * Authenticator: can be used to customize the login page of ReportServer. Details can be found in the Configuration Guide.

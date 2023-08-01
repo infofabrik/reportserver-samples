@@ -21,6 +21,10 @@
    <search>
       <timeout>5000</timeout>
    </search>
+   <export>
+      <warnthreshold>10000</warnthreshold>
+      <maximumrecords>100000</maximumrecords>
+   </export>
    <pagetitle>ReportServer</pagetitle>
    <scheduler>
      <email>

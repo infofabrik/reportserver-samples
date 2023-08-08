@@ -7,15 +7,23 @@
 -->
 <configuration>
    <pdf>
-   	  <!-- possible values are: 
-   	    native: to use the browsers native rendering engine
-   	    jsviewer: to use a javascript based engine
-   	    image: to not render PDFs but only provide the first page as an image
-   	    -->
+        <!-- possible values are: 
+          native: to use the browsers native rendering engine
+          jsviewer: to use a javascript based engine
+          image: to not render PDFs but only provide the first page as an image
+          -->
       <mode>native</mode>
    </pdf>
    <dynamicList>
       <defaultColumnWidth>200</defaultColumnWidth>
       <maxColumnWidth>800</maxColumnWidth>
+      <pageSize>
+         <configs>
+            <config minCols = "0" maxCols = "99">50</config>
+            <config minCols = "100" maxCols = "249">25</config>
+            <config minCols = "250" maxCols = "499">10</config>
+            <config minCols = "500" maxCols = "MAX">5</config>
+         </configs>
+      </pageSize>
    </dynamicList> 
 </configuration>

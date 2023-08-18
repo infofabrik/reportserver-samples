@@ -18,15 +18,15 @@ def userManagerService = GLOBALS.getInstance(UserManagerService)
 def all = GLOBALS.getEntitiesByType(User) + GLOBALS.getEntitiesByType(Group) + GLOBALS.getEntitiesByType(OrganisationalUnit)
 def modified = false
 all
-	.findAll { it.writeProtected }
-	.each { node ->
-		def msg = "node '$node was modified"
-		node.writeProtection = false
-		modified = true
-		tout.println msg
-	}
+   .findAll { it.writeProtected }
+   .each { node ->
+      def msg = "node '$node was modified"
+      node.writeProtection = false
+      modified = true
+      tout.println msg
+   }
 	
 if (modified) 
-	return 'Removing write protection is finished'
+   return 'Removing write protection is finished'
 else
-	return 'No nodes had write protection, so no nodes were modified'
+   return 'No nodes had write protection, so no nodes were modified'

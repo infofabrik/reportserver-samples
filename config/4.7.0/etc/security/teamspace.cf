@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-   <fileupload disabled = "false" />
+   <fileupload disabled = "false">
+      <maxSizeBytes>52428800</maxSizeBytes>
+   </fileupload>
 </configuration>

@@ -2,5 +2,18 @@
 <configuration>
    <fileupload disabled = "false">
       <maxSizeBytes>52428800</maxSizeBytes>
+      <whitelist>
+         <endings>
+            <ending>pdf</ending>
+            <ending>jpg</ending>
+            <ending>jpeg</ending>
+            <ending>png</ending>
+            <ending>xlsx</ending>
+            <ending>xls</ending>
+            <ending>docx</ending>
+            <ending>doc</ending>
+            <ending>txt</ending>
+         </endings>
+      </whitelist>
    </fileupload>
 </configuration>

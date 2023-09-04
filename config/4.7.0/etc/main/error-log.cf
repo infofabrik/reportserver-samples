@@ -73,7 +73,7 @@
             <property>default_ssl_protocols</property>
             <property>enabled_ssl_protocols</property>
             <property>groovy_version</property>
-            <property>static_pams</property>
+            <property>active_pams</property>
 
             Memory Properties
             <property>memory_used</property>

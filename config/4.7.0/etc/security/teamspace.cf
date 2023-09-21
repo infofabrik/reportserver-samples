@@ -4,6 +4,8 @@
       <maxSizeBytes>52428800</maxSizeBytes>
       <whitelist>
          <endings>
+            <!-- Regular expressions are allowed. The following regexp .* allows all file endings.-->
+            <!-- <ending>.*</ending> -->
             <ending>pdf</ending>
             <ending>jpg</ending>
             <ending>jpeg</ending>

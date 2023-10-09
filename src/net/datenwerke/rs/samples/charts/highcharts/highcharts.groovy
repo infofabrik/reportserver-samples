@@ -3,9 +3,9 @@ import groovy.sql.Sql
 
 /**
  * highcharts.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Script report
- * Last tested with: ReportServer 4.0.0-6053
+ * Last tested with: ReportServer 4.6.1-6053
  * Shows demo data (orders) for a given year grouped by quarters as Highcharts bar chart. 
  * Include average number of orders.
  * 
@@ -16,10 +16,10 @@ import groovy.sql.Sql
  * <li>The script report's datasource should be "demo"</li>
  * </ul>
  * 
- * Output for report parameter's value (year) 2020:
- * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-output-2020.png
- * HTML output for report parameter's value (year) 2020: 
- * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-html-output-2020.html
+ * Output for report parameter's value (year) 2022:
+ * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-output-2022.png
+ * HTML output for report parameter's value (year) 2022: 
+ * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/charts/highcharts/highcharts-html-output-2022.html
  */
 
 /* get sql object of selected "demo" datasource */
@@ -78,44 +78,44 @@ def averageOrders = resolvedOrders.collect{ resolvedOrder -> return resolvedOrde
         src="https://code.highcharts.com/9.0.1/highcharts.js" 
         crossorigin="anonymous"></script>    
       
-      <script>
+      <script language = "JavaScript">
         var url = ""
 
-        \$(function () {
-    \$('#container').highcharts({
-        title: {
-            text: 'Orders per Quarter'
-        },
-        xAxis: {
-            categories: ['Q1', 'Q2', 'Q3', 'Q4' ]
-        },
-        yAxis : {
-            title: {text:  'Number of orders'}
-        },
-        series: [""" +
-      ordersByProductline.collect{ k, v ->
-         return """{
-                 type: 'column',
-                 name: '${k}',
-                 data: [""" + v.join(",") + "]}";
-      }.join(',') + """
-          , {
-            type: 'spline',
-            name: 'Average Nr. of Orders',
-            data: [""" + averageOrders.join(',') + """],
-            marker: {
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[3],
-                fillColor: 'white'
-            }
-        }
-        ]
-    });
-});
+        \$(document).ready(function () {
+          \$('#container').highcharts({
+              title: {
+                  text: 'Orders per Quarter'
+              },
+              xAxis: {
+                  categories: ['Q1', 'Q2', 'Q3', 'Q4' ]
+              },
+              yAxis : {
+                  title: {text:  'Number of orders'}
+              },
+              series: [""" +
+            ordersByProductline.collect{ k, v ->
+               return """{
+                       type: 'column',
+                       name: '${k}',
+                       data: [""" + v.join(",") + "]}";
+            }.join(',') + """
+                , {
+                  type: 'spline',
+                  name: 'Average Nr. of Orders',
+                  data: [""" + averageOrders.join(',') + """],
+                  marker: {
+                      lineWidth: 2,
+                      lineColor: Highcharts.getOptions().colors[3],
+                      fillColor: 'white'
+                  }
+              }
+              ]
+          });
+      });
       </script>
     </head>
     <body>
-      <div id="container" style="width:100%; height: 435px;"></div>
-                                                                                            
+      <div id="container" style="width:100%; height: 435px;"></div>      
+      
     </body>
 </html>"""

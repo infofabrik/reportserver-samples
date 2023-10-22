@@ -78,7 +78,7 @@ def averageOrders = resolvedOrders.collect{ resolvedOrder -> return resolvedOrde
         src="https://code.highcharts.com/9.0.1/highcharts.js" 
         crossorigin="anonymous"></script>    
       
-      <script language = "JavaScript">
+      <script>
         var url = ""
 
         \$(document).ready(function () {

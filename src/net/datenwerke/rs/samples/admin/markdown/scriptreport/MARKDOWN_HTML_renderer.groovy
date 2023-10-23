@@ -12,7 +12,7 @@ import groovy.xml.*
  * Uses the markdown-html renderer to parse and render a markdown file (or a simple String)
  * to an HTML report. 
  * !!!WARNING!!! Not every markdown command can be parsed properly although most are.
- * Output: https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/admin/svg/scriptreport/DOT_SVG_renderer.png
+ * Output: https://github.com/infofabrik/reportserver-samples/blob/RS-7743/src/net/datenwerke/rs/samples/admin/markdown/scriptreport/MARKDOWN_HTML_renderer.png
  */
 
 def fsService = GLOBALS.getInstance(FileServerService)

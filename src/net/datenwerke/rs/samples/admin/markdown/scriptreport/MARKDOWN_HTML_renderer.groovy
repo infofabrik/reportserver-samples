@@ -9,10 +9,9 @@ import groovy.xml.*
  * Version: 1.0.0
  * Type: Script report
  * Last tested with: ReportServer 4.7.0
- * Uses the markdown-html renderer to parse and render a markdown file (which can be created dynamically)
+ * Uses the markdown-html renderer to parse and render a markdown file (or a simple String)
  * to an HTML report. 
- * The renderer requires the file test.md to be of content type "text/markdown" to work.
- * Input: 
+ * !!!WARNING!!! Not every markdown command can be parsed properly although most are.
  * Output: https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/admin/svg/scriptreport/DOT_SVG_renderer.png
  */
 

@@ -35,7 +35,7 @@
       <color name="gray-dark" color="#B8BDC0"/>      
       <color name="gray-very-dark" color="#6D708B"/>
       
-      <color name="terminal-green" color="#00B000"/>             
+      <color name="terminal-green" color="#51FF51"/>             
     </colors>
     
     <colorMapping>

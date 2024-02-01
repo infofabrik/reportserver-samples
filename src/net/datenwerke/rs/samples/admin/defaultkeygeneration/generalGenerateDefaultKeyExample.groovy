@@ -4,7 +4,7 @@ import net.datenwerke.rs.keyutils.service.keyutils.hooks.GeneralGenerateDefaultK
 /**
  * generalGenerateDefaultKeyExample.groovy
  * Version: 1.0.0
- * Type: Normal Script
+ * Type: Hook
  * Last tested with: ReportServer 4.7.0
  * Registers a new default key generation
  */

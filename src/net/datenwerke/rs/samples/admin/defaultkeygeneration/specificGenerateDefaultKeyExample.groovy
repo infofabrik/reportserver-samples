@@ -9,7 +9,6 @@ import net.datenwerke.rs.core.service.datasourcemanager.DatasourceService
  */
 
 def HOOK_NAME = "datasourcedefaultkey"
-GLOBALS.services.callbackRegistry.detachHook(HOOK_NAME)
 def iter = 0
 def callback = [ 
    consumes: { treedb ->

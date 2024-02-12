@@ -4,18 +4,16 @@ import net.datenwerke.rs.base.service.parameterreplacements.provider.ReportJobFo
 import net.datenwerke.rs.configservice.service.configservice.ConfigService
 import net.datenwerke.rs.core.service.mail.MailService
 import net.datenwerke.rs.core.service.reportmanager.ReportExecutorService
+import net.datenwerke.rs.emaildatasink.service.emaildatasink.action.ScheduleAsEmailFileAction
+import net.datenwerke.rs.scheduler.service.scheduler.mail.MailReportAction
 import net.datenwerke.rs.utils.juel.SimpleJuel
 import net.datenwerke.scheduler.service.scheduler.SchedulerService
 import javax.persistence.EntityManager
 import static net.datenwerke.rs.utils.misc.StringEscapeUtils.removeInvalidFilenameChars
 
-import net.datenwerke.rs.scheduler.service.scheduler.mail.MailReportAction
-import net.datenwerke.rs.emaildatasink.service.emaildatasink.action.ScheduleAsEmailFileAction
-
-
 /**
  * migrateSchedulerToEmailDatasink.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.7.0
  * Migrates your old E-Mail scheduler jobs to use your default Email - SMTP server datasink.

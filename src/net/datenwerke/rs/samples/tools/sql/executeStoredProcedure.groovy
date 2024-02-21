@@ -1,6 +1,6 @@
 package net.datenwerke.rs.samples.tools.sql
 /**
- * callProcedure.groovy
+ * executeStoredProcedure.groovy
  * Version: 1.0.0
  * Type: Normal Script
  * Last tested with: ReportServer 4.7.0 on postgres database

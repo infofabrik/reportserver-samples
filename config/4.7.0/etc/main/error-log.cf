@@ -9,7 +9,7 @@
          <property>base_report_name</property>
          <property>executing_user_id</property>
          <property>report_output_format</property>
-         <property>report_uuid</property>
+         <property>report_key</property>
          <!--
             Available:
 
@@ -19,7 +19,7 @@
             Report Properties:
             <property>report_id</property>
             <property>report_name</property>
-            <property>report_key</property>
+			<property>report_key</property>
             <property>report_type</property>
             <property>base_report_id</property>
             <property>base_report_name</property>
@@ -51,6 +51,8 @@
             <property>catalina_home</property>
             <property>catalina_base</property>
             <property>log_files_directory</property>
+            <property>installation_path</property>
+            <property>headless</property>
             <property>rest_url</property>
             <property>request_url</property>
             <property>request_scheme</property>
@@ -68,18 +70,24 @@
             <property>jvm_user_timezone</property>
             <property>jvm_file_encoding</property>
             <property>jvm_server_time</property>
-            <property>known_hosts_file</property>
-            <property>supported_ssl_protocols</property>
-            <property>default_ssl_protocols</property>
-            <property>enabled_ssl_protocols</property>
             <property>groovy_version</property>
-            <property>active_pams</property>
+            <property>external_libs</property>
+            <property>internal_libs</property>
 
             Memory Properties
             <property>memory_used</property>
             <property>memory_free</property>
             <property>memory_total</property>
             <property>memory_max</property>
+            
+            Authentication Properties
+            <property>active_pams</property>
+            
+            Security Properties
+            <property>known_hosts_file</property>
+            <property>supported_ssl_protocols</property>
+            <property>default_ssl_protocols</property>
+            <property>enabled_ssl_protocols</property>
           -->
       </properties>
    </reportExecutionException>

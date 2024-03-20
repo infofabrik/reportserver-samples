@@ -61,6 +61,7 @@
             <property>request_context_path</property>
             <property>request_protocol</property>
             <property>config_directory</property>
+            <property>io_tmp_directory</property>
             <property>os_version</property>
             <property>reportserver_version</property>
             <property>locale</property>

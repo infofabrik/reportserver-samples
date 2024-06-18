@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
    <scheduler>
-      <mailaction html="false">
-         <subject>ReportServer: ${subject}</subject>
-         <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['mailactionMsgText']}
-		 
-  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelJobName']} ${job.getName()}
-  ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['labelMessage']} ${message}
-      </text>
-         <attachment>
-            <name>rep-${report.getName()}-${RS_CURRENT_DATE}</name>
-         </attachment>
-      </mailaction>
       <fileaction disabled="false" html="false">
          <subject>ReportServer: ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionMsgSubject']}</subject>
          <text>${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages']['fileactionMsgText']}

@@ -1,7 +1,8 @@
 package net.datenwerke.rs.samples.admin.svg.scriptreport
 
+import java.util.Optional
 import net.datenwerke.rs.dot.service.dot.DotService
-import net.datenwerke.rs.dot.service.dot.TextFormat
+import net.datenwerke.rs.base.service.renderer.TextFormat
 import groovy.xml.*
 
 /**
@@ -167,7 +168,7 @@ and1 -> or12;
 or12 -> e13;
 
 }
-""", 1200)
+""", Optional.of(1200), Optional.empty())
 
                               
 def report = """\

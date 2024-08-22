@@ -170,6 +170,12 @@ ${msgs['net.datenwerke.rs.scheduler.client.scheduler.locale.SchedulerMessages'][
       </notification>
       <properties>
          <disabled>false</disabled>
+         <asyncpoolname>dwScheduler</asyncpoolname>
+         <workingthreads>5</workingthreads>
+         <checkinterval>10000</checkinterval> <!-- in ms -->
+         <shutdownwait>600000</shutdownwait> <!-- in ms -->
+         <stdvetodelay>180</stdvetodelay> <!-- in minutes -->
+         <rndvetodelay>20</rndvetodelay> <!-- in minutes -->
       </properties>
   </scheduler>
 </configuration>

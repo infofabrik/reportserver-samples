@@ -29,4 +29,6 @@
       <url>rs:reportpreview://${reportId}</url>
      </view>
    </objectinfo>
+   <module>
+   </module>
 </configuration>

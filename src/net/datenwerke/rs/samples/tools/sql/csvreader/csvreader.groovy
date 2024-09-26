@@ -16,7 +16,7 @@ import java.sql.Types
 
 /**
  * csvreader.groovy
- * Version: 1.0.1
+ * Version: 1.0.2
  * Type: Normal Script
  * Last tested with: ReportServer 4.1.0-6062
  * Reads an input csv file and writes it into a DB table.
@@ -24,6 +24,7 @@ import java.sql.Types
 
 /**** USER SETTINGS ****/
 CSV_FILENAME = '/path/to/your/input.csv'
+CSV_FILE_HAS_HEADER = true // true or false
 DATE_FORMAT = 'dd.MM.yyyy'
 
 DATASOURCE_ID = 58L // the datasource where the table is found
@@ -36,6 +37,16 @@ SQL_COLS = [
    E:       Types.DOUBLE,
    F:       Types.BIT
 ]
+/** If the order of entries of SQL_COLS corresponds to the order of csv columns 
+ *  use it as it is. 
+ *  You can define your own mapping by using the keys of SQL_COLS in a String[].
+ *  CSV_TO_SQL_COL_MAPPER[0] corresponds to the first column CSV_TO_SQL_COL_MAPPER[1] 
+ *  to the 2nd and so on. 
+ *  CSV_TO_SQL_COL_MAPPER.length has to be equal to the number of columns in the csv.
+ *  You can skip columns by using null instead of a key from SQL_COLS
+ *  E.g. CSV_TO_SQL_COL_MAPPER = ['B, 'A', 'C', 'D', null, 'E', 'F']
+ */
+CSV_TO_SQL_COL_MAPPER = SQL_COLS.keySet() as String[]
 BATCH_SIZE = 100
 
 PROCESSORS = [
@@ -61,7 +72,7 @@ def readCsv() {
    assert datasource
 
    new CsvMapReader(new FileReader(CSV_FILENAME), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE).withCloseable{ mapReader ->
-      def header = mapReader.getHeader(true)
+      if(CSV_FILE_HAS_HEADER) mapReader.getHeader(true)
 
       dbPoolService.getConnection(datasource.connectionConfig).get().withCloseable { conn ->
          assert conn
@@ -72,7 +83,7 @@ def readCsv() {
          sql.withTransaction {
             sql.withBatch(BATCH_SIZE, insertStmt) { stmt ->
                def csvRow
-               while( (csvRow = mapReader.read(header, PROCESSORS as CellProcessor[])) != null )
+               while( (csvRow = mapReader.read(CSV_TO_SQL_COL_MAPPER, PROCESSORS as CellProcessor[])) != null )
                   insertRow stmt, csvRow
             }
          }
@@ -82,10 +93,10 @@ def readCsv() {
 }
 
 def insertRow(stmt, csvRow) {
-   def typed = csvRow.collect { k, v ->
+   def typed = SQL_COLS.keySet().collect { k ->
       [
          getType: { -> SQL_COLS[k] },
-         getValue: { -> v }
+         getValue: { -> csvRow[k] }
       ] as InParameter
    }
    stmt.addBatch typed

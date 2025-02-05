@@ -2,21 +2,27 @@ package net.datenwerke.rs.samples.tools.email
 
 import net.datenwerke.rs.core.service.mail.MailBuilderFactory
 import net.datenwerke.rs.core.service.mail.MailService
+import net.datenwerke.rs.emaildatasink.service.emaildatasink.definitions.EmailDatasink
 import net.datenwerke.security.service.usermanager.UserManagerService
 import java.nio.file.Paths
 
 import java.time.LocalDateTime
 
+import javax.mail.internet.InternetAddress
+
 /**
- * sendRSEmail.groovy
- * Version: 1.0.2
- * Type: Normal Script
- * Last tested with: ReportServer 4.0.0-6053
- * Sends a simple email to ReportServer users including attachments using ReportServer APIs.
- * Uses the mail configuration your standard email datasink, or in 
- * the /etc/mail/mail.cf configuration file if you don't have any standard email datasink.
- * Suitable for testing email configuration.
- * If you want to send an email with java APIs directly, you can use sendEmail.groovy.
+ * sendRSEmail.groovy  
+ *  
+ * Version: 1.0.3  
+ * Type: Normal Script  
+ * Last tested with: ReportServer 4.7.3  
+ *  
+ * This script sends a simple email to ReportServer users, including attachments,  
+ * using the ReportServer APIs. It relies on the mail configuration of your standard email datasink.  
+ *  
+ * Ideal for testing email configurations.  
+ *  
+ * If you need to send an email directly using Java APIs, consider using sendEmail.groovy instead.  
  */
 
 def mailBuilder = GLOBALS.getInstance(MailBuilderFactory)
@@ -35,10 +41,14 @@ def attachments = [
 // name of the zip
 def attachmentFilename = 'data.zip'
 
+def defaultDatasink = mailService.loadDefaultEmailDatasink()
+assert defaultDatasink
+
 def mail = mailBuilder.create(
       subject, 
       content, 
-      to.collect{userId -> userService.getNodeById(userId)}
+      to.collect{userId -> userService.getNodeById(userId)},
+      new InternetAddress(defaultDatasink.sender, defaultDatasink.senderName)
    )
    .withFileAttachments(attachments.collect{ attachment -> Paths.get(attachment)})
    .withZippedAttachments(attachmentFilename)

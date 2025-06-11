@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasources/datasources.cf
+ 
+ Configures the internal SQL-query builder. 
+-->
+<configuration>
+   <sql>
+   	  <!-- define a maximum number of records that can go into an IN clause --> 
+      <incondition>
+         <maxsize>1000</maxsize>
+      </incondition>
+      <quoteIdentifiers>smart</quoteIdentifiers>
+   </sql>
+</configuration>

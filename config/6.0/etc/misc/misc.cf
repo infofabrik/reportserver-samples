@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <database>
+      <oracle>
+         <filter>
+            <convertclobs>true</convertclobs>
+         </filter>
+      </oracle>
+   </database>
+   <remoteaccess>
+      <sftp disabled="false">
+      	 <!-- Use $generated in order to generate a key on first start. -->
+         <keylocation>$generated</keylocation>
+         <port>8022</port>
+      </sftp>
+   </remoteaccess>
+</configuration>

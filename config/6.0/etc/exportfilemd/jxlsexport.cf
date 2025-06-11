@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <jxls>
+      <numberColumnWidth>8</numberColumnWidth>
+      <textColumnWidth>8</textColumnWidth>
+      <dateColumnWidth>8</dateColumnWidth>
+      <currencyColumnWidth>8</currencyColumnWidth>
+   </jxls>
+</configuration>

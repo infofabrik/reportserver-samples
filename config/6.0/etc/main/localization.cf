@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <localization>
+     <default>en</default>
+     <!-- <locales>en,fr,de</locales> -->
+     <region>US</region>
+     <format>
+     <!--
+         <shortDatePattern></shortDatePattern>
+	     <longDatePattern></longDatePattern>
+	     <shortTimePattern></shortTimePattern>
+	     <longTimePattern></longTimePattern>
+	     <shortDateTimePattern></shortDateTimePattern>
+	     <longDateTimePattern></longDateTimePattern>
+	     <numberPattern></numberPattern>
+	     <currencyPattern></currencyPattern>
+	     <integerPattern></integerPattern>
+	     <percentPattern></percentPattern>
+	  -->
+     </format>
+     <currencies>
+       <currency language="de" region="DE">currencyEuro</currency>
+       <currency language="en" region="US">currencyDollar</currency>
+       <currency language="en" region="GB">currencyPound</currency>
+       <currency language="ar" region="AE">AED</currency>
+       <currency language="ps" region="AF">AFN</currency>
+       <currency language="sq" region="AL">ALL</currency>
+       <currency language="hy" region="AM">AMD</currency>
+       <currency language="pap" region="CW">ANG</currency>
+       <currency language="pt" region="AO">AOA</currency>
+       <currency language="es" region="AR">ARS</currency>
+       <currency language="en" region="AU">AUD</currency>
+       <currency language="nl" region="AW">AWG</currency>
+       <currency language="az" region="AZ">AZN</currency>
+       <currency language="bs" region="BA">BAM</currency>
+       <currency language="en" region="BB">BBD</currency>
+       <currency language="bn" region="BD">BDT</currency>
+       <currency language="bg" region="BG">BGN</currency>
+       <currency language="ar" region="BH">BHD</currency>
+       <currency language="en" region="BI">BIF</currency>
+       <currency language="en" region="BM">BMD</currency>
+       <currency language="ms" region="BN">BND</currency>
+       <currency language="es" region="BO">BOB</currency>
+       <currency language="pt" region="BR">BRL</currency>
+       <currency language="en" region="BS">BSD</currency>
+       <currency language="dz" region="BT">BTN</currency>
+       <currency language="en" region="BW">BWP</currency>
+       <currency language="be" region="BY">BYR</currency>
+       <currency language="en" region="BZ">BZD</currency>
+       <currency language="en" region="CA">CAD</currency>
+       <currency language="ln" region="CD">CDF</currency>
+       <currency language="de" region="CH">CHF</currency>
+       <currency language="es" region="CL">CLP</currency>
+       <currency language="zh" region="CN">CNY</currency>
+       <currency language="es" region="CO">COP</currency>
+       <currency language="es" region="CR">CRC</currency>
+       <currency language="es" region="CU">CUC</currency>
+       <currency language="es" region="CU">CUP</currency>
+       <currency language="pt" region="CV">CVE</currency>
+       <currency language="cs" region="CZ">CZK</currency>
+       <currency language="aa" region="DJ">DJF</currency>
+       <currency language="da" region="DK">DKK</currency>
+       <currency language="es" region="DO">DOP</currency>
+       <currency language="ar" region="DZ">DZD</currency>
+       <currency language="ar" region="EG">EGP</currency>
+       <currency language="ti" region="ER">ERN</currency>
+       <currency language="ti" region="ET">ETB</currency>
+       <currency language="de" region="DE">EUR</currency>
+       <currency language="hif" region="FJ">FJD</currency>
+       <currency language="en" region="FK">FKP</currency>
+       <currency language="en" region="GB">GBP</currency>
+       <currency language="ka" region="GE">GEL</currency>
+       <currency language="en" region="GG">GGP</currency>
+       <currency language="ak" region="GH">GHS</currency>
+       <currency language="en" region="GI">GIP</currency>
+       <currency language="en" region="GM">GMD</currency>
+       <currency language="fr" region="GN">GNF</currency>
+       <currency language="es" region="GT">GTQ</currency>
+       <currency language="en" region="GY">GYD</currency>
+       <currency language="en" region="HK">HKD</currency>
+       <currency language="es" region="HN">HNL</currency>
+       <currency language="hr" region="HR">HRK</currency>
+       <currency language="ht" region="HT">HTG</currency>
+       <currency language="hu" region="HU">HUF</currency>
+       <currency language="id" region="ID">IDR</currency>
+       <currency language="he" region="IL">ILS</currency>
+       <currency language="en" region="IM">IMP</currency>
+       <currency language="hi" region="IN">INR</currency>
+       <currency language="ar" region="IQ">IQD</currency>
+       <currency language="fa" region="IR">IRR</currency>
+       <currency language="is" region="IS">ISK</currency>
+       <currency language="en" region="JE">JEP</currency>
+       <currency language="en" region="JM">JMD</currency>
+       <currency language="ar" region="JO">JOD</currency>
+       <currency language="ja" region="JP">JPY</currency>
+       <currency language="om" region="KE">KES</currency>
+       <currency language="ky" region="KG">KGS</currency>
+       <currency language="km" region="KH">KHR</currency>
+       <currency language="fr" region="KM">KMF</currency>
+       <currency language="ko" region="KP">KPW</currency>
+       <currency language="ko" region="KR">KRW</currency>
+       <currency language="ar" region="KW">KWD</currency>
+       <currency language="en" region="KY">KYD</currency>
+       <currency language="kk" region="KZ">KZT</currency>
+       <currency language="lo" region="LA">LAK</currency>
+       <currency language="ar" region="LB">LBP</currency>
+       <currency language="si" region="LK">LKR</currency>
+       <currency language="en" region="LR">LRD</currency>
+       <currency language="en" region="LS">LSL</currency>
+       <currency language="ar" region="LY">LYD</currency>
+       <currency language="ar" region="MA">MAD</currency>
+       <currency language="ru" region="MD">MDL</currency>
+       <currency language="mg" region="MG">MGA</currency>
+       <currency language="mk" region="MK">MKD</currency>
+       <currency language="my" region="MM">MMK</currency>
+       <currency language="mn" region="MN">MNT</currency>
+       <currency language="en" region="MO">MOP</currency>
+       <currency language="ar" region="MR">MRU</currency>
+       <currency language="mfe" region="MU">MUR</currency>
+       <currency language="dv" region="MV">MVR</currency>
+       <currency language="en" region="MW">MWK</currency>
+       <currency language="es" region="MX">MXN</currency>
+       <currency language="ms" region="MY">MYR</currency>
+       <currency language="pt" region="MZ">MZN</currency>
+       <currency language="en" region="NA">NAD</currency>
+       <currency language="en" region="NG">NGN</currency>
+       <currency language="es" region="NI">NIO</currency>
+       <currency language="nn" region="NO">NOK</currency>
+       <currency language="ne" region="NP">NPR</currency>
+       <currency language="en" region="NZ">NZD</currency>
+       <currency language="ar" region="OM">OMR</currency>
+       <currency language="es" region="PA">PAB</currency>
+       <currency language="es" region="PE">PEN</currency>
+       <currency language="tpi" region="PG">PGK</currency>
+       <currency language="fil" region="PH">PHP</currency>
+       <currency language="pa" region="PK">PKR</currency>
+       <currency language="pl" region="PL">PLN</currency>
+       <currency language="es" region="PY">PYG</currency>
+       <currency language="ar" region="QA">QAR</currency>
+       <currency language="ro" region="RO">RON</currency>
+       <currency language="sr" region="RS">RSD</currency>
+       <currency language="ru" region="RU">RUB</currency>
+       <currency language="rw" region="RW">RWF</currency>
+       <currency language="ar" region="SA">SAR</currency>
+       <currency language="en" region="SB">SBD</currency>
+       <currency language="en" region="SC">SCR</currency>
+       <currency language="ar" region="SD">SDG</currency>
+       <currency language="sv" region="SE">SEK</currency>
+       <currency language="en" region="SG">SGD</currency>
+       <currency language="en" region="SH">SHP</currency>
+       <currency language="en" region="SL">SLL</currency>
+       <currency language="so" region="SO">SOS</currency>
+       <currency language="nl" region="SR">SRD</currency>
+       <currency language="en" region="SS">SSP</currency>
+       <currency language="pt" region="ST">STN</currency>
+       <currency language="es" region="SV">SVC</currency>
+       <currency language="ar" region="SY">SYP</currency>
+       <currency language="en" region="SZ">SZL</currency>
+       <currency language="th" region="TH">THB</currency>
+       <currency language="tg" region="TJ">TJS</currency>
+       <currency language="tk" region="TM">TMT</currency>
+       <currency language="ar" region="TN">TND</currency>
+       <currency language="to" region="TO">TOP</currency>
+       <currency language="tr" region="TR">TRY</currency>
+       <currency language="en" region="TT">TTD</currency>
+       <currency language="en" region="TV">TVD</currency>
+       <currency language="zh" region="TW">TWD</currency>
+       <currency language="sw" region="TZ">TZS</currency>
+       <currency language="uk" region="UA">UAH</currency>
+       <currency language="lg" region="UG">UGX</currency>
+       <currency language="en" region="US">USD</currency>
+       <currency language="es" region="UY">UYU</currency>
+       <currency language="uz" region="UZ">UZS</currency>
+       <currency language="es" region="VE">VEF</currency>
+       <currency language="vi" region="VN">VND</currency>
+       <currency language="bi" region="VU">VUV</currency>
+       <currency language="sm" region="WS">WST</currency>
+       <currency language="fr" region="CM">XAF</currency>
+       <currency language="en" region="LC">XCD</currency>
+       <currency language="fr" region="BJ">XOF</currency>
+       <currency language="fr" region="PF">XPF</currency>
+       <currency language="ar" region="YE">YER</currency>
+       <currency language="en" region="ZA">ZAR</currency>
+       <currency language="en" region="ZM">ZMW</currency>
+       <currency language="en" region="ZW">ZWL</currency>
+     </currencies>
+  </localization>
+</configuration>

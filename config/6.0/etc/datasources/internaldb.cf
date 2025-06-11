@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasources/internaldb.cf
+ 
+ Configures the internaldb used by ReportServer for non-relational datasources.
+-->
+<configuration>
+   <internaldb>
+      <droponstartup>true</droponstartup>
+      <datasource>REPORTSERVER_DATASOURCE</datasource>
+   </internaldb>
+</configuration>

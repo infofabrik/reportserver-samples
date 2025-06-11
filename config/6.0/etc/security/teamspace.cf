@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <fileupload disabled = "false">
+      <maxSizeBytes>52428800</maxSizeBytes>
+      <whitelist>
+         <endings>
+            <!-- Regular expressions are allowed. The following regexp .* allows all file endings.-->
+            <!-- <ending>.*</ending> -->
+            <ending>pdf</ending>
+            <ending>jpg</ending>
+            <ending>jpeg</ending>
+            <ending>png</ending>
+            <ending>xlsx</ending>
+            <ending>xls</ending>
+            <ending>docx</ending>
+            <ending>doc</ending>
+            <ending>txt</ending>
+         </endings>
+      </whitelist>
+   </fileupload>
+</configuration>

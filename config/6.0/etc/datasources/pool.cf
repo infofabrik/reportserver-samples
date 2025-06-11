@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasources/pool.cf
+ 
+ Allows to configure the connection pool settings for database datasources.
+-->
+<configuration>
+   <pool>
+      <defaultconfig>
+         <maxPoolSize>40</maxPoolSize>
+         <initialPoolSize>10</initialPoolSize>
+         <acquireRetryAttempts>10</acquireRetryAttempts>
+         <acquireRetryDelay>500</acquireRetryDelay>
+         <checkoutTimeout>60000</checkoutTimeout>
+         <maxConnectionAge>7200</maxConnectionAge>
+         <maxIdleTime>3600</maxIdleTime>
+      </defaultconfig>
+   </pool>
+</configuration>

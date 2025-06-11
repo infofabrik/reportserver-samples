@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <createdpassword disabled="false">
+    <email>
+      <subject>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['createdPasswordSubject']}</subject>
+      <text>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['createdPasswordSalutation']} ${user.getFirstname()} ${user.getLastname()},
+        
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['createdPasswordIntro']}
+
+${user.getUsername()}
+
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['createdPasswordEnd']}
+       
+      </text>
+    </email>    
+  </createdpassword>
+  <changedpassword disabled="false">
+    <email>
+      <subject>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['changedPasswordSubject']}</subject>
+      <text>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['changedPasswordSalutation']} ${user.getFirstname()} ${user.getLastname()},
+        
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['changedPasswordIntro']}
+
+${user.getUsername()}
+
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['changedPasswordEnd']}
+      </text>
+    </email>    
+  </changedpassword>
+  <lostpassword indicateWrongUsername="false">
+    <email>
+      <subject>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['lostPasswordSubject']}</subject>
+      <text>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['lostPasswordSalutation']} ${user.getFirstname()} ${user.getLastname()},
+
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['lostPasswordIntro']}
+
+        ${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['lostPasswordUsername']}: ${user.getUsername()}
+        ${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['lostPasswordPassword']}: ${password}
+
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['lostPasswordEnd']}		
+      </text>   
+    </email> 
+  </lostpassword>
+  <logfiles>
+    <email>
+      <subject>${msgs['net.datenwerke.rs.adminutils.service.locale.AdminUtilsMessages']['emailLogFilesSubject']}</subject>
+      <text>${msgs['net.datenwerke.rs.adminutils.service.locale.AdminUtilsMessages']['emailLogFilesSalutation']} ${user.getFirstname()} ${user.getLastname()},
+
+${msgs['net.datenwerke.rs.adminutils.service.locale.AdminUtilsMessages']['emailLogFilesIntro']}
+
+${filter}
+
+${msgs['net.datenwerke.rs.adminutils.service.locale.AdminUtilsMessages']['emailLogFilesEnd']}		
+      </text>
+    </email> 
+  </logfiles>
+</configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: terminal/alias.cf
+
+ Allows to provide alias for commands on the terminal.
+-->
+<configuration>
+   <cmdaliases>
+      <entry>
+         <alias>ll</alias>
+         <command>ls -l</command>
+      </entry>
+   </cmdaliases>
+</configuration>

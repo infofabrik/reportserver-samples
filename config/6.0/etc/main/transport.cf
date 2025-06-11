@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <import>
+      <remote>REMOTE_SERVER</remote>
+      <target>/transports/import</target>
+   </import>
+   <apply>
+      <!-- the username of the user that applies the transport. Must be a super user. -->
+      <user>root</user>
+   </apply>
+</configuration>

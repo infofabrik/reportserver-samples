@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <juel>
+      <expression>
+         <blacklist>getClass</blacklist>
+      </expression>
+   </juel>
+   <errorMessages>
+      <hideViolatedSecurityExceptionDetails>false</hideViolatedSecurityExceptionDetails>
+   </errorMessages>
+   <knownHosts>/path/to/your/machine/.ssh/known_hosts</knownHosts>
+   
+   <strictHostKeyChecking>
+   	  <!-- true/false Recommended: true -->
+      <default>true</default>      
+      <enforce>
+      	<datasinks>
+      	  <!-- datasinks overriding the default setting
+		  <datasink>
+		      <datasinkKey>KEY_1</datasinkKey>
+		      <strictHostKeyChecking>false</strictHostKeyChecking>
+		  </datasink>
+		  <datasink>
+		      <datasinkKey>KEY_2</datasinkKey>
+		      <strictHostKeyChecking>false</strictHostKeyChecking>
+		  </datasink>
+		  -->
+      	</datasinks>
+      </enforce>      
+   </strictHostKeyChecking>
+   
+   <disableLostPassword>false</disableLostPassword>
+</configuration>

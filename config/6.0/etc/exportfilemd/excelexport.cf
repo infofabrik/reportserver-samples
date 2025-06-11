@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <xls>
+      <format>xlsx</format>
+      <stream>true</stream>
+      <datasheet>Dynamic list</datasheet>
+      <configsheet>Configuration</configsheet>
+      <maxrecordspertab>1048574</maxrecordspertab>
+   </xls>
+</configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasources/datasources.cf
+ 
+ Allows to configure a default datasource for easy access.
+-->
+<configuration>
+   <datasource>
+      <defaultDatasourceKey>DEMO_DATA</defaultDatasourceKey>
+      <!-- or access via ID -->
+      <!-- <defaultDatasource>14</defaultDatasource> -->
+   </datasource>
+</configuration>

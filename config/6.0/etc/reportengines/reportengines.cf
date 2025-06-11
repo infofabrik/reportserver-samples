@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <birt>
+      <library>
+         <folder>
+            <id>1</id>
+         </folder>
+      </library>
+      <enable>true</enable>
+   </birt>
+   <jasper>
+      <enable>true</enable>
+      <allowedlanguages>groovy</allowedlanguages>
+   </jasper>
+   <saiku>
+    <settings>
+     <property key="LOCALSTORAGE_EXPIRATION" value="0" />
+    </settings>
+   </saiku>
+</configuration>

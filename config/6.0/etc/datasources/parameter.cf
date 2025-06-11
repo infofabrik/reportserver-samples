@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ReportServer Configuration File
+ filename: datasources/parameter.cf
+ 
+ Provides settings for datasource and date time parameters.
+-->
+<configuration>
+   <parameter>
+   	  <!-- settings for datasource parameters -->
+      <datasource>
+      	 <!-- specify a time out for database queries to parameters -->
+         <querytimeout>60</querytimeout>
+         
+         <!-- enable or disable post processing of parameter queries -->
+         <postprocessing>
+            <enable>true</enable>
+         </postprocessing>
+      </datasource>
+      
+      <!-- settings for date time parameters -->
+      <date>
+      	<urlpattern></urlpattern>
+      </date>
+   </parameter>
+</configuration>

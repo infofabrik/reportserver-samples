@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <security>
+      <activateaccount>
+         <email>
+            <subject>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailSubject']}</subject>
+            <text>${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailSalutation']} ${user.getFirstname()} ${user.getLastname()}, &#xD;
+&#xD;
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailIntro']}
+&#xD;
+   ${url}&#xD;
+&#xD;
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailAccount']}
+&#xD;
+   ${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailUsername']} ${user.getUsername()}&#xD;
+   ${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailPassword']} ${password}&#xD;
+&#xD;
+${msgs['net.datenwerke.rs.passwordpolicy.service.locale.PasswordPolicyMessages']['activateEmailEnd']}
+&#xD;
+</text>
+         </email>
+      </activateaccount>
+   </security>
+</configuration>
+

@@ -22,12 +22,12 @@ import net.datenwerke.security.service.usermanager.entities.User
 
 /**
  * legacyLdapimport.groovy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Normal Script
  * Last tested with: ReportServer 4.0.0
  * Legacy LDAP-user importer.
  * As of ReportServer 4.0.0 you can use the "ldapimport" terminal command instead
- * together with the sso/ldap.cf configuration file and the ldapimport.groovy available here:
+ * together with the sso/sso.cf configuration file and the ldapimport.groovy available here:
  * https://github.com/infofabrik/reportserver-samples/blob/main/src/net/datenwerke/rs/samples/admin/ldap/ldapimport.groovy
  */
 
